@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.balanceSection {
+  margin-bottom: 32px;
+}
+
+.iconSection {
+  margin-bottom: 12px;
+}

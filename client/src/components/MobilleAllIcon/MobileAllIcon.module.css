@@ -1,0 +1,12 @@
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.iconWrapper {
+  padding-top: 15px;
+  display: flex;
+  gap: 38px;
+  justify-content: center;
+}
