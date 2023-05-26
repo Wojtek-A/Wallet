@@ -1,0 +1,205 @@
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1100;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  font-family: "Circe";
+  font-style: normal;
+  padding: 40px 73px;
+  border-radius: 20px;
+  z-index: 1110;
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  &__title {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    align-self: center;
+  }
+
+  &__switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 42px;
+  }
+
+  &__switchFirstText,
+  &__switchSecondText {
+    font-family: circe;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__inputs {
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+    width: 100%;
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #bdbdbd;
+      opacity: 1; /* Firefox */
+    }
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
+  }
+
+  &__comment {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    margin-right: auto;
+    width: 100%;
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #bdbdbd;
+      opacity: 1; /* Firefox */
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 540px;
+    height: 508px;
+  }
+}
+
+.addBtn,
+.cancelBtn {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.addBtn {
+  color: #ffffff;
+  background-color: #24cca7;
+
+  &:hover {
+    background-color: #1c9c81;
+  }
+}
+
+.cancelBtn {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #4a56e2;
+  border-radius: 20px;
+
+  color: #4a56e2;
+
+  &:hover {
+    background-color: #e72525;
+    color: #ffffff;
+    border: none;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: all 1s;
+  &:hover {
+    transform: scale(1.2) rotate(90deg);
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 30px;
+  border: 1px solid #e0e0e0;
+  &:before {
+    position: absolute;
+    content: "+";
+    color: white;
+    font-size: 30px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6px;
+    height: 44px;
+    width: 44px;
+    bottom: -2px;
+    left: -3px;
+    background-color: #24cca7;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+    padding-top: 0px;
+  }
+}
