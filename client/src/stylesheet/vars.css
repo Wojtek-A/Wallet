@@ -1,0 +1,28 @@
+:root {
+    /* Text Colors */
+    --text-primary: #000000;
+    --text-secondary: #bdbdbd;
+    --text-alternative: #ffffff;
+    --text-blue: #4a56e2;
+    --text-income:#24CCA7;
+    --text-expense:#FF6596;
+   
+    /* Background Colors */
+    --bg-primary: #FFFFFF66;
+    --bg-secondary: #E5E5E5;
+    --bg-alternative: #FFFFFF;
+    --bg-dropdown: #FFFFFFB2;
+    --bg-currency:  #4A56E2;
+    --bg-ellipse-one:#C5BAFF;
+    --bg-ellipse-two: #FFD8D0;
+
+    /* Button Colors */
+    --btn-primary: #24cca7;
+    --btn-secondary: #ffffff;
+    --btn-alternative:#FF6596;
+    
+    /* Line Colors */
+    --line-primary: #E0E0E0;;
+    --line-secondary: #4A56E2;
+
+}

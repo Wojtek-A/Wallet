@@ -1,19 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
 import { ButtonAddTransactions } from "./ButtonAddTransactions/ButtonAddTransactions";
 
 export const App = () => {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+  const MobileHome = lazy(() => import("../pages/MobileHome/MobileHome.jsx"));
+  const MobileCurrency = lazy(() =>
+    import("../pages/MobileCurrency/MobileCurrency.jsx")
+  );
 
   return (
     <>
-      <p>{!data ? "Loading..." : data}</p>
-      <ButtonAddTransactions />
+      <p>{!data ? 'Loading...' : data}</p>
     </>
   );
 };
