@@ -1,0 +1,25 @@
+.balanceWrapper {
+  margin: 0 auto;
+  padding: 8px 0 11px 10%;
+  background-color: #fff;
+  border-radius: 30px;
+  max-width: 300px;
+}
+
+.title {
+  margin-bottom: 12px;
+  font-family: "Circe";
+  font-size: 12px;
+
+  text-transform: uppercase;
+  color: #a6a6a6;
+}
+
+.text {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
