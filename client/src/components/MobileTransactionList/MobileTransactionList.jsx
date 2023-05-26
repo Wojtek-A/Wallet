@@ -10,7 +10,7 @@ export const MobileTransactionList = () => {
     <>
       {transactions.map((transaction, index) => (
         <ul
-          key={index + 10000}
+          key={index}
           className={clsx(css.transactionGrid, {
             [css.income]: transaction.Type === "+",
             [css.expense]: transaction.Type === "-",
