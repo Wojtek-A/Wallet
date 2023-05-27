@@ -3,6 +3,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import axios from 'axios';
+
+const passwordError = "Password must contain at least: one uppercase letter, one special character and consist of 6 to 12 characters"
 
 const schema = yup.object({
     email: yup
@@ -11,15 +14,13 @@ const schema = yup.object({
         .required("E-mail is required"),
     password: yup
         .string()
-        .min(6, "Password must be at least 6 characters long")
-        .max(12, "Password cannot be longer than 12 characters")
+        .min(6, passwordError)
+        .max(12, passwordError)
         .matches(
-            /[A-Z]/,
-            "Password must contain uppercase letter and special character"
+            /[A-Z]/, passwordError
         )
         .matches(
-            /[!@#$%^&*(),.?":{}|<>]/,
-            "Password must contain uppercase letter and special character"
+            /[!@#$%^&*(),.?":{}|<>]/, passwordError
         )
         .required("Password is required"),
     confirmPassword: yup
@@ -39,6 +40,21 @@ const MobileRegistrationForm = () => {
     });
     const onSubmit = data => {
         console.log(data)
+        axios.post('/api/auth/sign-up', data,
+            //     {
+            //     headers: {
+            //         'Authorization': `Bearer ${token}`
+            //     }
+            // }
+        )
+            .then(response => {
+                // Obsługa odpowiedzi od backendu po pomyślnym przesłaniu danych
+                console.log(response);
+            })
+            .catch(error => {
+                // Obsługa błędu w przypadku niepowodzenia przesłania danych
+                console.error(error);
+            });
         reset();
     };
     console.log(errors);
@@ -50,34 +66,38 @@ const MobileRegistrationForm = () => {
                 placeholder="Email"
                 {...register("email")}
                 aria-invalid={errors.email ? "true" : "false"}
+                className={css.input}
             />
-            {errors.email && <p role="alert">{errors.email?.message}</p>}
+            {errors.email && <p role="alert" className={css.errorMessage}>{errors.email?.message}</p>}
 
             <input
                 type="password"
                 placeholder="Password"
                 {...register("password")}
                 aria-invalid={errors.password ? "true" : "false"}
+                className={css.input}
             />
-            {errors.password && <p role="alert">{errors.password?.message}</p>}
+            {errors.password && <p role="alert" className={css.errorMessage}>{errors.password?.message}</p>}
 
             <input
                 type="password"
                 placeholder="Confirm password"
                 {...register("confirmPassword")}
                 aria-invalid={errors.confirmPassword ? "true" : "false"}
+                className={css.input}
             />
-            {errors.confirmPassword && <p role="alert">{errors.confirmPassword?.message}</p>}
+            {errors.confirmPassword && <p role="alert" className={css.errorMessage}>{errors.confirmPassword?.message}</p>}
 
             <input
                 type="text"
                 placeholder="Login"
                 {...register("login")}
                 aria-invalid={errors.login ? "true" : "false"}
+                className={css.input}
             />
-            {errors.login && <p role="alert">{errors.login?.message}</p>}
+            {errors.login && <p role="alert" className={css.errorMessage}>{errors.login?.message}</p>}
 
-            <button type="submit">Register</button>
+            <button type="submit" className={css.registerButton}>Register</button>
         </form>
     );
 };

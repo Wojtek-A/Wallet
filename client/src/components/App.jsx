@@ -9,8 +9,8 @@ export const App = () => {
   const StatisticsPage = lazy(() =>
     import("../pages/StatisticsPage/StatisticsPage.jsx")
   );
-  const MobileRegistrationForm = lazy(() =>
-    import("../pages/MobileRegistration/MobileRegistrationForm.jsx")
+  const MobileRegistrationPage = lazy(() =>
+    import("../pages/MobileRegistrationPage/MobileRegistrationPage.jsx")
   );
 
 
@@ -18,10 +18,17 @@ export const App = () => {
     <>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
+<<<<<<< HEAD
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/statistic" element={<StatisticsPage />}></Route>
           <Route path="/exchange" element={<ExchangePage />}></Route>
           <Route path="/register" element={<MobileRegistrationForm />}></Route>
+=======
+          <Route path="/home" element={<MobileHomePage />}></Route>
+          <Route path="/statistic" element={<MobileExchangePage />}></Route>
+          <Route path="/exchange" element={<MobileExchangePage />}></Route>
+          <Route path="/register" element={<MobileRegistrationPage />}></Route>
+>>>>>>> ae25e31 (add basic styles)
         </Routes>
       </Suspense>
     </>
