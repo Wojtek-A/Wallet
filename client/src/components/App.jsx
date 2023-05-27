@@ -9,6 +9,11 @@ export const App = () => {
   const StatisticsPage = lazy(() =>
     import("../pages/StatisticsPage/StatisticsPage.jsx")
   );
+  const MobileRegistrationForm = lazy(() =>
+    import("../pages/MobileRegistration/MobileRegistrationForm.jsx")
+  );
+
+
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
@@ -16,6 +21,7 @@ export const App = () => {
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/statistic" element={<StatisticsPage />}></Route>
           <Route path="/exchange" element={<ExchangePage />}></Route>
+          <Route path="/register" element={<MobileRegistrationForm />}></Route>
         </Routes>
       </Suspense>
     </>
