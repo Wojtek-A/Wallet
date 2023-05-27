@@ -5,6 +5,7 @@ import clsx from "clsx";
 import css from "./MobileHome.module.css";
 import { MobileTransactionList } from "../../components/MobileTransactionList/MobileTransactionList.jsx";
 import MobileAllIcon from "../../components/MobilleAllIcon/MobuleAllIcon.jsx";
+import { ButtonAddTransactions } from "../../components/ButtonAddTransactions/ButtonAddTransactions.jsx";
 
 const MobileHome = () => {
   return (
@@ -23,6 +24,7 @@ const MobileHome = () => {
           <MobileTransactionList />
         </div>
       </section>
+      <ButtonAddTransactions />
     </>
   );
 };

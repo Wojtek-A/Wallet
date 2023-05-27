@@ -10,7 +10,12 @@ export const App = () => {
 
   return (
     <>
-      <p>{!data ? 'Loading...' : data}</p>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Routes>
+          <Route path="/home" element={<MobileHome />}></Route>
+          <Route path="/dolar" element={<MobileCurrency />}></Route>
+        </Routes>
+      </Suspense>
     </>
   );
 };
