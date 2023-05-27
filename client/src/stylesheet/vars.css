@@ -1,28 +1,29 @@
 :root {
-    /* Text Colors */
-    --text-primary: #000000;
-    --text-secondary: #bdbdbd;
-    --text-alternative: #ffffff;
-    --text-blue: #4a56e2;
-    --text-income:#24CCA7;
-    --text-expense:#FF6596;
-   
-    /* Background Colors */
-    --bg-primary: #FFFFFF66;
-    --bg-secondary: #E5E5E5;
-    --bg-alternative: #FFFFFF;
-    --bg-dropdown: #FFFFFFB2;
-    --bg-currency:  #4A56E2;
-    --bg-ellipse-one:#C5BAFF;
-    --bg-ellipse-two: #FFD8D0;
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #bdbdbd;
+  --text-third: #a6a6a6;
+  --text-alternative: #ffffff;
+  --text-blue: #4a56e2;
+  --text-income: #24cca7;
+  --text-expense: #ff6596;
 
-    /* Button Colors */
-    --btn-primary: #24cca7;
-    --btn-secondary: #ffffff;
-    --btn-alternative:#FF6596;
-    
-    /* Line Colors */
-    --line-primary: #E0E0E0;;
-    --line-secondary: #4A56E2;
+  /* Background Colors */
+  --bg-primary: #f3f2f2c7;
+  --bg-secondary: #e5e5e5;
+  --bg-alternative: #ffffff;
+  --bg-dropdown: #ffffffb2;
+  --bg-currency: #4a56e2;
+  --bg-icon: #6e78e8;
+  --bg-ellipse-one: #c5baff;
+  --bg-ellipse-two: #ffd8d0;
 
+  /* Button Colors */
+  --btn-primary: #24cca7;
+  --btn-secondary: #ffffff;
+  --btn-alternative: #ff6596;
+
+  /* Line Colors */
+  --line-primary: #e0e0e0;
+  --line-secondary: #4a56e2;
 }

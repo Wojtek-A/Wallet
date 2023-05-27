@@ -1,5 +1,5 @@
-export const DASHBOARD_STATUS = Object.freeze({
+export const DASHBOARD_NAVIGATION = Object.freeze({
   HOME: "home",
-  STATISTIC: "graph",
-  MONEY: "dolar",
+  STATISTIC: "statistic",
+  CURRENCY: "exchange",
 });

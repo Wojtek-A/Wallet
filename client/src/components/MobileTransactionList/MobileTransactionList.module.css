@@ -1,9 +1,15 @@
 .transactionGrid {
   position: relative;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: var(--bg-alternative);
   border-radius: 10px;
   overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 420px;
 }
 
 .income::before {
@@ -15,7 +21,7 @@
   width: 5px;
   z-index: 0;
   border-radius: 5px;
-  background-color: #24cca7;
+  background-color: var(--btn-primary);
 }
 
 .expense::before {
@@ -27,7 +33,7 @@
   width: 5px;
   z-index: 0;
   border-radius: 5px;
-  background-color: #ff6596;
+  background-color: var(--btn-alternative);
 }
 
 .transactionItem {
@@ -40,30 +46,29 @@
 }
 
 .title {
-  font-family: "Circe";
-  font-weight: 700;
+  font-family: "CirceBold";
   font-size: 18px;
 }
 
 .text {
-  font-family: "Circe";
+  font-family: "CirceRegular";
   font-size: 16px;
 }
 
 .plus {
-  color: #24cca7;
+  color: var(--text-income);
   font-weight: 700;
 }
 
 .minus {
-  color: #ff6596;
+  color: var(--text-expense);
   font-weight: 700;
 }
 .btn {
   padding: 4px 12px;
   font-size: 14px;
-  color: #ffffff;
-  background: #24cca7;
+  color: var(--text-alternative);
+  background: var(--btn-primary);
   border-radius: 18px;
   border: none;
   outline: none;
@@ -75,7 +80,7 @@
 .btn:hover,
 .btn:focus {
   transform: scale(1.05);
-  background-color: #ff6596;
+  background-color: var(--btn-alternative);
 }
 
 .icon {
@@ -97,5 +102,5 @@
 .wrapper:hover,
 .wrapper:focus {
   transform: scale(1.05);
-  color: #24cca7;
+  color: var(--text-income);
 }

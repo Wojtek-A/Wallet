@@ -2,17 +2,20 @@ import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 export const App = () => {
-  const MobileHome = lazy(() => import("../pages/MobileHome/MobileHome.jsx"));
-  const MobileCurrency = lazy(() =>
-    import("../pages/MobileCurrency/MobileCurrency.jsx")
+  const MobileHomePage = lazy(() =>
+    import("../pages/MobileHomePage/MobileHomePage.jsx")
+  );
+  const MobileExchangePage = lazy(() =>
+    import("../pages/MobileExchangePage/MobileExchangePage.jsx")
   );
 
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route path="/home" element={<MobileHome />}></Route>
-          <Route path="/dolar" element={<MobileCurrency />}></Route>
+          <Route path="/home" element={<MobileHomePage />}></Route>
+          <Route path="/statistic" element={<MobileExchangePage />}></Route>
+          <Route path="/exchange" element={<MobileExchangePage />}></Route>
         </Routes>
       </Suspense>
     </>
