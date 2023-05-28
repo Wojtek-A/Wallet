@@ -1,28 +1,32 @@
 .dashboardWrapper {
   margin: 32px auto 0px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  max-width: 768px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0;
+  grid-template-areas: "nav transaction"
+    "balance transaction"
+    "currency transaction"
+    ". transaction";
+  max-width: 1280px;
 }
 
 .navSection {
-  grid-area: 1 / 1 / 2 / 2;
+  grid-area: nav;
 }
 
 .balanceSection {
-  grid-area: 2 / 1 / 3 / 2;
+  grid-area: balance;
   margin-bottom: 32px;
 }
 
 
 .currencySection {
-  grid-area: 1 / 2 / 3 / 3;
+  grid-area: currency;
   margin-bottom: 12px;
 
 }
 
 .transactionListSection {
-  grid-area: 3 / 1 / 4 / 3;
+  grid-area: transaction;
 }
