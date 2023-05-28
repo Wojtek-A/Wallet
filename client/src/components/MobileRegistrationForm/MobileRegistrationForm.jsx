@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from 'axios';
+import sprite from "../../assets/icon/sprite.svg";
 
 const passwordError = "Password must contain at least: one uppercase letter, one special character and consist of 6 to 12 characters"
 
@@ -61,6 +62,9 @@ const MobileRegistrationForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={css.registerForm}>
+            <svg className={css.iconEmail}>
+                <use xlinkHref={`${sprite}#envelope`} />
+            </svg>
             <input
                 type="email"
                 placeholder="Email"

@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+.iconEmail {
+  width: 21px;
+  height: 16px;
+  fill: #e0e0e0;
+}
+
 .input {
   color: var(--text-primary);
   border: none;

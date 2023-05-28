@@ -10,6 +10,12 @@
   background-color: var(--bg-alternative);
 }
 
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 16px;
+}
+
 .title {
   font-family: "PoppinsBold";
   font-style: normal;
@@ -17,6 +23,7 @@
   line-height: 1.5;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: var(--text-primary);
   margin-bottom: 60px;
 }
