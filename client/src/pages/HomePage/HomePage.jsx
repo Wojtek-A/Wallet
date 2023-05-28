@@ -1,6 +1,7 @@
 import Media from 'react-media';
 import MobileDashboard from '../../components/MobileDashboard/MobileDashboard';
 import TabletDashboard from '../../components/TabletDashboard/TabletDashboard';
+import Dashboard from '../../components/Dashboard/Dashboard';
 
 const HomePage = () => {
   return (
@@ -15,7 +16,7 @@ const HomePage = () => {
         <>
           {matches.mobile && <MobileDashboard />}
           {matches.tablet && <TabletDashboard />}
-          {matches.desktop && <TabletDashboard />}
+          {matches.desktop && <Dashboard />}
         </>
       )}
     </Media>
