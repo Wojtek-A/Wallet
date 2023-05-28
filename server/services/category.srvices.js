@@ -1,8 +1,9 @@
 import { Category } from "../models/category.schema";
 
-export const getAllCategory = () => Category.find();
+export const getAllCategory = (ownerId) => Category.find({ owner: ownerId });
 
-export const getCategoryByName = (name) => Category.findOne({ name });
+export const getCategoryByName = (ownerId, name) =>
+  Category.findOne({ name, owner: ownerId });
 
 export const createCategory = (data) => Category.create({ ...data });
 

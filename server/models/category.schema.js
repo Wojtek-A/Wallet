@@ -10,6 +10,10 @@ const categorySchema = new Schema(
       type: String,
       require,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { versionKey: false }
 );
