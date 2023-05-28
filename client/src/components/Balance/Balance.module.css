@@ -3,7 +3,6 @@
   padding: 8px 0 11px 32px;
   background-color: var(--bg-alternative);
   border-radius: 30px;
-  max-width: 300px;
 }
 
 .container {
@@ -11,12 +10,13 @@
   margin: 0 auto;
   max-width: 420px;
 }
+
 .title {
   margin-bottom: 12px;
   font-family: "CirceRegular";
   font-size: 12px;
   text-transform: uppercase;
-  color: var(-text-third);
+  color: var(--text-third);
 }
 
 .text {
