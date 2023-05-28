@@ -8,9 +8,7 @@ const MobileRegistrationPage = () => {
         <>
             <div className={css.container}>
                 <h1 className={css.title}>
-                    <svg
-                        className={css.icon}
-                    >
+                    <svg className={css.icon}>
                         <use xlinkHref={`${sprite}#wallet`} />
                     </svg>
                     Wallet

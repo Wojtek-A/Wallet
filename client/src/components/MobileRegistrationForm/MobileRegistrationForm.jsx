@@ -1,5 +1,5 @@
 import css from "./MobileRegistrationForm.module.css";
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -36,6 +36,8 @@ const schema = yup.object({
 }).required();
 
 const MobileRegistrationForm = () => {
+    const [isActive, setIsActive] = useState(false);
+    console.log(isActive);
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
@@ -62,16 +64,21 @@ const MobileRegistrationForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={css.registerForm}>
-            <svg className={css.iconEmail}>
-                <use xlinkHref={`${sprite}#envelope`} />
-            </svg>
-            <input
-                type="email"
-                placeholder="Email"
-                {...register("email")}
-                aria-invalid={errors.email ? "true" : "false"}
-                className={css.input}
-            />
+
+            <label className={`${css.label} ${isActive ? css.activeLabel : ""} ${errors.email ? css.errorLabel : ""}`}>
+                <svg className={`${css.iconEmail} ${isActive ? css.activeIcon : css.inactiveIcon} ${errors.email ? css.errorIcon : ""}`}>
+                    <use xlinkHref={`${sprite}#envelope`} />
+                </svg>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    {...register("email")}
+                    aria-invalid={errors.email ? "true" : "false"}
+                    className={`${css.input}`}
+                    onFocus={() => setIsActive(true)}
+                    onBlur={() => setIsActive(false)}
+                />
+            </label>
             {errors.email && <p role="alert" className={css.errorMessage}>{errors.email?.message}</p>}
 
             <input
