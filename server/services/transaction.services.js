@@ -11,5 +11,5 @@ export const createTransaction = (data) => Transaction.create({ ...data });
 export const removeTransaction = (id) =>
   Transaction.findByIdAndRemove({ _id: id });
 
-export const updateTransaction = (data) =>
+export const updateTransaction = (id, data) =>
   Transaction.findByIdAndUpdate({ _id: id }, { ...data }, { new: true });

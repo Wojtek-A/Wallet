@@ -1,6 +1,6 @@
 import MobileHomeDashboard from "../../components/MobileHomeDashboard/MobileHomeDashboard";
 
-const MobileHomePage = () => {
+const HomePage = () => {
   return (
     <>
       <MobileHomeDashboard />
@@ -8,4 +8,4 @@ const MobileHomePage = () => {
   );
 };
 
-export default MobileHomePage;
+export default HomePage;

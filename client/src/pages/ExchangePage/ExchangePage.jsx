@@ -1,6 +1,6 @@
 import MobileExchange from "../../components/MobileExchange/MobileExchange";
 
-const MobileExchangePage = () => {
+const ExchangePage = () => {
   return (
     <>
       <MobileExchange />
@@ -8,4 +8,4 @@ const MobileExchangePage = () => {
   );
 };
 
-export default MobileExchangePage;
+export default ExchangePage;
