@@ -1,9 +1,9 @@
-import css from "./MobileRegistrationPage.module.css";
-import MobileRegistrationForm from "../../components/MobileRegistrationForm/MobileRegistrationForm.jsx"
+import css from "./MobileLoginPage.module.css";
+import MobileLoginForm from "../../components/MobileLoginForm/MobileLoginForm.jsx"
 import sprite from "../../assets/icon/sprite.svg";
 import { Link } from "react-router-dom";
 
-const MobileRegistrationPage = () => {
+const MobileLoginPage = () => {
 
     return (
         <>
@@ -14,12 +14,12 @@ const MobileRegistrationPage = () => {
                     </svg>
                     Wallet
                 </h1>
-                <MobileRegistrationForm />
+                <MobileLoginForm />
                 <button type="button" className={css.button}>
-                    <Link to="/login">Log in</Link></button>
+                    <Link to="/register">Register</Link></button>
             </div>
         </>
     );
 };
 
-export default MobileRegistrationPage;
+export default MobileLoginPage;

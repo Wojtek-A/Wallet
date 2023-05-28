@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 const ReusableInput = ({ fieldType, placeholder, validation, iconLink, iconClassName, errorsVariable }) => {
     const [isActive, setIsActive] = useState(false);
-    console.log(isActive);
 
     return (
         <>
