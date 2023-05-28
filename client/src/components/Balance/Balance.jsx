@@ -5,17 +5,16 @@ import { useSelector } from "react-redux";
 
 const Balance = () => {
   const transactions = useSelector(selectTransaction);
+
   const transactionSum = useMemo(
     () =>
       transactions.reduce((acc, transaction) => {
-        if (transaction.Type === "+") return acc + transaction.Sum;
+        if (transaction.Type === "+") return acc + transaction.Value;
 
-        return acc - transaction.Sum;
+        return acc - transaction.Value;
       }, 0),
     [transactions]
   );
-
-  console.log(transactionSum);
 
   return (
     <div className={css.container}>

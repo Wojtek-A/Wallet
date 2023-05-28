@@ -1,31 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCurrencyThunk } from "./wallet.thunk";
+import { tempTransactionDB } from "../../tempDB/tempDB.js";
 
 const walletInitialState = {
-  transaction: [
-    {
-      Date: new Date().toLocaleDateString(),
-      Type: "-",
-      Category: "Other",
-      Comment: "test",
-      Sum: 500,
-    },
-    {
-      Date: new Date().toLocaleDateString(),
-      Type: "+",
-      Category: "Other",
-      Comment: "test",
-      Sum: 500,
-    },
-    {
-      Date: new Date().toLocaleDateString(),
-      Type: "-",
-      Category: "Other",
-      Comment: "test",
-      Sum: 500,
-    },
-  ],
-
+  transaction: tempTransactionDB,
   currency: [],
   isLoading: false,
   error: false,
