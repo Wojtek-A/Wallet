@@ -1,0 +1,39 @@
+.nav {
+  display: flex;
+  height: 27px;
+  margin-bottom: 12px;
+  justify-content: left;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: PoppinsRegular;
+}
+
+.nav>p {
+  margin-left: 23px;
+}
+
+.icon:hover,
+.icon:focus {
+  transform: scale(1.05);
+}
+
+.icon {
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+  fill: var(--bg-alternative);
+  background-color: var(--bg-icon);
+  padding: 3px;
+  scale: .8;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+}
+
+.active {
+  composes: nav;
+  font-family: PoppinsBold;
+  filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+
+}

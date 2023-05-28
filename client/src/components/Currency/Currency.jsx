@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import css from "./Currency.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getCurrencyThunk } from "../../redux/wallet/wallet.thunk";
-import { selectCurrency, selectIsLoading } from "../../redux/selector";
-import e from "../../assets/image/mountains.png";
+import { useEffect } from 'react';
+import css from './Currency.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrencyThunk } from '../../redux/wallet/wallet.thunk';
+import { selectCurrency, selectIsLoading } from '../../redux/selector';
+// import e from "../../assets/image/mountains.png";
 
 const Currency = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Currency = () => {
 
   useEffect(() => {
     dispatch(getCurrencyThunk());
-  }, []);
+  }, [dispatch]);
 
   console.log(isLoading);
   return (

@@ -1,0 +1,13 @@
+.container {
+  padding: 0 20px;
+  margin: 0 auto 28px;
+  max-width: 420px;
+}
+
+.navWrapper {
+  justify-content: center;
+}
+
+.navWrapper>a:last-of-type {
+  margin-bottom: 0px;
+}
