@@ -1,10 +1,11 @@
 import css from "./MobileRegistrationForm.module.css";
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from 'axios';
 import sprite from "../../assets/icon/sprite.svg";
+import ReusableInput from "../FormsUtils/ReusableInput";
 
 const passwordError = "Password must contain at least: one uppercase letter, one special character and consist of 6 to 12 characters"
 
@@ -36,8 +37,6 @@ const schema = yup.object({
 }).required();
 
 const MobileRegistrationForm = () => {
-    const [isActive, setIsActive] = useState(false);
-    console.log(isActive);
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
@@ -65,50 +64,43 @@ const MobileRegistrationForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={css.registerForm}>
 
-            <label className={`${css.label} ${isActive ? css.activeLabel : ""} ${errors.email ? css.errorLabel : ""}`}>
-                <svg className={`${css.iconEmail} ${isActive ? css.activeIcon : css.inactiveIcon} ${errors.email ? css.errorIcon : ""}`}>
-                    <use xlinkHref={`${sprite}#envelope`} />
-                </svg>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    {...register("email")}
-                    aria-invalid={errors.email ? "true" : "false"}
-                    className={`${css.input}`}
-                    onFocus={() => setIsActive(true)}
-                    onBlur={() => setIsActive(false)}
-                />
-            </label>
-            {errors.email && <p role="alert" className={css.errorMessage}>{errors.email?.message}</p>}
-
-            <input
-                type="password"
+            <ReusableInput
+                fieldType="email"
+                placeholder="Email"
+                validation={register("email")}
+                iconLink={`${sprite}#envelope`}
+                iconClassName={css.iconEmail}
+                errorsVariable={errors.email}
+            />
+            <ReusableInput
+                fieldType="password"
                 placeholder="Password"
-                {...register("password")}
-                aria-invalid={errors.password ? "true" : "false"}
-                className={css.input}
+                validation={register("password")}
+                iconLink={`${sprite}#padlock`}
+                iconClassName={css.iconPadlock}
+                errorsVariable={errors.password}
             />
-            {errors.password && <p role="alert" className={css.errorMessage}>{errors.password?.message}</p>}
-
-            <input
-                type="password"
-                placeholder="Confirm password"
-                {...register("confirmPassword")}
-                aria-invalid={errors.confirmPassword ? "true" : "false"}
-                className={css.input}
+            <ReusableInput
+                fieldType="password"
+                placeholder="Confirm Password"
+                validation={register("confirmPassword")}
+                iconLink={`${sprite}#padlock`}
+                iconClassName={css.iconPadlock}
+                errorsVariable={errors.confirmPassword}
             />
-            {errors.confirmPassword && <p role="alert" className={css.errorMessage}>{errors.confirmPassword?.message}</p>}
-
-            <input
-                type="text"
+            <ReusableInput
+                fieldType="text"
                 placeholder="Login"
-                {...register("login")}
-                aria-invalid={errors.login ? "true" : "false"}
-                className={css.input}
+                validation={register("login")}
+                iconLink={`${sprite}#user`}
+                iconClassName={css.iconUser}
+                errorsVariable={errors.login}
             />
-            {errors.login && <p role="alert" className={css.errorMessage}>{errors.login?.message}</p>}
-
-            <button type="submit" className={css.registerButton}>Register</button>
+            <button
+                type="submit"
+                className={css.registerButton}>
+                Register
+            </button>
         </form>
     );
 };
