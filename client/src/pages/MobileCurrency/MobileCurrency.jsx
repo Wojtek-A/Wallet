@@ -1,6 +1,5 @@
 import MobileAllIcon from "../../components/MobilleAllIcon/MobuleAllIcon.jsx";
 import css from "./MobileCurrency.module.css";
-import { ButtonAddTransactions } from "../../components/ButtonAddTransactions/ButtonAddTransactions.jsx";
 
 const MobileCurrency = () => {
   return (
@@ -8,7 +7,6 @@ const MobileCurrency = () => {
       <section className={css.iconSection}>
         <MobileAllIcon />
       </section>
-      <ButtonAddTransactions />
     </>
   );
 };

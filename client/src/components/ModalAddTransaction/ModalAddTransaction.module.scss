@@ -1,4 +1,9 @@
 .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +20,7 @@
   padding: 40px 73px;
   border-radius: 20px;
   z-index: 1110;
+  background-color: #fff;
 
   &__buttons {
     display: flex;
@@ -32,6 +38,7 @@
     line-height: 45px;
     display: flex;
     align-self: center;
+    margin-bottom: 42px;
   }
 
   &__switch {
@@ -173,33 +180,70 @@
 
 .slider {
   position: absolute;
-  cursor: pointer;
-  top: 0;
+  top: -5px;
   left: 0;
   right: 0;
-  bottom: 0;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  bottom: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   border-radius: 30px;
   border: 1px solid #e0e0e0;
+  cursor: pointer;
   &:before {
-    position: absolute;
     content: "+";
+    position: absolute;
+    bottom: -2px;
+    left: -3px;
+    height: 44px;
+    width: 44px;
     color: white;
+    background-color: #24cca7;
+    border-radius: 50%;
     font-size: 30px;
     font-weight: 100;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 6px;
-    height: 44px;
-    width: 44px;
-    bottom: -2px;
-    left: -3px;
-    background-color: #24cca7;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    border-radius: 50%;
-    padding-top: 0px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
+}
+
+.slidered {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid #e0e0e0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  &:before {
+    content: "\2212";
+    position: absolute;
+    bottom: -2px;
+    right: -3px;
+    width: 44px;
+    height: 44px;
+    color: white;
+    background-color: #ff6596;
+    font-size: 30px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 50%;
+  }
+}
+
+.categoriesSelect {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+  text-align: center;
 }

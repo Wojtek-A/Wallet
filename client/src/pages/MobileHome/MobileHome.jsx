@@ -1,13 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
+import clsx from "clsx";
+
+import { selectIsModalAddTransactionOpen } from "../../redux/global/selectors.js";
 import DashboardMobileIcon from "../../components/DashboardMobileIcon/DashboardMobileIcon.jsx";
 import { DASHBOARD_STATUS } from "../../redux/constant.js";
 import Balance from "../../components/Balance/Balance.jsx";
-import clsx from "clsx";
 import css from "./MobileHome.module.css";
 import { MobileTransactionList } from "../../components/MobileTransactionList/MobileTransactionList.jsx";
 import MobileAllIcon from "../../components/MobilleAllIcon/MobuleAllIcon.jsx";
-import { ButtonAddTransactions } from "../../components/ButtonAddTransactions/ButtonAddTransactions.jsx";
+import { ButtonAddTransaction } from "../../components/ButtonAddTransactions/ButtonAddTransactions.jsx";
+import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction.jsx";
 
 const MobileHome = () => {
+  const dispatch = useDispatch();
+
+  const isModalAddTransactionOpen = useSelector(
+    selectIsModalAddTransactionOpen
+  );
+
   return (
     <>
       <section className={css.iconSection}>
@@ -24,7 +34,10 @@ const MobileHome = () => {
           <MobileTransactionList />
         </div>
       </section>
-      <ButtonAddTransactions />
+
+      <ButtonAddTransaction />
+
+      {isModalAddTransactionOpen && <ModalAddTransaction />}
     </>
   );
 };
