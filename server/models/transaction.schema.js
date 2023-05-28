@@ -17,6 +17,11 @@ const transactionSchema = new Schema(
     comment: {
       type: String,
     },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      require,
+    },
 
     owner: {
       type: Schema.Types.ObjectId,

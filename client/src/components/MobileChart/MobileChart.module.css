@@ -1,0 +1,22 @@
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.chartWrapper {
+  position: relative;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-family: "PoppinsRegular";
+  font-size: 30px;
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
