@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
