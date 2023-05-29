@@ -1,9 +1,7 @@
-import { app } from "./app.js";
-import mongoose from "mongoose";
-import colors from "colors";
-import dotenv from "dotenv";
-
-dotenv.config();
+const colors = require('colors');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const app = require('./app');
 
 const PORT = process.env.PORT || 3001;
 
