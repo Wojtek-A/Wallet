@@ -1,4 +1,4 @@
-import css from "./MobileLoginForm.module.css";
+import css from "./LoginForm.module.css";
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -27,7 +27,7 @@ const schema = yup.object({
         .required("Password is required"),
 }).required();
 
-const MobileLoginForm = () => {
+const LoginForm = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
@@ -80,4 +80,4 @@ const MobileLoginForm = () => {
     );
 };
 
-export default MobileLoginForm;
+export default LoginForm;

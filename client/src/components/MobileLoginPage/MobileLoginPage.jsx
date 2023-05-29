@@ -1,5 +1,5 @@
 import css from "./MobileLoginPage.module.css";
-import MobileLoginForm from "../../components/MobileLoginForm/MobileLoginForm.jsx"
+import LoginForm from "../LoginForm/LoginForm.jsx"
 import sprite from "../../assets/icon/sprite.svg";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const MobileLoginPage = () => {
                     </svg>
                     Wallet
                 </h1>
-                <MobileLoginForm />
+                <LoginForm />
                 <button type="button" className={css.button}>
                     <Link to="/register">Register</Link></button>
             </div>
