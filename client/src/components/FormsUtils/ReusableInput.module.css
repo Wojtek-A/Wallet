@@ -44,7 +44,6 @@
 .input:focus-visible {
   outline: none;
   border: none;
-  /* border-bottom: 2px solid var(--btn-primary); */
 }
 
 .errorMessage {

@@ -1,4 +1,4 @@
-import css from "./MobileRegistrationForm.module.css";
+import css from "./RegistrationForm.module.css";
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -36,7 +36,7 @@ const schema = yup.object({
         .max(12, "Login cannot be longer than 20 characters"),
 }).required();
 
-const MobileRegistrationForm = () => {
+const RegistrationForm = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
@@ -105,4 +105,4 @@ const MobileRegistrationForm = () => {
     );
 };
 
-export default MobileRegistrationForm;
+export default RegistrationForm;

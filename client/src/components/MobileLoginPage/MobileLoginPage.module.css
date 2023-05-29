@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: auto;
   background-color: var(--bg-alternative);
 }
 
@@ -43,8 +44,4 @@
   padding: 13px 61px;
   width: 100%;
   margin-top: 20px;
-  /* @media screen and (min-width: 768px) {
-    margin-left: 54px;
-    margin-right: 55.5px;
-  } */
 }

@@ -33,25 +33,3 @@
     margin-right: 55.5px;
   }
 }
-
-.button {
-  font-family: "CirceRegular";
-  text-transform: uppercase;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 1.5;
-  text-align: center;
-  letter-spacing: 0.1em;
-  color: var(--text-blue);
-  background-color: var(--btn-secondary);
-  border-radius: 20px;
-  border: 1px solid var(--line-secondary);
-  padding: 13px 71px;
-  min-width: 301px;
-  max-width: 732px;
-  width: 100%;
-  margin-top: 20px;
-  margin-left: 55px;
-  margin-right: 55px;
-  /* position: relative; */
-}

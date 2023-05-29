@@ -9,8 +9,8 @@ export const App = () => {
   const StatisticsPage = lazy(() =>
     import("../pages/StatisticsPage/StatisticsPage.jsx")
   );
-  const MobileRegistrationPage = lazy(() =>
-    import("../pages/MobileRegistrationPage/MobileRegistrationPage.jsx")
+  const RegistrationPage = lazy(() =>
+    import("../pages/RegistrationPage/RegistrationPage.jsx")
   );
   const LoginPage = lazy(() =>
     import("../pages/LoginPage/LoginPage.jsx")
@@ -23,7 +23,7 @@ export const App = () => {
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/statistic" element={<StatisticsPage />}></Route>
           <Route path="/exchange" element={<ExchangePage />}></Route>
-          <Route path="/register" element={<MobileRegistrationPage />}></Route>
+          <Route path="/register" element={<RegistrationPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </Suspense>
