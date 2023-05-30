@@ -1,6 +1,12 @@
 .container {
+  justify-content: center;
   padding: 0 20px;
   margin: 0 auto;
+
+  @media (max-width:767px) {
+    max-width: 280px;
+    display: flex;
+  }
 }
 
 
@@ -20,7 +26,7 @@
   background-size: contain;
 
   @media (min-width: 1200px) {
-    width: 393px;
+    width: 391px;
     height: 331px;
   }
 }
@@ -37,6 +43,10 @@
 
 .table>thead tr th:last-child {
   padding: 20px 30px 16px 40px;
+
+  @media (max-width:767px) {
+    padding: 20px 30px 16px 20px;
+  }
 }
 
 .table>tbody tr td {
