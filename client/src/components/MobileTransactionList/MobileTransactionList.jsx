@@ -3,11 +3,12 @@ import { selectTransaction } from "../../redux/selector";
 import css from "./MobileTransactionList.module.css";
 import clsx from "clsx";
 import sprite from "../../assets/icon/sprite.svg";
-export const MobileTransactionList = () => {
+
+const MobileTransactionList = () => {
   const transactions = useSelector(selectTransaction);
 
   return (
-    <>
+    <div className={css.container}>
       {transactions.map((transaction, index) => (
         <ul
           key={index}
@@ -40,6 +41,8 @@ export const MobileTransactionList = () => {
           </li>
         </ul>
       ))}
-    </>
+    </div>
   );
 };
+
+export default MobileTransactionList;

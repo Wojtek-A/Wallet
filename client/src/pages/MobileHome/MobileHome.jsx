@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-// import clsx from "clsx";
+import clsx from "clsx";
 
 import { selectIsModalAddTransactionOpen } from "../../redux/global/selectors.js";
-// import DashboardMobileIcon from "../../components/DashboardMobileIcon/DashboardMobileIcon.jsx";
-// import { DASHBOARD_STATUS } from "../../redux/constant.js";
+import DashboardMobileIcon from "../../components/DashboardMobileIcon/DashboardMobileIcon.jsx";
+import { DASHBOARD_STATUS } from "../../redux/constant.js";
 import Balance from "../../components/Balance/Balance.jsx";
 import css from "./MobileHome.module.css";
 import { MobileTransactionList } from "../../components/MobileTransactionList/MobileTransactionList.jsx";

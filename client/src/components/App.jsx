@@ -1,18 +1,30 @@
-import React, { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
-  const MobileHome = lazy(() => import("../pages/MobileHome/MobileHome.jsx"));
-  const MobileCurrency = lazy(() =>
-    import("../pages/MobileCurrency/MobileCurrency.jsx")
+  const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
+  const ExchangePage = lazy(() =>
+    import("../pages/ExchangePage/ExchangePage.jsx")
+  );
+  const StatisticsPage = lazy(() =>
+    import("../pages/StatisticsPage/StatisticsPage.jsx")
+  );
+  const RegistrationPage = lazy(() =>
+    import("../pages/RegistrationPage/RegistrationPage.jsx")
+  );
+  const LoginPage = lazy(() =>
+    import("../pages/LoginPage/LoginPage.jsx")
   );
 
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route path="/home" element={<MobileHome />}></Route>
-          <Route path="/dolar" element={<MobileCurrency />}></Route>
+          <Route path="/home" element={<HomePage />}></Route>
+          <Route path="/statistic" element={<StatisticsPage />}></Route>
+          <Route path="/exchange" element={<ExchangePage />}></Route>
+          <Route path="/register" element={<RegistrationPage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </Suspense>
     </>

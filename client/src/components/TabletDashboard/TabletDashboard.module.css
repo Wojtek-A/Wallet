@@ -1,0 +1,31 @@
+.dashboardWrapper {
+  margin: 32px auto 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "nav currency"
+    "balance currency"
+    "transaction transaction";
+  gap: 0;
+  max-width: 768px;
+}
+
+.navSection {
+  grid-area: nav;
+}
+
+.balanceSection {
+  grid-area: balance;
+  margin-bottom: 32px;
+}
+
+
+.currencySection {
+  grid-area: currency;
+  margin-bottom: 12px;
+
+}
+
+.transactionListSection {
+  grid-area: transaction;
+}
