@@ -7,6 +7,7 @@ const walletInitialState = {
   currency: [],
   isLoading: false,
   error: false,
+  statisticsDate: new Date().toISOString(),
 };
 
 const handlePending = (state, action) => {
@@ -27,7 +28,19 @@ const isRejectedWalletAction = (action) =>
 const walletSlice = createSlice({
   name: "wallet",
   initialState: walletInitialState,
-  reducers: {},
+  reducers: {
+    setMonth: (state, action) => {
+      const date = new Date(state.statisticsDate);
+      date.setMonth(action.payload);
+      state.statisticsDate = date.toISOString();
+    },
+
+    setYear: (state, action) => {
+      const date = new Date(state.statisticsDate);
+      date.setFullYear(action.payload);
+      state.statisticsDate = date.toISOString();
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCurrencyThunk.fulfilled, (state, action) => {
@@ -40,4 +53,5 @@ const walletSlice = createSlice({
   },
 });
 
+export const { setMonth, setYear } = walletSlice.actions;
 export const walletReducer = walletSlice.reducer;
