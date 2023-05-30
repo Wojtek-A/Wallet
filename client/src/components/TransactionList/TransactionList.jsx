@@ -41,9 +41,11 @@ const TransactionList = () => {
               })}
               <td className={css.tableData}>
                 <div className={css.wrapper}>
-                  <svg className={css.icon}>
-                    <use xlinkHref={`${sprite}#pen`}></use>
-                  </svg>
+                  <button className={css.btnEdit}>
+                    <svg className={css.icon}>
+                      <use xlinkHref={`${sprite}#pen`}></use>
+                    </svg>
+                  </button>
                   <button className={css.btn}>Delete</button>
                 </div>
               </td>
