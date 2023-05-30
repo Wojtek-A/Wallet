@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
-// import { useFormik } from "formik";
 import { date } from "yup";
 
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
@@ -129,7 +128,6 @@ export const ModalAddTransaction = () => {
             ></input>
             <Datetime
               className={style.modal__input}
-              controls={date}
               dateFormat="DD-MM-YYYY"
               timeFormat={false}
               closeOnSelect={true}

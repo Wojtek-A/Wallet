@@ -3,14 +3,16 @@ input:focus {
 }
 
 .overlay {
-  position: fixed;
-  top: 320px;
+  position: absolute;
+  top: 0%;
   left: 0;
   width: 100vw;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 768px) {
+    position: fixed;
     top: 0;
     width: 100vw;
     height: 100%;
@@ -23,12 +25,20 @@ input:focus {
   position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-family: "Circe";
   font-style: normal;
-  padding: 40px 73px;
+  padding: auto 10px;
+  width: 100vw;
   border-radius: 20px;
   z-index: 1110;
   background-color: #fff;
+  height: 100%;
+  padding: auto;
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    padding: 40px 73px;
+  }
 
   &__buttons {
     display: flex;

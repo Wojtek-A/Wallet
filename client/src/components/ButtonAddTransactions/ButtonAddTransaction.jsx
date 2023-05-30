@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import style from "./ButtonAddTransactions.module.scss";
+import style from "./ButtonAddTransaction.module.scss";
 import plusBtn from "./../../images/plusBtn.svg";
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
 
