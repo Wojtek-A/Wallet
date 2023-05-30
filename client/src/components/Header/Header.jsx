@@ -7,6 +7,7 @@ export const Header = () => {
   return (
     // <Media queries={breakepoints}>
     //   {(matches) => (
+
     <div className={style.header}>
       <div className={style.header__logo}>
         <NavLink to="/home">

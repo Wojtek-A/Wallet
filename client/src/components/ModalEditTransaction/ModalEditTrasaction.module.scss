@@ -4,19 +4,15 @@ input:focus {
 
 .overlay {
   position: fixed;
-  top: 320px;
+  top: 0;
   left: 0;
   width: 100vw;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    top: 0;
-    width: 100vw;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.25);
-    z-index: 1100;
-  }
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1100;
 }
 
 .modal {

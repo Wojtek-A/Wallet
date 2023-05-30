@@ -2,15 +2,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
-// import { useFormik } from "formik";
-import { date } from "yup";
 
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
 import style from "./ModalAddTransaction.module.scss";
 import closeBtn from "./../../images/closeBtn.svg";
 import { categories } from "../../utils/transactionCategories";
 
-export const ModalAddTransaction = () => {
+export const ModalEditTransaction = () => {
   const [transactionType, setTransactionType] = useState(false);
   const [category, setCategory] = useState("");
 
@@ -26,7 +24,7 @@ export const ModalAddTransaction = () => {
     }
   };
 
-  const submitTransaction = (event) => {
+  const editTransaction = (event) => {
     event.preventDefault();
 
     const type = transactionType ? "-" : "+";
@@ -64,7 +62,7 @@ export const ModalAddTransaction = () => {
     >
       <div className={style.modal}>
         <h2 className={style.modal__title}>Add transaction</h2>
-        <form className={style.modal__form} onSubmit={submitTransaction}>
+        <form className={style.modal__form} onSubmit={editTransaction}>
           <div className={style.modal__switch}>
             <p
               className={
@@ -149,7 +147,7 @@ export const ModalAddTransaction = () => {
           ></input>
           <div className={style.modal__buttons}>
             <button type="submit" className={style.addBtn}>
-              ADD
+              SAVE
             </button>
             <button type="button" name="closeBtn" className={style.cancelBtn}>
               CANCEL
