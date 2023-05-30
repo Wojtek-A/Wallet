@@ -7,7 +7,6 @@ import {
     getTransactionController,
     updateTransaction,
 } from '../controllers/transactions/index.js';
-import {getTransactionById} from '../controllers/transactions/getTransactionById.js';
 
 const router = Router();
 
@@ -18,7 +17,5 @@ router.get('/', auth, controllerWrapper(getTransactionController));
 router.put('/:transactionId', auth, controllerWrapper(updateTransaction));
 
 router.delete('/:transactionId', auth, controllerWrapper(deleteTransaction));
-
-router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
 
 export default router;
