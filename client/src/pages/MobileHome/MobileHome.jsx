@@ -35,7 +35,7 @@ const MobileHome = () => {
         </div>
       </section>
 
-      {!isModalAddTransactionOpen && <ButtonAddTransaction />}
+      <ButtonAddTransaction />
 
       {isModalAddTransactionOpen && <ModalAddTransaction />}
     </>
