@@ -26,7 +26,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Circe";
+  font-family: "CirceRegular";
   font-style: normal;
   padding: auto 10px;
   width: 100vw;
@@ -49,7 +49,7 @@ input:focus {
   }
 
   &__title {
-    font-family: "Poppins";
+    font-family: "PoppinsRegular";
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
@@ -65,7 +65,7 @@ input:focus {
     margin-bottom: 42px;
   }
   &__switch p {
-    font-family: "Circe";
+    font-family: "CirceRegular";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;

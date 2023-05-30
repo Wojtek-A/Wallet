@@ -1,27 +1,27 @@
 @font-face {
-    font-family: CirceRegular;
-    src: local(CirceRegular),
-        url("../assets/fonts/Circe/circeRegular.ttf") format("truetype");
-    font-weight: 400;
+  font-family: CirceRegular;
+  src: local(CirceRegular),
+    url("../assets/fonts/Circe/circeRegular.ttf") format("truetype");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: CirceBold;
-    src: local(CirceBold),
-        url("../assets/fonts/Circe/circeBold.ttf") format("truetype");
-    font-weight:700
+  font-family: CirceBold;
+  src: local(CirceBold),
+    url("../assets/fonts/Circe/circeBold.ttf") format("truetype");
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: PoppinsRegular;
-    src: local(PoppinsRegular),
-        url("../assets/fonts/Poppins/poppinsRegular.ttf") format("truetype");
-    font-weight: 400;
+  font-family: PoppinsRegular;
+  src: local(PoppinsRegular),
+    url("../assets/fonts/Poppins/poppinsRegular.ttf") format("truetype");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: PoppinsBold;
-    src: local(PoppinsBold),
-        url("../assets/fonts/Poppins/poppinsBold.ttf") format("truetype");
-    font-weight:700
+  font-family: PoppinsBold;
+  src: local(PoppinsBold),
+    url("../assets/fonts/Poppins/poppinsBold.ttf") format("truetype");
+  font-weight: 700;
 }

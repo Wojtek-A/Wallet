@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
-import { date } from "yup";
 
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
 import style from "./ModalAddTransaction.module.scss";
 import closeBtn from "./../../images/closeBtn.svg";
-import { categories } from "../../utils/transactionCategories";
+import { CATEGORY_NAME } from "../../redux/constant";
 
 export const ModalAddTransaction = () => {
   const [transactionType, setTransactionType] = useState(false);
@@ -29,18 +28,16 @@ export const ModalAddTransaction = () => {
     event.preventDefault();
 
     const type = transactionType ? "-" : "+";
-    const value = event.target.amount.value;
-    const date = event.target.date.value;
+    const amount = event.target.amount.value;
+    const transactionDate = event.target.date.value;
     const comment = event.target.comment.value;
 
     const newTransaction = {
       type,
-      value: Number(value),
-      date,
+      amount: Number(amount),
+      transactionDate,
       comment,
-      categoryId: transactionType
-        ? category
-        : "063f1132-ba5d-42b4-951d-44011ca46262",
+      category: transactionType ? category : "Income",
     };
     dispatch(changeIsModalAddTransactionOpen());
     console.log(newTransaction);
@@ -48,7 +45,7 @@ export const ModalAddTransaction = () => {
 
   const categorySelection = (event) => {
     const selectedCategory = event.target.value;
-    if (selectedCategory !== "063f1132-ba5d-42b4-951d-44011ca46262") {
+    if (selectedCategory !== "Income") {
       setCategory(selectedCategory);
     } else {
       setTransactionType(!transactionType);
@@ -101,20 +98,12 @@ export const ModalAddTransaction = () => {
               className={style.modal__categoriesSelect}
               onChange={categorySelection}
             >
-              <option value="Select option" disabled selected>
+              <option value="Select option" disabled selected hidden>
                 Select a category
               </option>
-              {categories &&
-                categories.map((category) => {
-                  return (
-                    <option
-                      id={category.id}
-                      key={category.id}
-                      value={category.id}
-                    >
-                      {category.name}
-                    </option>
-                  );
+              {CATEGORY_NAME &&
+                Object.values(CATEGORY_NAME).map((element, index) => {
+                  return <option key={index}>{element}</option>;
                 })}
             </select>
           )}
