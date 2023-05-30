@@ -8,10 +8,6 @@ const TransactionSchema = new Schema({
         enum: ["-", "+"],
         required: [true, "Type is required"],
     },
-    value: {
-        type: Number,
-        required: true,
-    },
     amount: {
         type: Number,
         required: [true, "Amount is required"],
@@ -40,11 +36,11 @@ const TransactionSchema = new Schema({
     comment: {
         type: String,
         default: null,
-        requird: true,
+        required: true,
     },
     owner: {
         type: Schema.Types.ObjectId,
-        ref: "user",
+        ref: "User",
         required: true,
     },
     month: {

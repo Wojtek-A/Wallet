@@ -14,6 +14,7 @@ const createTransaction = async (req, res, next) => {
     user.balance = user.balance + calc;
     user.save();
 
+
     const transaction = await Transaction.create(body);
     res.status(201).json({ data: transaction });
 };

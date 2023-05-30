@@ -16,27 +16,27 @@ const statisticsController = async (req, res) => {
             },
             {
                 $group: {
-                    _id: { category: "$category", type: "$type" },
+                    _id: {category: "$category", type: "$type" },
                     total: { $sum: "$amount" },
                 },
             },
             {
                 $group: {
                     _id: null,
-                    expense: {
+                    expenseSummary: {
                         $sum: {
                             $cond: [{ $eq: ["$_id.type", false] }, "$total", 0],
                         },
                     },
-                    income: {
+                    incomeSummary: {
                         $sum: {
                             $cond: [{ $eq: ["$_id.type", true] }, "$total", 0],
                         },
                     },
-                    categories: {
+                    categoriesSummary: {
                         $push: {
                             $cond: [
-                                { $eq: ["$_id.type", false] },
+                                { $eq: ["$_id.type", true] },
                                 { category: "$_id.category", total: "$total" },
                                 null,
                             ],
@@ -45,32 +45,31 @@ const statisticsController = async (req, res) => {
                 },
             },
             {
-                $unwind: "$categories",
+                $unwind: "$categoriesSummary",
             },
             {
                 $match: {
-                    categories: { $ne: null },
+                    categoriesSummary: { $ne: null },
                 },
             },
             {
                 $group: {
                     _id: null,
-                    expense: { $first: "$expense" },
-                    income: { $first: "$income" },
-                    categories: { $push: "$categories" },
+                    expenseSummary: { $first: "$expenseSummary" },
+                    incomeSummary: { $first: "$incomeSummary" },
+                    categoriesSummary: { $push: "$categoriesSummary" },
                 },
             },
             {
                 $project: {
                     _id: 0,
-                    expense: 1,
-                    income: 1,
-                    categories: 1,
+                    expenseSummary: 1,
+                    incomeSummary: 1,
+                    categoriesSummary: 1,
                 },
             },
         ];
         const result = await Transaction.aggregate(pipeline);
-        console.log(result);
         if (result.length === 0) {
             return res.status(404).json({ message: "Not found" });
         }
