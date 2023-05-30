@@ -1,25 +1,25 @@
-import { useDispatch, useSelector } from "react-redux";
-import clsx from "clsx";
+import { useSelector } from "react-redux";
+// import clsx from "clsx";
 
 import { selectIsModalAddTransactionOpen } from "../../redux/global/selectors.js";
-import DashboardMobileIcon from "../../components/DashboardMobileIcon/DashboardMobileIcon.jsx";
-import { DASHBOARD_STATUS } from "../../redux/constant.js";
+// import DashboardMobileIcon from "../../components/DashboardMobileIcon/DashboardMobileIcon.jsx";
+// import { DASHBOARD_STATUS } from "../../redux/constant.js";
 import Balance from "../../components/Balance/Balance.jsx";
 import css from "./MobileHome.module.css";
 import { MobileTransactionList } from "../../components/MobileTransactionList/MobileTransactionList.jsx";
 import MobileAllIcon from "../../components/MobilleAllIcon/MobuleAllIcon.jsx";
 import { ButtonAddTransaction } from "../../components/ButtonAddTransactions/ButtonAddTransactions.jsx";
 import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction.jsx";
+import { Header } from "../../components/Header/Header.jsx";
 
 const MobileHome = () => {
-  const dispatch = useDispatch();
-
   const isModalAddTransactionOpen = useSelector(
     selectIsModalAddTransactionOpen
   );
 
   return (
     <>
+      <Header></Header>
       <section className={css.iconSection}>
         <MobileAllIcon />
       </section>
@@ -35,7 +35,7 @@ const MobileHome = () => {
         </div>
       </section>
 
-      <ButtonAddTransaction />
+      {!isModalAddTransactionOpen && <ButtonAddTransaction />}
 
       {isModalAddTransactionOpen && <ModalAddTransaction />}
     </>

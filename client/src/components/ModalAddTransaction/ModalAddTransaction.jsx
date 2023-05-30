@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import Datetime from "react-datetime";
+import "react-datetime/css/react-datetime.css";
+// import { useFormik } from "formik";
+import { date } from "yup";
 
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
 import style from "./ModalAddTransaction.module.scss";
@@ -78,8 +82,11 @@ export const ModalAddTransaction = () => {
           {!transactionType ? (
             <></>
           ) : (
-              <select className={style.categoriesSelect} onChange={categorySelection}>
-              <option value="Select option" disabled>
+            <select
+              className={style.modal__categoriesSelect}
+              onChange={categorySelection}
+            >
+              <option value="Select option" disabled selected>
                 Select a category
               </option>
               {categories &&
@@ -101,15 +108,22 @@ export const ModalAddTransaction = () => {
               type="number"
               name="amount"
               placeholder="0.00"
-              className={(style.modal__value, style.modal__input)}
+              className={style.modal__input}
               required
             ></input>
-            <input
-              type="date"
-              name="date"
-              className={(style.modal__date, style.modal__input)}
+            <Datetime
+              className={style.modal__input}
+              controls={date}
+              dateFormat="DD-MM-YYYY"
+              timeFormat={false}
+              closeOnSelect={true}
+              inputProps={{
+                className: style.modal__date,
+                name: "date",
+              }}
+              initialValue={new Date()}
               required
-            ></input>
+            />
           </div>
           <input
             type="text"

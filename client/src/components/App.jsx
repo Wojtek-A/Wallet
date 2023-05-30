@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import { ButtonAddTransactions } from "./ButtonAddTransactions/ButtonAddTransactions";
 
 export const App = () => {
   const MobileHome = lazy(() => import("../pages/MobileHome/MobileHome.jsx"));

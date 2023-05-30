@@ -1,3 +1,7 @@
+input:focus {
+  outline: none;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -56,6 +60,36 @@
     line-height: 24px;
   }
 
+  &__categoriesSelect {
+    // outline: none;
+    // border: none;
+    // border-bottom: 1px solid #e0e0e0;
+    // width: 100%;
+    // text-align: left;
+    // margin-bottom: 40px;
+    // height: 40px;
+    // &::placeholder {
+    //   color: #bdbdbd;
+    // }
+    // &:hover {
+    //   border: none;
+    //   cursor: pointer;
+    // }
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    margin-right: auto;
+    width: 100%;
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #bdbdbd;
+      opacity: 1; /* Firefox */
+    }
+  }
+
+  // &__categoriesSelect select {
+  //   display: none; /*hide original SELECT element: */
+  // }
+
   &__inputs {
     margin-bottom: 40px;
     font-weight: 700;
@@ -82,10 +116,20 @@
     border: none;
     border-bottom: 1px solid #e0e0e0;
     width: 100%;
+    text-align: center;
 
     @media screen and (min-width: 768px) {
       width: 50%;
     }
+  }
+  &__date {
+    border: none;
+    text-align: center;
+    width: 100%;
+    background-image: url(../../assets/icon/Calendar.svg);
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-size: contain;
   }
 
   &__comment {
@@ -242,8 +286,9 @@
 }
 
 .categoriesSelect {
+  text-align: center;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  width: 100%;
-  text-align: center;
+  position: relative;
 }
