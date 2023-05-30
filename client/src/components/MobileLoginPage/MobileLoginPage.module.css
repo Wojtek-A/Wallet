@@ -1,0 +1,47 @@
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 767px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: auto;
+  background-color: var(--bg-alternative);
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 16px;
+}
+
+.title {
+  font-family: "PoppinsBold";
+  font-style: normal;
+  font-size: 30px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.button {
+  font-family: "CirceRegular";
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--text-blue);
+  background-color: var(--btn-secondary);
+  border-radius: 20px;
+  border: 1px solid var(--line-secondary);
+  padding: 13px 61px;
+  width: 100%;
+  margin-top: 20px;
+}

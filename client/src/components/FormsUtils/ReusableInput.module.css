@@ -1,0 +1,53 @@
+.label {
+  border-bottom: 1px solid var(--form-primary);
+  padding-left: 12.5px;
+}
+
+.activeLabel {
+  border-bottom: 2px solid var(--btn-primary);
+}
+
+.errorLabel {
+  border-bottom: 2px solid var(--text-expense);
+}
+
+.activeIcon {
+  fill: var(--btn-primary);
+}
+
+.inactiveIcon {
+  fill: #e0e0e0;
+}
+
+.errorIcon {
+  fill: var(--text-expense);
+}
+
+.input {
+  color: var(--text-primary);
+  border: none;
+  padding: 8px 0px 8px 22px;
+  margin-top: 40px;
+  font-family: "CirceRegular";
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.input::placeholder {
+  font-family: "CirceRegular";
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--form-primary);
+}
+
+.input:focus-visible {
+  outline: none;
+  border: none;
+}
+
+.errorMessage {
+  color: var(--text-expense);
+  font-size: 14px;
+  margin-top: 3px;
+}

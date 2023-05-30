@@ -1,0 +1,40 @@
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.iconEmail {
+  width: 20px;
+  height: 16px;
+}
+
+.iconPadlock {
+  width: 16px;
+  height: 21px;
+}
+
+.iconUser {
+  width: 18px;
+  height: 18px;
+}
+
+.registerButton {
+  font-family: "CirceRegular";
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--text-alternative);
+  background-color: var(--btn-primary);
+  border-radius: 20px;
+  border: none;
+  padding: 13px 61px;
+  margin-top: 53px;
+  @media screen and (min-width: 768px) {
+    margin-left: 55px;
+    margin-right: 55px;
+  }
+}

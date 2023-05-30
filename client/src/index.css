@@ -1,5 +1,6 @@
 @import "./stylesheet/fonts.css";
 @import "./stylesheet/vars.css";
+@import "../node_modules/modern-normalize/modern-normalize.css";
 
 body {
   margin: 0;
@@ -9,7 +10,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary);
+  background-image: url("../src/assets/icon/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--text-primary);
+  width: 100vw;
+  height: 100vh;
+  @media (min-width: 1200px) {
+    background-image: url("../src/assets/icon/desktopBackground.svg");
+  }
 }
 
 code {
