@@ -2,7 +2,7 @@ export const tempTransactionDB = [
   {
     Type: "-",
     Value: 500,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date(2024, 0, 1).toISOString(),
     Comment: "test",
     Category: "Main expenses",
     owner: "test",
@@ -10,7 +10,7 @@ export const tempTransactionDB = [
   {
     Type: "-",
     Value: 258,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Products",
     owner: "test",
@@ -18,7 +18,7 @@ export const tempTransactionDB = [
   {
     Type: "-",
     Value: 258,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Car",
     owner: "test",
@@ -26,7 +26,7 @@ export const tempTransactionDB = [
   {
     Type: "-",
     Value: 100,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Self care",
     owner: "test",
@@ -34,7 +34,7 @@ export const tempTransactionDB = [
   {
     Type: "+",
     Value: 500,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Child care",
     owner: "test",
@@ -42,7 +42,7 @@ export const tempTransactionDB = [
   {
     Type: "+",
     Value: 285,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Household products",
     owner: "test",
@@ -50,7 +50,7 @@ export const tempTransactionDB = [
   {
     Type: "-",
     Value: 500,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Education",
     owner: "test",
@@ -58,7 +58,7 @@ export const tempTransactionDB = [
   {
     Type: "-",
     Value: 100,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Leisure",
     owner: "test",
@@ -66,7 +66,7 @@ export const tempTransactionDB = [
   {
     Type: "+",
     Value: 450,
-    Date: new Date().toLocaleDateString(),
+    Date: new Date().toISOString(),
     Comment: "test",
     Category: "Other expanses",
     owner: "test",
