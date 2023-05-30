@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import style from "./Header.module.scss";
+import style from "./MobileHeader.module.scss";
 import sprite from "../../assets/icon/spriteToMergeIntoExisting.svg";
 
-export const Header = () => {
+export const MobileHeader = () => {
   return (
     <div className={style.header}>
       <div className={style.header__logo}>
@@ -18,7 +18,6 @@ export const Header = () => {
           <svg className={style.logout__icon}>
             <use href={`${sprite}#icon-logout`}></use>
           </svg>
-          <span className={style.logout__caption}>Exit</span>
         </button>
       </div>
     </div>
