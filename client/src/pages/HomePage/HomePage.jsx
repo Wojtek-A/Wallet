@@ -7,8 +7,8 @@ const HomePage = () => {
   return (
     <Media
       queries={{
-        mobile: '(max-width: 599px)',
-        tablet: '(min-width: 600px) and (max-width: 1199px)',
+        mobile: '(max-width: 767px)',
+        tablet: '(min-width: 768px) and (max-width: 1199px)',
         desktop: '(min-width: 1200px)',
       }}
     >
