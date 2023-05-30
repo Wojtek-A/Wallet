@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
 
-const TransactionSchema = new mongoose.Schema({
+const { Schema } = mongoose;
+
+const TransactionSchema = new Schema({
     type: {
         type: Boolean,
         enum: ["-", "+"],
@@ -39,7 +40,7 @@ const TransactionSchema = new mongoose.Schema({
     comment: {
         type: String,
         default: null,
-        require,
+        requird: true,
     },
     owner: {
         type: Schema.Types.ObjectId,
@@ -63,6 +64,4 @@ TransactionSchema.pre("save", function (next) {
 
 const Transaction = mongoose.model("Transaction", TransactionSchema);
 
-module.exports = {
-    Transaction,
-};
+export { Transaction };

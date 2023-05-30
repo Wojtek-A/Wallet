@@ -1,4 +1,4 @@
-const { Transaction } = require("../../models/Transactions");
+import { Transaction } from "../../models/Transactions.js";
 
 const statisticsController = async (req, res) => {
     const { _id: ownerId } = req.user;
@@ -80,4 +80,4 @@ const statisticsController = async (req, res) => {
     }
 };
 
-module.exports = statisticsController;
+export { statisticsController };

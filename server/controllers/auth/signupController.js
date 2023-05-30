@@ -1,12 +1,9 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
-const { User } = require("../../models/Users");
-
-const { userSchema } = require("../../schemas");
-
+import { User } from '../../models/Users.js';
+import { userSchema } from '../../schemas/userSchema.js';
 const { SECRET } = process.env;
-
 
 const signupController = async (req, res, _) => {
     const { email, password, username } = req.body;
@@ -17,7 +14,7 @@ const signupController = async (req, res, _) => {
 
     const user = await User.findOne({ email });
     if (user) {
-        return res.status(409).json({ message: "Email in use" });
+        return res.status(409).json({ message: 'Email in use' });
     }
     const hashPassword = await bcrypt.hash(password, 10);
     const newUser = await User.create({ email, password: hashPassword, username });
@@ -30,9 +27,8 @@ const signupController = async (req, res, _) => {
             username: newUser.username,
             data: { token },
         },
-        token: token
+        token: token,
     });
 };
 
-
-module.exports = signupController;
+export default signupController;

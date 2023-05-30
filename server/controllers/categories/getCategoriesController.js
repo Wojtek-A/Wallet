@@ -1,15 +1,20 @@
-const fs = require( "node:fs/promises");
-const path = require("path");
+import { readFile } from "node:fs/promises";
+import path from "path";
+
 const category = path.resolve("./schemas/transactionsSchema.js");
 
 const getCategoriesController = async (req, res) => {
-    const dataCategories = await fs.readFile(category, "utf8");
-    if (!dataCategories) {
-        res.status(404).json({ message: `Not found any categories` });
+    try {
+        const dataCategories = await readFile(category, "utf8");
+        if (!dataCategories) {
+            res.status(404).json({ message: "Not found any categories" });
+        }
+        res
+            .status(200)
+            .json({ message: "Successful operation", data: JSON.parse(dataCategories) });
+    } catch (error) {
+        res.status(500).json({ message: "Error reading categories" });
     }
-    res
-        .status(200)
-        .json({ message: "Successful operation", data: JSON.parse(dataCategories) });
 };
 
-module.exports = getCategoriesController;
+export { getCategoriesController };

@@ -2,6 +2,7 @@
   "name": "wallet-node.js",
   "version": "1.0.0",
   "description": "GoIT Group Project",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server.js"

@@ -1,11 +1,11 @@
-const secret = process.env.SECRET;
-const passportJWT = require('passport-jwt');
-const passport = require('passport');
-const ExtractJWT = passportJWT.ExtractJwt;
-const Strategy = passportJWT.Strategy;
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import passport from 'passport';
+import dotenv from "dotenv";
+dotenv.config();
+const { secret } = process.env;
 const params = {
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: secret,
-    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
 };
 
 passport.use(
@@ -22,4 +22,5 @@ passport.use(
 );
 
 passport.initialize();
-module.exports = { passport };
+
+export { passport };

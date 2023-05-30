@@ -8,4 +8,4 @@ const controllerWrapper = (controller) => {
     };
 };
 
-module.exports = controllerWrapper;
+export {controllerWrapper}

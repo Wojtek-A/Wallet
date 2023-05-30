@@ -1,4 +1,4 @@
-const { Transaction } = require("../../models/Transactions");
+import { Transaction } from "../../models/Transactions.js";
 
 const getTransactionById = async (req, res) => {
     try {
@@ -19,6 +19,4 @@ const getTransactionById = async (req, res) => {
     }
 };
 
-module.exports = {
-    getTransactionById,
-};
+export { getTransactionById };

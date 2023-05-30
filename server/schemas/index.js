@@ -1,7 +1,4 @@
-const userSchema = require("./userSchema.js");
-const transactionSchema = require("./transactionSchema.js");
+import userSchema from './userSchema.js';
+import transactionSchema from './transactionSchema.js';
 
-module.exports = {
-    userSchema,
-    transactionSchema,
-};
+export { userSchema, transactionSchema };

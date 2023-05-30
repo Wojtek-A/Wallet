@@ -1,6 +1,6 @@
-const { Transaction } = require("../../models/Transactions");
-const { User } = require("../../models/Users");
-const { transactionSchema } = require("../../schemas");
+import { Transaction } from "../../models/Transactions.js";
+import { User } from "../../models/Users.js";
+import { transactionSchema } from "../../schemas/transactionSchema.js";
 
 const updateTransaction = async (req, res, next) => {
     const body = req.body;
@@ -67,4 +67,4 @@ const updateTransaction = async (req, res, next) => {
     }
 };
 
-module.exports = updateTransaction;
+export default updateTransaction;

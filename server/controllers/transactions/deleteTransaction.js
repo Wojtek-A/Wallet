@@ -1,5 +1,5 @@
-const { Transaction } = require("../../models/Transactions");
-const { User } = require("../../models/Users");
+import { Transaction } from "../../models/Transactions.js";
+import { User } from "../../models/Users.js";
 
 const deleteTransaction = async (req, res, next) => {
     const transaction = await Transaction.findById(req.params.transactionId);
@@ -21,4 +21,4 @@ const deleteTransaction = async (req, res, next) => {
     res.json({ message: "Transaction deleted" });
 };
 
-module.exports = deleteTransaction;
+export default deleteTransaction;

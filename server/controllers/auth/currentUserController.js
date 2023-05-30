@@ -1,14 +1,14 @@
-const jwt = require("jsonwebtoken");
-const express = require("express");
-const {User} = require("../../models/Users");
+import jwt from 'jsonwebtoken';
+import { User } from '../../models/Users.js';
+
 const SECRET = process.env.SECRET;
 
 const currentUserController = async (req, res, next) => {
     try {
         const user = await User.findById(req.user.id);
-        const {email, name, balance, _id} = user;
+        const { email, name, balance, _id } = user;
         if (!user) {
-            return res.json({message: "There is no such user"});
+            return res.json({ message: 'There is no such user' });
         }
 
         const token = jwt.sign(
@@ -16,13 +16,13 @@ const currentUserController = async (req, res, next) => {
                 id: user._id,
             },
             SECRET,
-            {expiresIn: "1h"}
+            { expiresIn: '1h' }
         );
 
-        return res.json({email, name, balance, _id, token});
+        return res.json({ email, name, balance, _id, token });
     } catch (error) {
+        // Handle error
     }
-    ;
-}
+};
 
-module.exports = currentUserController;
+export default currentUserController;

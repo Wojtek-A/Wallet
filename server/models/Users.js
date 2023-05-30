@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
     email: {
@@ -14,32 +14,28 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Name is required"],
     },
-        balance: {
-            type: Number,
-            default: 0,
-        },
+    balance: {
+        type: Number,
+        default: 0,
+    },
     token: {
         type: String,
         default: "",
     },
-        accessToken: {
-            type: String,
-            default: null,
-        },
-        refreshToken: {
-            type: String,
-            default: null,
-        },
-        verify: {
-            type: Boolean,
-            default: false,
-        },
+    accessToken: {
+        type: String,
+        default: null,
     },
-    { versionKey: false }
-);
+    refreshToken: {
+        type: String,
+        default: null,
+    },
+    verify: {
+        type: Boolean,
+        default: false,
+    },
+}, { versionKey: false });
 
-const Users = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 
-module.exports = {
-    User: Users,
-};
+export { User };

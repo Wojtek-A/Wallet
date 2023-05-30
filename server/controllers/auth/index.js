@@ -1,9 +1,9 @@
-const signupController = require("./signupController");
-const loginController = require("./loginController");
-const logoutController = require("./logoutController");
-const currentUserController = require("./currentUserController")
+import signupController from './signupController.js';
+import loginController from './loginController.js';
+import logoutController from './logoutController.js';
+import currentUserController from './currentUserController.js';
 
-module.exports = {
+export {
     signupController,
     loginController,
     logoutController,

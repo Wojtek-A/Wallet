@@ -1,9 +1,7 @@
-const { getTransactions } = require('./getTransactions')
-const { logout } = require("./logout");
+import { getTransactions } from './getTransactions';
+import { logout } from './logout';
 
-
-
-module.exports = {
+export {
     getTransactions,
     logout
 };

@@ -1,11 +1,11 @@
-const createTransaction = require("./createTransaction");
-const updateTransaction = require("./updateTransaction");
-const deleteTransaction = require("./deleteTransaction");
-const getTransaction = require("./getTransactionController");
+import createTransaction from "./createTransaction.js";
+import updateTransaction from "./updateTransaction.js";
+import deleteTransaction from "./deleteTransaction.js";
+import getTransactionController from "./getTransactionController.js";
 
-module.exports = {
+export {
     createTransaction,
     updateTransaction,
     deleteTransaction,
-    getTransaction,
+    getTransactionController
 };

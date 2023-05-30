@@ -1,5 +1,5 @@
-const controllerWrapper = require("./controllerWrapper");
+import { controllerWrapper } from "./controllerWrapper.js";
 
-module.exports = {
+export {
     controllerWrapper,
 };

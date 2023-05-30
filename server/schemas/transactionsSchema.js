@@ -1,4 +1,4 @@
-const Joi = require("joi");
+import Joi from 'joi';
 
 const addTransaction = Joi.object({
     type: Joi.boolean().required(),
@@ -10,16 +10,16 @@ const addTransaction = Joi.object({
         year: Joi.number(),
     }),
     category: Joi.string().valid(
-        "main expenses",
-        "products",
-        "car",
-        "self care",
-        "child care",
-        "household products",
-        "education",
-        "leisure",
-        "other expenses",
-        "income"
+        'main expenses',
+        'products',
+        'car',
+        'self care',
+        'child care',
+        'household products',
+        'education',
+        'leisure',
+        'other expenses',
+        'income'
     ),
     comment: Joi.string().optional(),
 });
@@ -33,23 +33,19 @@ const editTransaction = Joi.object({
         month: Joi.number(),
         year: Joi.number(),
     }),
-
     category: Joi.string().valid(
-        "main expenses",
-        "products",
-        "car",
-        "self care",
-        "child care",
-        "household products",
-        "education",
-        "leisure",
-        "other expenses",
-        "income"
+        'main expenses',
+        'products',
+        'car',
+        'self care',
+        'child care',
+        'household products',
+        'education',
+        'leisure',
+        'other expenses',
+        'income'
     ),
     comment: Joi.string().optional(),
 });
 
-module.exports = {
-    addTransaction,
-    editTransaction,
-};
+export { addTransaction, editTransaction };

@@ -1,21 +1,21 @@
-const express = require('express');
-const router = express.Router();
-const authController = require("../controllers/auth");
-const { controllerWrapper } = require("../helpers");
+import {Router} from 'express';
+import {
+    signupController,
+    loginController,
+    logoutController,
+    currentUserController,
+} from '../controllers/auth/index.js';
+import {controllerWrapper} from '../helpers/index.js';
+import { auth } from '../middlewares/auth.js';
 
-const { auth } = require("../middlewares/auth");
+const router = Router();
 
-router.post("/sign-up", authController.signupController);
+router.post('/sign-up', signupController);
 
-router.post("/sign-in", authController.loginController);
+router.post('/sign-in', loginController);
 
-router.post("/sign-out", auth, authController.logoutController);
+router.post('/sign-out', auth, logoutController);
 
-router.get(
-    "/current",
-    auth,
-    controllerWrapper(authController.currentUserController)
-);
+router.get('/current', auth, controllerWrapper(currentUserController));
 
-module.exports = router;
-
+export default router;

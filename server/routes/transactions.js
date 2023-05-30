@@ -1,30 +1,28 @@
-const express = require('express');
-const { auth } = require("../middlewares/auth");
-const { controllerWrapper } = require("../helpers");
-const {
+import express from 'express';
+import { Router } from 'express';
+import { auth } from '../middlewares/auth.js';
+import { controllerWrapper } from '../helpers/index.js';
+import {
     createTransaction,
     updateTransaction,
     deleteTransaction,
-} = require("../controllers/transactions");
-const {
-    getTransactionController,
-} = require("../controllers/transactions/getTransactionController");
-const {
-    getTransactionById,
-} = require("../controllers/transactions/getTransactionById");
-const {currentUserController} = require("../controllers/auth/index.js");
-const router = express.Router();
+} from '../controllers/transactions/index.js';
+import { getTransactionController } from '../controllers/transactions/index.js';
+import { getTransactionById } from '../controllers/transactions/getTransactionById.js';
+import { currentUserController } from '../controllers/auth/index.js';
 
-router.post("/", auth, controllerWrapper(createTransaction));
+const router = Router();
 
-router.get("/", auth, controllerWrapper(getTransactionController));
+router.post('/', auth, controllerWrapper(createTransaction));
 
-router.get("/current", auth, controllerWrapper(currentUserController()));
+router.get('/', auth, controllerWrapper(getTransactionController));
 
-router.put("/:transactionId", auth, controllerWrapper(updateTransaction));
+router.get('/current', auth, controllerWrapper(currentUserController()));
 
-router.delete("/:transactionId", auth, controllerWrapper(deleteTransaction));
+router.put('/:transactionId', auth, controllerWrapper(updateTransaction));
 
-router.patch("/:transactionId", auth, controllerWrapper(getTransactionById));
+router.delete('/:transactionId', auth, controllerWrapper(deleteTransaction));
 
-module.exports = router;
+router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
+
+export default router;

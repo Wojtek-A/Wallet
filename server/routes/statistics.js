@@ -1,9 +1,10 @@
-const express = require('express');
-const statisticsController = require("../controllers/statistics/getStatisticsController");
-const { controllerWrapper } = require("../helpers");
-const { auth } = require("../middlewares/auth");
-const router = express.Router();
+import { Router } from 'express';
+import { auth } from '../middlewares/auth.js';
+import { controllerWrapper } from '../helpers/index.js';
+import { statisticsController } from '../controllers/statistics/getStatisticsController.js';
 
-router.get("/transactions-summary", auth, controllerWrapper(statisticsController));
+const router = Router();
 
-module.exports = router;
+router.get('/transactions-summary', auth, controllerWrapper(statisticsController));
+
+export default router;

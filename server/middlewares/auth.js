@@ -1,6 +1,7 @@
-const { passport } = require("./config-passport");
+import { passport } from './config-passport.js';
+import { config } from 'dotenv';
 
-require("dotenv").config();
+config();
 
 const auth = (req, res, next) => {
     passport.authenticate("jwt", { session: false }, (err, user) => {
@@ -21,4 +22,4 @@ const auth = (req, res, next) => {
     })(req, res, next);
 };
 
-module.exports = { auth };
+export { auth };

@@ -1,4 +1,4 @@
-const { Transaction } = require("../../models/Transactions");
+import { Transaction } from "../../models/Transactions.js";
 
 const getTransactionController = async (req, res) => {
     const { _id: owner } = req.user;
@@ -12,6 +12,4 @@ const getTransactionController = async (req, res) => {
     }
 };
 
-module.exports = {
-    getTransactionController,
-};
+export default getTransactionController;
