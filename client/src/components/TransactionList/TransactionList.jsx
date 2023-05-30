@@ -18,7 +18,6 @@ const TransactionList = () => {
             <th className={css.tableHeader}>Comment</th>
             <th className={css.tableHeader}>Sum</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>

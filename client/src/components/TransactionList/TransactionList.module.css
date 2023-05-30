@@ -9,8 +9,8 @@
 }
 
 .transactionTable th {
-  padding: 10px;
-  text-align: center;
+  padding: 16px 0px 16px 20px;
+  text-align: left;
 }
 
 .transactionTable th:first-child {
@@ -24,25 +24,24 @@
 }
 
 
-.transactionTable tbody tr td {
-  padding: 12px 0;
-  padding-left: 40px;
-  border-bottom: 1px solid #dcdcdf;
+.transactionTable tr td {
+  padding: 16px 0 14px 20px;
+  border-bottom: 1px solid #DCDCDF;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 }
 
-td:last-child {
-  padding-left: 5px;
-}
-
-td:nth-child(2) {
-  padding-left: 25px;
+.transactionTable td:nth-child(2) {
+  text-indent: 10px;
 }
 
 
 .container {
-  margin: 0 auto;
   padding: 0 20px;
   min-width: 715px;
+
+  @media(min-width: 1200px) {
+    padding: 0 20px 0 0;
+  }
 }
 
 
