@@ -1,10 +1,10 @@
 import {User} from "../../models/Users.js";
 
-const logoutController = async (req, res) => {
-    const { _id } = req.user;
+const logoutController = async (req, res, _) => {
+    const { id } = req.user;
 
-    await User.findByIdAndUpdate(_id, { token: null });
-    res.status(200).json({
+    await User.findByIdAndUpdate(id, { token: null });
+    return res.status(200).json({
         message: "Logout successful",
     });
 };

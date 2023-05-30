@@ -1,6 +1,7 @@
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import passport from 'passport';
 import dotenv from "dotenv";
+import {User} from "../models/Users.js";
 dotenv.config();
 const { secret } = process.env;
 const params = {

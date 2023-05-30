@@ -5,7 +5,6 @@ import {
     logoutController,
     currentUserController,
 } from '../controllers/auth/index.js';
-import {controllerWrapper} from '../helpers/index.js';
 import { auth } from '../middlewares/auth.js';
 
 const router = Router();
@@ -16,6 +15,6 @@ router.post('/sign-in', loginController);
 
 router.post('/sign-out', auth, logoutController);
 
-router.get('/current', auth, controllerWrapper(currentUserController));
+router.get('/current', auth, currentUserController);
 
 export default router;
