@@ -8,7 +8,7 @@ export const getCurrencyThunk = createAsyncThunk(
       const response = await axios.get(
         "http://api.nbp.pl/api/exchangerates/tables/c/?format=JSON"
       );
-      console.log(response.data[0].rates);
+
       const filterResponse = response.data[0].rates.filter(
         (element) => element.code === "USD" || element.code === "EUR"
       );
