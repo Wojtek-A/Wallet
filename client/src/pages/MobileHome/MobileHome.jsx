@@ -10,7 +10,6 @@ import { MobileTransactionList } from "../../components/MobileTransactionList/Mo
 import MobileAllIcon from "../../components/MobilleAllIcon/MobuleAllIcon.jsx";
 import { ButtonAddTransaction } from "../../components/ButtonAddTransactions/ButtonAddTransactions.jsx";
 import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction.jsx";
-import { Header } from "../../components/Header/Header.jsx";
 
 const MobileHome = () => {
   const isModalAddTransactionOpen = useSelector(
@@ -19,7 +18,6 @@ const MobileHome = () => {
 
   return (
     <>
-      <Header></Header>
       <section className={css.iconSection}>
         <MobileAllIcon />
       </section>
