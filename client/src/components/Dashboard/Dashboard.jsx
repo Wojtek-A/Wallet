@@ -1,7 +1,8 @@
 import Navigation from '../Navigation/Navigation.jsx';
 import Currency from '../Currency/Currency.jsx';
 import Balance from '../Balance/Balance.jsx';
-import MobileTransactionList from '../MobileTransactionList/MobileTransactionList.jsx';
+// import MobileTransactionList from '../MobileTransactionList/MobileTransactionList.jsx';
+import TransactionList from '../TransactionList/TransactionList.jsx';
 
 import css from './Dashboard.module.css';
 
@@ -18,7 +19,7 @@ export const Dashboard = () => {
         <Balance />
       </section>
       <section className={css.transactionListSection}>
-        <MobileTransactionList />
+        <TransactionList />
       </section>
     </main>
   );
