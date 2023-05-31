@@ -2,8 +2,6 @@
   display: flex;
   height: 27px;
   margin-bottom: 12px;
-  justify-content: left;
-  align-items: center;
   border: none;
   outline: none;
   cursor: pointer;
