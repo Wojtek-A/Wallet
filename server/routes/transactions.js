@@ -66,12 +66,12 @@ router.get('/', auth, controllerWrapper(getTransactionController));
 
 router.put('/:transactionId', auth, controllerWrapper(updateTransaction));
 
-router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
+// router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
 
 /**
  *  @swagger
  *  /api/transactions/{transactionId}:
- *      patch:
+ *      put:
  *          tags: [Transactions Controller]
  *          summary: Update transaction
  *          security: [{"Bearer": []}]
@@ -104,7 +104,5 @@ router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
  */
 
 router.delete('/:transactionId', auth, controllerWrapper(deleteTransaction));
-
-router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
 
 export default router;
