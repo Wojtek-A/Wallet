@@ -9,6 +9,11 @@
   padding: 0 20px;
   margin: 0 auto;
   max-width: 420px;
+
+  @media(min-width: 1200px) {
+    padding: 0 0 0 20px;
+
+  }
 }
 
 .title {
@@ -22,7 +27,6 @@
 .text {
   font-family: "PoppinsBold";
   font-size: 30px;
-  display: flex;
   align-items: center;
   color: var(--text-primary);
 }

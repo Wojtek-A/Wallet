@@ -7,7 +7,6 @@ import {
   getTransactionController,
   updateTransaction,
 } from '../controllers/transactions/index.js';
-import { getTransactionById } from '../controllers/transactions/getTransactionById.js';
 
 const router = Router();
 
@@ -106,28 +105,6 @@ router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
 
 router.delete('/:transactionId', auth, controllerWrapper(deleteTransaction));
 
-/**
- *  @swagger
- *  /api/transactions/{transactionId}:
- *      delete:
- *          tags: [Transactions Controller]
- *          summary: Delete transaction
- *          security: [{"Bearer": []}]
- *          parameters:
- *              -   name: transactionId
- *                  in: path
- *                  type: string
- *                  required: true
- *          responses:
- *              204:
- *                  description: Transaction deleted
- *              400:
- *                  description: Validation error
- *              401:
- *                  description: Bearer authorization failed
- *              403:
- *                  description: User does not owns transaction
- *              404:
- *                  description: Transaction not found
- */
+router.patch('/:transactionId', auth, controllerWrapper(getTransactionById));
+
 export default router;

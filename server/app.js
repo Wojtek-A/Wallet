@@ -13,8 +13,8 @@ app.use(cors());
 app.use('/api/api-docs', swaggerRouter);
 app.use('/api/auth', userRouter);
 app.use('/api/transactions', transactionRouter);
-app.use('/api/categories', categoriesRouter);
-app.use('/api/statistics', statisticsRouter);
+app.use('/api/transaction-categories', categoriesRouter);
+app.use('/api/transactions-summary', statisticsRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

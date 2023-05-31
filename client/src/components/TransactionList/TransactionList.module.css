@@ -1,0 +1,111 @@
+.transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+.transactionTable th {
+  background-color: white;
+}
+
+.transactionTable th {
+  padding: 16px 0px 16px 20px;
+  text-align: left;
+}
+
+.transactionTable th:first-child {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.transactionTable th:last-child {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+
+.transactionTable tr td {
+  padding: 16px 0 14px 20px;
+}
+
+.transactionTable tbody tr {
+  border-bottom: 1px solid #DCDCDF;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+
+.transactionTable tbody tr:last-child {
+  border: none;
+  box-shadow: none;
+}
+
+.transactionTable td:nth-child(2) {
+  text-indent: 10px;
+}
+
+
+.container {
+  padding: 0 20px;
+  min-width: 715px;
+
+  @media(min-width: 1200px) {
+    padding: 0 20px 0 0;
+  }
+}
+
+.plus {
+  color: var(--text-income);
+  font-weight: 700;
+}
+
+.minus {
+  color: var(--text-expense);
+  font-weight: 700;
+}
+
+.btn {
+  padding: 4px 12px;
+  font-size: 14px;
+  color: var(--text-alternative);
+  background: var(--btn-primary);
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnEdit {
+  composes: btn;
+  padding: 4px 8px;
+  background: none;
+
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.05);
+  background-color: var(--btn-alternative);
+}
+
+.btnEdit:hover,
+.btnEdit:focus {
+  transform: scale(1.05);
+  background-color: var(--bg-alternative);
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

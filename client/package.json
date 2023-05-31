@@ -12,6 +12,8 @@
     "chart.js": "^4.3.0",
     "clsx": "^1.2.1",
     "modern-normalize": "^2.0.0",
+    "formik": "^2.4.0",
+    "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-datetime": "^3.2.0",
@@ -21,6 +23,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
+    "sass": "^1.62.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
   },

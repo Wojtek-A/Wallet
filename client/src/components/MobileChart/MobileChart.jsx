@@ -1,21 +1,17 @@
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  elements,
-} from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import css from "./MobileChart.module.css";
-import { useEffect, useMemo, useRef } from "react";
-import { Colors } from "chart.js";
-import { CATEGORY_NAME, CHART_COLOR } from "../../redux/constant";
-import { selectTransaction } from "../../redux/selector";
-import { useSelector } from "react-redux";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import css from './MobileChart.module.css';
+import { useEffect, useMemo, useRef } from 'react';
+import { Colors } from 'chart.js';
+import { CATEGORY_NAME, CHART_COLOR } from '../../redux/constant';
+import { selectTransaction } from '../../redux/selector';
+import { useSelector } from 'react-redux';
+import { selectStatisticsDate } from '../../redux/selector';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
 const MobileChart = () => {
+  const statisticsDate = useSelector(selectStatisticsDate);
   const chartRef = useRef();
   const categoryName = Object.values(CATEGORY_NAME);
   const chartBg = Object.values(CHART_COLOR);
@@ -23,34 +19,55 @@ const MobileChart = () => {
 
   const transactionsValue = categoryName.flatMap((category) =>
     transactions.flatMap((transaction) => {
-      if (transaction.Type === "-")
+      const transactionDate = new Date(transaction.Date);
+      const pickDate = new Date(statisticsDate);
+
+      const yearCondition =
+        transactionDate.getFullYear() === pickDate.getFullYear();
+      const monthCondition = transactionDate.getMonth() === pickDate.getMonth();
+
+      if (transaction.Type === '-' && yearCondition && monthCondition) {
         return transaction.Category === category ? -transaction.Value : [];
-      return transaction.Category === category ? transaction.Value : [];
+      }
+      if (yearCondition && monthCondition) {
+        return transaction.Category === category ? transaction.Value : [];
+      }
+
+      return [];
     })
   );
 
   const transactionSum = useMemo(
     () =>
       transactions.reduce((acc, transaction) => {
-        if (transaction.Type === "+") return acc + transaction.Value;
+        const transactionDate = new Date(transaction.Date);
+        const pickDate = new Date(statisticsDate);
 
-        return acc - transaction.Value;
+        const yearCondition =
+          transactionDate.getFullYear() === pickDate.getFullYear();
+        const monthCondition =
+          transactionDate.getMonth() === pickDate.getMonth();
+
+        if (transaction.Type === '+' && yearCondition && monthCondition)
+          return acc + transaction.Value;
+        if (yearCondition && monthCondition) return acc - transaction.Value;
+
+        return acc + 0;
       }, 0),
-    [transactions]
+    [transactions, statisticsDate]
   );
 
-  console.log(transactionsValue);
   useEffect(() => {
     const updateChartSize = () => chartRef.current.resize();
-    window.addEventListener("resize", updateChartSize);
-    return () => window.removeEventListener("resize", updateChartSize);
+    window.addEventListener('resize', updateChartSize);
+    return () => window.removeEventListener('resize', updateChartSize);
   }, []);
 
   const data = {
     labels: categoryName,
     datasets: [
       {
-        label: "Cash",
+        label: 'Cash',
         data: transactionsValue,
         backgroundColor: chartBg,
         borderWidth: 0,

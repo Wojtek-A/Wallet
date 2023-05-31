@@ -27,3 +27,18 @@ export const CATEGORY_NAME = Object.freeze({
   LEISURE: "Leisure",
   OTHER: "Other expanses",
 });
+
+export const MONTH_NAME = Object.freeze([
+  "Styczeń",
+  "Luty",
+  "Marzec",
+  "Kwiecień",
+  "Maj",
+  "Czerwiec",
+  "Lipiec",
+  "Sierpień",
+  "Wrzesień",
+  "Październik",
+  "Listopad",
+  "Grudzień",
+]);
