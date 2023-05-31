@@ -2,12 +2,14 @@ import Navigation from '../Navigation/Navigation.jsx';
 import Currency from '../Currency/Currency.jsx';
 import Balance from '../Balance/Balance.jsx';
 import TransactionList from '../TransactionList/TransactionList.jsx';
+import { Header } from '../Header/Header.jsx';
 
 import css from './Dashboard.module.css';
 
 export const Dashboard = () => {
   return (
     <>
+      <Header />
       <main className={css.dashboardWrapper}>
         <div className={css.leftWrapper}>
           <section className={css.navSection}>

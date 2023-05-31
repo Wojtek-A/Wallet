@@ -5,6 +5,6 @@ import { statisticsController } from '../controllers/statistics/getStatisticsCon
 
 const router = Router();
 
-router.get('/transactions-summary', auth, controllerWrapper(statisticsController));
+router.get('/', auth, controllerWrapper(statisticsController));
 
 export default router;
