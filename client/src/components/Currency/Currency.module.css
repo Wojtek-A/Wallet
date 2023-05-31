@@ -9,8 +9,6 @@
   }
 }
 
-
-
 .table {
   margin: 0 auto;
   width: 100%;
@@ -56,10 +54,5 @@
 }
 
 .table>tbody tr:last-child td {
-  padding-bottom: 52px;
-
-  @media (min-width: 1200px) {
-    padding: 12px 0 179px 0px;
-    text-align: center;
-  }
+  padding-bottom: 20px;
 }
