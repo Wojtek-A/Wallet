@@ -1,10 +1,10 @@
-import Navigation from "../Navigation/Navigation.jsx";
-import Currency from "../Currency/Currency.jsx";
-import Balance from "../Balance/Balance.jsx";
-import MobileTransactionList from "../MobileTransactionList/MobileTransactionList.jsx";
-import { Header } from "../Header/Header.jsx";
+import Navigation from '../Navigation/Navigation.jsx';
+import Currency from '../Currency/Currency.jsx';
+import Balance from '../Balance/Balance.jsx';
+import TransactionList from '../TransactionList/TransactionList.jsx';
+import { Header } from '../Header/Header.jsx';
 
-import css from "./TabletDashboard.module.css";
+import css from './TabletDashboard.module.css';
 
 export const TabletDashboard = () => {
   return (
@@ -21,7 +21,7 @@ export const TabletDashboard = () => {
           <Balance />
         </section>
         <section className={css.transactionListSection}>
-          <MobileTransactionList />
+          <TransactionList />
         </section>
       </main>
     </>
