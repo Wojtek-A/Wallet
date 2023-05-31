@@ -1,5 +1,14 @@
+.leftWrapper {
+  border-right: 2px solid #E7E5F2;
+  box-shadow: .8px 0px 0px rgba(0, 0, 0, 0.05), 1.5px 0px 0px rgba(255, 255, 255, 0.6);
+  height: 100vh;
+  max-width: 480px;
+  padding-right: 69px;
+
+}
+
 .dashboardWrapper {
-  margin: 32px auto 0px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
@@ -12,6 +21,7 @@
 }
 
 .navSection {
+  margin-top: 32px;
   grid-area: nav;
 }
 
@@ -28,5 +38,6 @@
 }
 
 .transactionListSection {
+  margin-top: 32px;
   grid-area: transaction;
 }

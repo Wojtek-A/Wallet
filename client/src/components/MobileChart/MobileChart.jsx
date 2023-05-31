@@ -1,12 +1,12 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import css from "./MobileChart.module.css";
-import { useEffect, useMemo, useRef } from "react";
-import { Colors } from "chart.js";
-import { CATEGORY_NAME, CHART_COLOR } from "../../redux/constant";
-import { selectTransaction } from "../../redux/selector";
-import { useSelector } from "react-redux";
-import { selectStatisticsDate } from "../../redux/selector";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import css from './MobileChart.module.css';
+import { useEffect, useMemo, useRef } from 'react';
+import { Colors } from 'chart.js';
+import { CATEGORY_NAME, CHART_COLOR } from '../../redux/constant';
+import { selectTransaction } from '../../redux/selector';
+import { useSelector } from 'react-redux';
+import { selectStatisticsDate } from '../../redux/selector';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
@@ -26,7 +26,7 @@ const MobileChart = () => {
         transactionDate.getFullYear() === pickDate.getFullYear();
       const monthCondition = transactionDate.getMonth() === pickDate.getMonth();
 
-      if (transaction.Type === "-" && yearCondition && monthCondition) {
+      if (transaction.Type === '-' && yearCondition && monthCondition) {
         return transaction.Category === category ? -transaction.Value : [];
       }
       if (yearCondition && monthCondition) {
@@ -48,7 +48,7 @@ const MobileChart = () => {
         const monthCondition =
           transactionDate.getMonth() === pickDate.getMonth();
 
-        if (transaction.Type === "+" && yearCondition && monthCondition)
+        if (transaction.Type === '+' && yearCondition && monthCondition)
           return acc + transaction.Value;
         if (yearCondition && monthCondition) return acc - transaction.Value;
 
@@ -59,15 +59,15 @@ const MobileChart = () => {
 
   useEffect(() => {
     const updateChartSize = () => chartRef.current.resize();
-    window.addEventListener("resize", updateChartSize);
-    return () => window.removeEventListener("resize", updateChartSize);
+    window.addEventListener('resize', updateChartSize);
+    return () => window.removeEventListener('resize', updateChartSize);
   }, []);
 
   const data = {
     labels: categoryName,
     datasets: [
       {
-        label: "Cash",
+        label: 'Cash',
         data: transactionsValue,
         backgroundColor: chartBg,
         borderWidth: 0,
