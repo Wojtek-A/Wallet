@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import style from "./Header.module.scss";
+import style from "./Header.module.css";
 import sprite from "../../assets/icon/spriteToMergeIntoExisting.svg";
 
 export const Header = () => {
