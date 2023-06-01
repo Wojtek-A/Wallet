@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute } from "./AuthRoutes/PrivateRoute";
 import { RestrictedRoute } from "./AuthRoutes/RestrictedRoute";
+import { Navigate } from "react-router-dom";
 
 export const App = () => {
   const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -22,8 +23,8 @@ export const App = () => {
     <>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
+          <Route index element={<Navigate to="/home" />} />
           <Route
-            index
             path="/login"
             element={<RestrictedRoute component={<LoginPage />}
               redirectTo='/home' />} />
