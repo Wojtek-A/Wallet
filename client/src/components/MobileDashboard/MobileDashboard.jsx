@@ -27,6 +27,7 @@ export const MobileHomeDashboard = () => {
           <section>
             <MobileTransactionList />
           </section>
+          <ButtonAddTransaction />
         </>
       )}
     </main>

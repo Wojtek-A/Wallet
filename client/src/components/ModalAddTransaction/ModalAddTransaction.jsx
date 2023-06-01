@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
@@ -7,10 +7,13 @@ import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
 import style from "./ModalAddTransaction.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
 import { CATEGORY_NAME } from "../../redux/constant";
+import { selectUser } from "../../redux/auth/selectors";
+import { addTransaction } from "../../redux/transactions/transactions.thunk";
 
 export const ModalAddTransaction = () => {
   const [transactionType, setTransactionType] = useState(false);
   const [category, setCategory] = useState("");
+  const activeUser = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -29,18 +32,20 @@ export const ModalAddTransaction = () => {
 
     const type = transactionType ? "-" : "+";
     const amount = event.target.amount.value;
-    const transactionDate = event.target.date.value;
+    const date = event.target.date.value;
     const comment = event.target.comment.value;
+    const owner = activeUser.id;
 
     const newTransaction = {
       type,
-      amount: Number(amount),
-      transactionDate,
+      amount: parseFloat(amount),
+      date,
       comment,
       category: transactionType ? category : "Income",
+      owner,
     };
+    dispatch(addTransaction(newTransaction));
     dispatch(changeIsModalAddTransactionOpen());
-    console.log(newTransaction);
   };
 
   const categorySelection = (event) => {
@@ -97,7 +102,13 @@ export const ModalAddTransaction = () => {
             <div className={style.selectWrapper}>
               <div className={style.selectContainer}>
                 <select className={style.select} onChange={categorySelection}>
-                  <option value="Select option" disabled selected hidden>
+                  <option
+                    value="Select option"
+                    disabled
+                    checked
+                    hidden
+                    className={style.select__placeholder}
+                  >
                     Select a category
                   </option>
                   {CATEGORY_NAME &&

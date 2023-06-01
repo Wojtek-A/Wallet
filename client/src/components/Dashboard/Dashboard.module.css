@@ -1,10 +1,9 @@
 .leftWrapper {
-  border-right: 2px solid #E7E5F2;
-  box-shadow: .8px 0px 0px rgba(0, 0, 0, 0.05), 1.5px 0px 0px rgba(255, 255, 255, 0.6);
-  height: 100vh;
+  border-right: 2px solid #e7e5f2;
+  box-shadow: 0.8px 0px 0px rgba(0, 0, 0, 0.05),
+    1.5px 0px 0px rgba(255, 255, 255, 0.6);
   max-width: 480px;
   padding-right: 69px;
-
 }
 
 .dashboardWrapper {
@@ -13,7 +12,8 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 0;
-  grid-template-areas: "nav transaction"
+  grid-template-areas:
+    "nav transaction"
     "balance transaction"
     "currency transaction"
     ". transaction";
@@ -30,11 +30,9 @@
   margin-bottom: 32px;
 }
 
-
 .currencySection {
   grid-area: currency;
   margin-bottom: 12px;
-
 }
 
 .transactionListSection {

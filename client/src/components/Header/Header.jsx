@@ -5,9 +5,11 @@ import style from "./Header.module.css";
 import sprite from "../../assets/icon/spriteToMergeIntoExisting.svg";
 import { changeIsModalLogoutOpen } from "../../redux/global/slice";
 import { selectIsModalLogoutOpen } from "../../redux/global/selectors";
+import { selectUser } from "../../redux/auth/selectors";
 
 export const Header = (props) => {
   const isModalLogoutOpen = useSelector(selectIsModalLogoutOpen);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   return (
@@ -32,7 +34,9 @@ export const Header = (props) => {
               <>
                 {matches.mobile && (
                   <div className={style.header__logout}>
-                    <span className={style.header__logoutUsername}>Paweł</span>
+                    <span className={style.header__logoutUsername}>
+                      {user.email}
+                    </span>
                     <button
                       className={style.header__logoutButton}
                       onClick={() => dispatch(changeIsModalLogoutOpen())}
@@ -45,7 +49,9 @@ export const Header = (props) => {
                 )}
                 {(matches.tablet || matches.desktop) && (
                   <div className={style.header__logout}>
-                    <span className={style.header__logoutUsername}>Paweł</span>
+                    <span className={style.header__logoutUsername}>
+                      {user.email}
+                    </span>
                     <button
                       className={style.header__logoutButton}
                       onClick={() => dispatch(changeIsModalLogoutOpen())}

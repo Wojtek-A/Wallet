@@ -1,16 +1,19 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { walletReducer } from "./wallet/wallet.slice";
 import { globalReducer } from "./global/slice";
+import { transactionsReducer } from "./transactions/transactions.slice";
 import { authReducer } from "./auth/authSlice";
 import {
-  persistReducer, persistStore, FLUSH,
+  persistReducer,
+  persistStore,
+  FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from 'redux-persist/lib/storage';
+import storage from "redux-persist/lib/storage";
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -21,19 +24,20 @@ const middleware = [
 ];
 
 const authPersistConfig = {
-  key: 'auth',
+  key: "auth",
   storage,
-  whitelist: ['token', 'user'],
+  whitelist: ["token", "user"],
 };
 
 export const store = configureStore({
   reducer: {
     wallet: walletReducer,
     global: globalReducer,
-    auth: persistReducer(authPersistConfig, authReducer)
+    transactions: transactionsReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);

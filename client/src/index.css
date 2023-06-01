@@ -16,7 +16,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   color: var(--text-primary);
-  @media (min-width: 1200px) {
+  @media (min-width: 1280px) {
     background-image: url("../src/assets/icon/desktopBackground.svg");
   }
 }
