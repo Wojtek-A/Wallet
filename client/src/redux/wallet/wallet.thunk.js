@@ -9,12 +9,18 @@ export const getCurrencyThunk = createAsyncThunk(
   "wallet/getCurrency",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(
+      const response = await fetch(
         "http://api.nbp.pl/api/exchangerates/tables/c/?format=JSON"
       );
 
-      const filterResponse = response.data[0].rates.filter(
-        (element) => element.code === "USD" || element.code === "EUR"
+      const data = await response.json();
+      const filterResponse = data[0].rates.filter(
+        (element) =>
+          element.code === "USD" ||
+          element.code === "EUR" ||
+          element.code === "GBP" ||
+          element.code === "CHF" ||
+          element.code === "AUD"
       );
 
       return filterResponse;
