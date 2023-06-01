@@ -25,8 +25,8 @@ const Currency = () => {
         </thead>
         <tbody>
           {!isLoading &&
-            currency.map((element) => (
-              <tr>
+            currency.map((element, index) => (
+              <tr key={index}>
                 <td>{element.code}</td>
                 <td>{element.bid}</td>
                 <td>{element.ask}</td>
