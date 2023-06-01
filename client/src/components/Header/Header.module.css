@@ -1,0 +1,87 @@
+.header {
+	 width: 100%;
+	 height: 80px;
+	 padding: 0px auto;
+	 z-index: 1000;
+	 background-color: #fff;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .header__logo {
+	 position: absolute;
+	 left: 32px;
+	 top: 15px;
+	 width: 181px;
+	 height: 40px;
+}
+ .header__logout {
+	 position: absolute;
+	 right: 20px;
+	 top: 18px;
+	 min-width: 161px;
+	 height: 40px;
+	 display: flex;
+	 text-align: right;
+	 align-items: center;
+}
+ .header__logoutUsername {
+	 font-family: "Circe";
+	 font-style: normal;
+	 font-weight: 400;
+	 font-size: 18px;
+	 line-height: 27px;
+	 color: #bdbdbd;
+	 margin-right: 4px;
+}
+ .header__logoutUsername::after {
+	 content: "\007c";
+	 margin-left: 8px;
+	 height: 30px;
+}
+ .header__logoutButton {
+	 display: flex;
+	 background: none;
+	 border: none;
+	 fill: #bdbdbd;
+}
+ .header__logoutButton:hover {
+	 cursor: pointer;
+	 fill: red;
+}
+ @media screen and (min-width: 1280px) {
+	 .header__logo {
+		 left: 32px;
+	}
+}
+ .logo__svg {
+	 width: 120px;
+	 height: 30px;
+}
+ @media screen and (min-width: 768px) {
+	 .logo__svg {
+		 width: 181px;
+		 height: 40px;
+	}
+}
+ .logout__icon {
+	 display: flex;
+	 align-self: center;
+	 width: 18px;
+	 height: 18px;
+	 margin-right: 8px;
+}
+ .logout__caption {
+	 font-family: "Circe";
+	 font-style: normal;
+	 font-weight: 400;
+	 font-size: 18px;
+	 line-height: 27px;
+	 color: #bdbdbd;
+	 margin-right: 8px;
+}
+ .logout__caption:hover {
+	 cursor: pointer;
+	 color: red;
+}
+ 

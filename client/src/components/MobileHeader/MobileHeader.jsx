@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import style from "./MobileHeader.module.scss";
+import style from "./MobileHeader.module.css";
 import sprite from "../../assets/icon/spriteToMergeIntoExisting.svg";
 
 export const MobileHeader = () => {
