@@ -1,0 +1,10 @@
+.emptyMonth {
+  font-family: "CirceBold";
+  font-size: 22px;
+  text-align: center;
+}
+
+.img {
+  margin: 0 auto;
+  max-width: 240px;
+}

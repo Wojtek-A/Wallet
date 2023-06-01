@@ -8,7 +8,7 @@ const MobileTransactionList = () => {
   const transactions = useSelector(selectTransaction);
 
   return (
-    <div className={css.container}>
+    <div className={clsx(css.container, css.transactionContainer)}>
       {transactions.map((transaction, index) => (
         <ul
           key={index}
@@ -26,7 +26,9 @@ const MobileTransactionList = () => {
                   [css.minus]: transaction.Type === "-" && keyObj === "Sum",
                 })}
               >
-                {transaction[keyObj]}
+                {keyObj !== "Date" && transaction[keyObj]}
+                {keyObj === "Date" &&
+                  new Date(transaction[keyObj]).toLocaleDateString()}
               </p>
             </li>
           ))}
