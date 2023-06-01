@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { selectTransaction } from '../../redux/selector';
-import css from './Balance.module.css';
-import { useSelector } from 'react-redux';
+import { useMemo } from "react";
+import { selectTransaction } from "../../redux/selector";
+import css from "./Balance.module.css";
+import { useSelector } from "react-redux";
 
 const Balance = () => {
   const transactions = useSelector(selectTransaction);
@@ -9,9 +9,9 @@ const Balance = () => {
   const transactionSum = useMemo(
     () =>
       transactions.reduce((acc, transaction) => {
-        if (transaction.Type === '+') return acc + transaction.Sum;
+        if (transaction.Type === "+") return acc + transaction.Value;
 
-        return acc - transaction.Sum;
+        return acc - transaction.Value;
       }, 0),
     [transactions]
   );

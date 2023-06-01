@@ -1,0 +1,46 @@
+.item {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.firtItem {
+  font-family: "CirceBold";
+  font-size: 18px;
+  background-color: var(--bg-alternative);
+  border-radius: 30px;
+}
+
+.grid {
+  margin: 0 auto;
+  padding-bottom: 52px;
+  max-width: 280px;
+}
+
+.otherItem {
+  padding-left: 54px;
+  position: relative;
+  font-family: "CirceRegular";
+  border-bottom: 1px solid #dcdcdf;
+}
+
+.box {
+  position: absolute;
+  content: "";
+  left: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.itemSum {
+  font-family: "CirceBold";
+}
+
+.income {
+  color: var(--text-income);
+}
+
+.expense {
+  color: var(--text-expense);
+}

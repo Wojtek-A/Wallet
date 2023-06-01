@@ -12,6 +12,9 @@
   max-width: 420px;
 }
 
+.transactionContainer {
+  padding-bottom: 20px;
+}
 .income::before {
   position: absolute;
   content: "";

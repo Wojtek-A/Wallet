@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import css from './Currency.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrencyThunk } from '../../redux/wallet/wallet.thunk';
-import { selectCurrency, selectIsLoading } from '../../redux/selector';
+import { useEffect } from "react";
+import css from "./Currency.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrencyThunk } from "../../redux/wallet/wallet.thunk";
+import { selectCurrency, selectIsLoading } from "../../redux/selector";
 
 const Currency = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,6 @@ const Currency = () => {
     dispatch(getCurrencyThunk());
   }, [dispatch]);
 
-  console.log(currency);
   return (
     <div className={css.container}>
       <table className={css.table}>
