@@ -24,7 +24,7 @@ export const App = () => {
           <Route path="/statistic" element={<StatisticsPage />}></Route>
           <Route path="/exchange" element={<ExchangePage />}></Route>
           <Route path="/register" element={<RegistrationPage />}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/login" element={<LoginPage />} ></Route>
         </Routes>
       </Suspense>
     </>

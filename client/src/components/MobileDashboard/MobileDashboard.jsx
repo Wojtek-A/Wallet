@@ -1,22 +1,12 @@
-import { useSelector } from "react-redux";
-
 import MobileNavigation from "../MobileNavigation/MobileNavigation.jsx";
-// import Navigation from '../Navigation/Navigation.jsx';
+import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
 import Balance from "../Balance/Balance.jsx";
 import css from "./MobileDashboard.module.css";
 
 import MobileTransactionList from "../MobileTransactionList/MobileTransactionList.jsx";
 
-import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
-import { selectIsModalAddTransactionOpen } from "../../redux/global/selectors.js";
-import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction.jsx";
-
 export const MobileHomeDashboard = () => {
-  const isModalAddTransactionOpened = useSelector(
-    selectIsModalAddTransactionOpen
-  );
-
   return (
     <main className={css.mobileDashboardWrapper}>
       <section className={css.navSection}>
@@ -25,13 +15,10 @@ export const MobileHomeDashboard = () => {
       <section className={css.balanceSection}>
         <Balance />
       </section>
-
       <section>
         <MobileTransactionList />
-        <ButtonAddTransaction />
       </section>
-
-      {isModalAddTransactionOpened && <ModalAddTransaction />}
+      <ButtonAddTransaction />
     </main>
   );
 };

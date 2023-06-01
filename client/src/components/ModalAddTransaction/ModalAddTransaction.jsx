@@ -4,7 +4,7 @@ import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
-import style from "./ModalAddTransaction.module.scss";
+import style from "./ModalAddTransaction.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
 import { CATEGORY_NAME } from "../../redux/constant";
 

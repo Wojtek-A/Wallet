@@ -2,6 +2,7 @@ import Navigation from "../Navigation/Navigation.jsx";
 import Currency from "../Currency/Currency.jsx";
 import Balance from "../Balance/Balance.jsx";
 import TransactionList from "../TransactionList/TransactionList.jsx";
+import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
 import css from "./TabletDashboard.module.css";
 
@@ -21,6 +22,7 @@ export const TabletDashboard = () => {
         <section className={css.transactionListSection}>
           <TransactionList />
         </section>
+        <ButtonAddTransaction />
       </main>
     </>
   );
