@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import { selectTransaction } from '../../redux/selector';
+import { selectTransactions } from '../../redux/selector';
 import css from './TransactionList.module.css';
 import clsx from 'clsx';
 import sprite from '../../assets/icon/sprite.svg';
 
 const TransactionList = () => {
-  const transactions = useSelector(selectTransaction);
+  const transactions = useSelector(selectTransactions);
 
   return (
     <div className={css.container}>
