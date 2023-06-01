@@ -8,19 +8,23 @@
   cursor: pointer;
   transition: all 0.5s;
   transform-origin: 50% 50%;
+}
 
-  &:hover {
-    transform: scale(1.2);
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .button {
     bottom: 40px;
     right: 40px;
   }
+}
 
-  @media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
+  .button {
     position: absolute;
     bottom: 40px;
     right: 40px;
   }
+}
+
+.button:hover {
+  transform: scale(1.2);
 }

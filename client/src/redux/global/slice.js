@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isModalAddTransactionOpen: false,
@@ -6,6 +6,8 @@ const initialState = {
   isModalLogoutOpen: false,
   transactionToEdit: [],
 };
+
+export const resetState = createAction("global/resetState");
 
 export const globalSlice = createSlice({
   name: "global",

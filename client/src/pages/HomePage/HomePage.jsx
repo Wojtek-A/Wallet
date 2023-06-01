@@ -1,17 +1,11 @@
 import Media from "react-media";
-import { useSelector } from "react-redux";
+
 import MobileDashboard from "../../components/MobileDashboard/MobileDashboard";
 import TabletDashboard from "../../components/TabletDashboard/TabletDashboard";
 import Dashboard from "../../components/Dashboard/Dashboard";
-import { ButtonAddTransaction } from "../../components/ButtonAddTransactions/ButtonAddTransaction.jsx";
-import { selectIsModalAddTransactionOpen } from "../../redux/global/selectors.js";
-import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction.jsx";
+import { Header } from "../../components/Header/Header";
 
 const HomePage = () => {
-  const isModalAddTransactionOpened = useSelector(
-    selectIsModalAddTransactionOpen
-  );
-
   return (
     <Media
       queries={{
@@ -21,14 +15,11 @@ const HomePage = () => {
       }}
     >
       {(matches) => (
-        <>
+        <Header>
           {matches.mobile && <MobileDashboard />}
           {matches.tablet && <TabletDashboard />}
           {matches.desktop && <Dashboard />}
-
-          <ButtonAddTransaction />
-          {isModalAddTransactionOpened && <ModalAddTransaction />}
-        </>
+        </Header>
       )}
     </Media>
   );

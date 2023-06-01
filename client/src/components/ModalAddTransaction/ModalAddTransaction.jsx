@@ -94,18 +94,20 @@ export const ModalAddTransaction = () => {
           {!transactionType ? (
             <></>
           ) : (
-            <select
-              className={style.modal__categoriesSelect}
-              onChange={categorySelection}
-            >
-              <option value="Select option" disabled selected hidden>
-                Select a category
-              </option>
-              {CATEGORY_NAME &&
-                Object.values(CATEGORY_NAME).map((element, index) => {
-                  return <option key={index}>{element}</option>;
-                })}
-            </select>
+            <div className={style.selectWrapper}>
+              <div className={style.selectContainer}>
+                <select className={style.select} onChange={categorySelection}>
+                  <option value="Select option" disabled selected hidden>
+                    Select a category
+                  </option>
+                  {CATEGORY_NAME &&
+                    Object.values(CATEGORY_NAME).map((element, index) => {
+                      return <option key={index}>{element}</option>;
+                    })}
+                </select>
+                <div className={style.selectIcon}>&#9662;</div>
+              </div>
+            </div>
           )}
           <div className={style.modal__inputs}>
             <input
