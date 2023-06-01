@@ -1,16 +1,16 @@
-import { useSelector } from "react-redux";
-import { CHART_COLOR } from "../../redux/constant";
-import { CATEGORY_NAME } from "../../redux/constant";
-import css from "./MobileStatisticsList.module.css";
-import { selectStatisticsDate, selectTransaction } from "../../redux/selector";
-import clsx from "clsx";
-import { useMemo } from "react";
-import { elements } from "chart.js";
+import { useSelector } from 'react-redux';
+import { CHART_COLOR } from '../../redux/constant';
+import { CATEGORY_NAME } from '../../redux/constant';
+import css from './MobileStatisticsList.module.css';
+import { selectStatisticsDate, selectTransactions } from '../../redux/selector';
+import clsx from 'clsx';
+import { useMemo } from 'react';
+import { elements } from 'chart.js';
 
 const MobieStatisticsList = () => {
   const categories = Object.values(CATEGORY_NAME);
   const bgColor = Object.values(CHART_COLOR);
-  const transactions = useSelector(selectTransaction);
+  const transactions = useSelector(selectTransactions);
   const statisticsDate = useSelector(selectStatisticsDate);
 
   const getTransactionsCategoryValue = useMemo(
@@ -25,11 +25,11 @@ const MobieStatisticsList = () => {
         const monthCondition =
           transactionDate.getMonth() === pickDate.getMonth();
 
-        if (transaction.Type === "-" && yearCondition && monthCondition) {
+        if (transaction.Type === '-' && yearCondition && monthCondition) {
           acc[transaction.Category] =
             acc[transaction.Category] - transaction.Value;
         }
-        if (transaction.Type === "+" && yearCondition && monthCondition) {
+        if (transaction.Type === '+' && yearCondition && monthCondition) {
           acc[transaction.Category] =
             acc[transaction.Category] + transaction.Value;
         }
@@ -49,11 +49,11 @@ const MobieStatisticsList = () => {
       transactionDate.getFullYear() === pickDate.getFullYear();
     const monthCondition = transactionDate.getMonth() === pickDate.getMonth();
 
-    if (ele.Type === "-" && yearCondition && monthCondition) {
+    if (ele.Type === '-' && yearCondition && monthCondition) {
       acc.expense = (acc.expense || 0) - ele.Value;
     }
 
-    if (ele.Type === "+" && yearCondition && monthCondition) {
+    if (ele.Type === '+' && yearCondition && monthCondition) {
       acc.income = (acc.income || 0) - ele.Value;
     }
     return acc;
@@ -74,7 +74,7 @@ const MobieStatisticsList = () => {
               style={{ backgroundColor: bgColor[index] }}
             ></span>
             <p>{category}</p>
-            <p>{transactionsValue[index] ?? "0"}</p>
+            <p>{transactionsValue[index] ?? '0'}</p>
           </li>
         );
       })}

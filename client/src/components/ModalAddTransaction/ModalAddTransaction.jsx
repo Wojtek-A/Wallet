@@ -1,25 +1,26 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import Datetime from "react-datetime";
-import "react-datetime/css/react-datetime.css";
-import { date } from "yup";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Datetime from 'react-datetime';
+import 'react-datetime/css/react-datetime.css';
+import { date } from 'yup';
 
-import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
-import style from "./ModalAddTransaction.module.css";
-import closeBtn from "./../../images/closeBtn.svg";
-import { categories } from "../../utils/transactionCategories";
+import { addTransaction } from '../../redux/wallet/wallet.thunk';
+import { changeIsModalAddTransactionOpen } from '../../redux/global/slice';
+import style from './ModalAddTransaction.module.css';
+import closeBtn from './../../images/closeBtn.svg';
+import { categories } from '../../utils/transactionCategories';
 
 export const ModalAddTransaction = () => {
   const [transactionType, setTransactionType] = useState(false);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState('');
 
   const dispatch = useDispatch();
 
   const closeModal = (event) => {
     if (
-      event.target.id === "overlay" ||
-      event.target.nodeName === "IMG" ||
-      event.target.name === "closeBtn"
+      event.target.id === 'overlay' ||
+      event.target.nodeName === 'IMG' ||
+      event.target.name === 'closeBtn'
     ) {
       dispatch(changeIsModalAddTransactionOpen());
     }
@@ -28,27 +29,28 @@ export const ModalAddTransaction = () => {
   const submitTransaction = (event) => {
     event.preventDefault();
 
-    const type = transactionType ? "-" : "+";
+    const type = transactionType ? '-' : '+';
     const value = event.target.amount.value;
     const date = event.target.date.value;
     const comment = event.target.comment.value;
 
     const newTransaction = {
       type,
-      value: Number(value),
+      amount: Number(value),
       date,
       comment,
       categoryId: transactionType
         ? category
-        : "063f1132-ba5d-42b4-951d-44011ca46262",
+        : '063f1132-ba5d-42b4-951d-44011ca46262',
     };
     dispatch(changeIsModalAddTransactionOpen());
     console.log(newTransaction);
+    addTransaction(newTransaction);
   };
 
   const categorySelection = (event) => {
     const selectedCategory = event.target.value;
-    if (selectedCategory !== "063f1132-ba5d-42b4-951d-44011ca46262") {
+    if (selectedCategory !== '063f1132-ba5d-42b4-951d-44011ca46262') {
       setCategory(selectedCategory);
     } else {
       setTransactionType(!transactionType);
@@ -133,7 +135,7 @@ export const ModalAddTransaction = () => {
               closeOnSelect={true}
               inputProps={{
                 className: style.modal__date,
-                name: "date",
+                name: 'date',
               }}
               initialValue={new Date()}
               required
