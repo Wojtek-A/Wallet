@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 import { User } from '../../models/Users.js';
 import { userSchema } from '../../schemas/userSchema.js';
+import dotenv from "dotenv";
+dotenv.config();
 const { SECRET } = process.env;
 
 const signupController = async (req, res, _) => {
