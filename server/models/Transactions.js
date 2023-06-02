@@ -1,4 +1,3 @@
-import { Double } from 'mongodb';
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
@@ -10,7 +9,7 @@ const TransactionSchema = new Schema({
     required: [true, 'Type is required'],
   },
   amount: {
-    type: String,
+    type: Number,
     required: [true, 'Amount is required'],
   },
   date: {
@@ -52,7 +51,7 @@ const TransactionSchema = new Schema({
   },
 });
 
-TransactionSchema.pre('save', function (next) {
+TransactionSchema.pre('save', function(next) {
   const date = new Date(this.date);
   this.month = date.getMonth() + 1;
   this.year = date.getFullYear();
@@ -70,31 +69,42 @@ export { Transaction };
  *      CreateTransactions:
  *        type: object
  *        properties:
- *          transactionDate:
- *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
+ *            type: string
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *
  *      UpdateTransaction:
  *        type: object
  *        properties:
  *          transactionDate:
- *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
+ *            type: string
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *
  *      TransactionCategories:
@@ -120,20 +130,23 @@ export { Transaction };
  *      CreatedTransactions:
  *        type: object
  *        properties:
- *          id:
- *            type: string
- *          transactionDate:
+ *          _id:
  *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
  *            type: string
- *          userId:
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *          balanceAfter:
  *            type: number
@@ -166,18 +179,21 @@ export { Transaction };
  *        properties:
  *          id:
  *            type: string
- *          transactionDate:
- *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
  *            type: string
- *          userId:
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *          balanceAfter:
  *            type: number
