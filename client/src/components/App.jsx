@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { refreshUser } from "../redux/auth/operations";
+import { fetchTransactions } from "../redux/wallet/wallet.thunk";
 
 export const App = () => {
   const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -24,6 +25,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(fetchTransactions());
   }, [dispatch]);
 
   return (

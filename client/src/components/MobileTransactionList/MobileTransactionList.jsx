@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
-import { selectTransactions } from '../../redux/selector';
-import css from './MobileTransactionList.module.css';
-import clsx from 'clsx';
-import sprite from '../../assets/icon/sprite.svg';
+import { useSelector } from "react-redux";
+import { selectTransactions } from "../../redux/selector";
+import css from "./MobileTransactionList.module.css";
+import clsx from "clsx";
+import sprite from "../../assets/icon/sprite.svg";
 
 const MobileTransactionList = () => {
   const transactions = useSelector(selectTransactions);
@@ -13,8 +13,8 @@ const MobileTransactionList = () => {
         <ul
           key={index}
           className={clsx(css.transactionGrid, {
-            [css.income]: transaction.Type === '+',
-            [css.expense]: transaction.Type === '-',
+            [css.income]: transaction.type,
+            [css.expense]: !transaction.type,
           })}
         >
           {Object.keys(transaction).map((keyObj, index) => (
@@ -22,12 +22,12 @@ const MobileTransactionList = () => {
               <p className={css.title}>{keyObj}</p>
               <p
                 className={clsx(css.text, {
-                  [css.plus]: transaction.Type === '+' && keyObj === 'Sum',
-                  [css.minus]: transaction.Type === '-' && keyObj === 'Sum',
+                  [css.plus]: transaction.type && keyObj === "amount",
+                  [css.minus]: !transaction.type && keyObj === "amount",
                 })}
               >
-                {keyObj !== 'Date' && transaction[keyObj]}
-                {keyObj === 'Date' &&
+                {keyObj !== "date" && transaction[keyObj]}
+                {keyObj === "date" &&
                   new Date(transaction[keyObj]).toLocaleDateString()}
               </p>
             </li>

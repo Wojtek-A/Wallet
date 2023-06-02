@@ -15,10 +15,6 @@ export const Dashboard = () => {
   const isError = useSelector(selectErrorStatus);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchTransactions());
-  }, [dispatch]);
-
   return (
     <>
       <main className={css.dashboardWrapper}>
