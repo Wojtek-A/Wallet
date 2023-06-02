@@ -76,6 +76,10 @@
   margin-top: 20px;
   margin-left: 55px;
   margin-right: 55px;
+  cursor: pointer;
+}
+.nav:hover {
+  transform: scale(1.05);
 }
 
 .glassmorphism {
