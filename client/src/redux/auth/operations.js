@@ -18,7 +18,7 @@ export const registerUser = createAsyncThunk(
     try {
       const res = await axios.post("/auth/sign-up", credentials);
       setAuthHeader(res.data.token);
-      Notify.success(`Hello, ${res.data.login}`);
+      Notify.success(`Welcome to Wallet app!`);
       return res.data;
     } catch (error) {
       Notify.failure(`${error.message}`);
