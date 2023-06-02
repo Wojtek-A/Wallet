@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectTransactions } from "../../redux/selector";
-import css from "./TransactionList.module.css";
-import sprite from "../../assets/icon/sprite.svg";
 import {
   changeIsModalEditTrasactionOpen,
   setTransactionToEdit,
 } from "../../redux/global/slice";
 import { deleteTransaction } from "../../redux/wallet/wallet.thunk";
-import { useEffect } from "react";
+
+import css from "./TransactionList.module.css";
+import clsx from "clsx";
+import sprite from "../../assets/icon/sprite.svg";
 
 const TransactionList = () => {
   const transactions = useSelector(selectTransactions);
@@ -42,7 +43,14 @@ const TransactionList = () => {
               <td className={css.tableData}>{transaction.type ? "+" : "-"}</td>
               <td className={css.tableData}>{transaction.category}</td>
               <td className={css.tableData}>{transaction.comment}</td>
-              <td className={css.tableData}>{transaction.amount}</td>
+              <td
+                className={clsx(css.tableData, {
+                  [css.plus]: transaction.type,
+                  [css.minus]: !transaction.type,
+                })}
+              >
+                {transaction.amount}
+              </td>
               <td className={css.tableData}>
                 <div className={css.wrapper}>
                   <button
