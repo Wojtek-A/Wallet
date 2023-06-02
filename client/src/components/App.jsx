@@ -1,10 +1,11 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./AuthRoutes/PrivateRoute";
 import { RestrictedRoute } from "./AuthRoutes/RestrictedRoute";
 import { Navigate } from "react-router-dom";
 
-import { selectIsLoggedIn } from "../redux/auth/selectors";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../redux/auth/operations";
 
 export const App = () => {
   const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -18,6 +19,12 @@ export const App = () => {
     import("../pages/RegistrationPage/RegistrationPage.jsx")
   );
   const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage.jsx"));
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>
