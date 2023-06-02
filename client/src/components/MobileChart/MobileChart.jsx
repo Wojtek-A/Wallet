@@ -4,24 +4,24 @@ import {
   Tooltip,
   Legend,
   elements,
-} from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import css from "./MobileChart.module.css";
-import { useEffect, useMemo, useRef } from "react";
-import { Colors } from "chart.js";
-import { CATEGORY_NAME, CHART_COLOR } from "../../redux/constant";
-import { selectTransaction } from "../../redux/selector";
-import { useSelector } from "react-redux";
-import { selectStatisticsDate } from "../../redux/selector";
-import empty from "../../assets/image/empty.png";
-import Empty from "../Empty/Empty";
+} from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import css from './MobileChart.module.css';
+import { useEffect, useMemo, useRef } from 'react';
+import { Colors } from 'chart.js';
+import { CATEGORY_NAME, CHART_COLOR } from '../../redux/constant';
+import { selectTransactions } from '../../redux/selector';
+import { useSelector } from 'react-redux';
+import { selectStatisticsDate } from '../../redux/selector';
+import empty from '../../assets/image/empty.png';
+import Empty from '../Empty/Empty';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
 const MobileChart = () => {
   const statisticsDate = useSelector(selectStatisticsDate);
   const chartRef = useRef();
-  const transactions = useSelector(selectTransaction);
+  const transactions = useSelector(selectTransactions);
 
   const getTransactionsCategoryValue = useMemo(
     () =>
@@ -34,11 +34,11 @@ const MobileChart = () => {
         const monthCondition =
           transactionDate.getMonth() === pickDate.getMonth();
 
-        if (transaction.Type === "-" && yearCondition && monthCondition) {
+        if (transaction.Type === '-' && yearCondition && monthCondition) {
           acc[transaction.Category] =
             (acc[transaction.Category] ?? 0) - transaction.Value;
         }
-        if (transaction.Type === "+" && yearCondition && monthCondition) {
+        if (transaction.Type === '+' && yearCondition && monthCondition) {
           acc[transaction.Category] =
             (acc[transaction.Category] ?? 0) + transaction.Value;
         }
@@ -67,7 +67,7 @@ const MobileChart = () => {
         const monthCondition =
           transactionDate.getMonth() === pickDate.getMonth();
 
-        if (transaction.Type === "+" && yearCondition && monthCondition)
+        if (transaction.Type === '+' && yearCondition && monthCondition)
           return acc + transaction.Value;
         if (yearCondition && monthCondition) return acc - transaction.Value;
 
@@ -82,15 +82,15 @@ const MobileChart = () => {
 
       chartRef.current.resize();
     };
-    window.addEventListener("resize", updateChartSize);
-    return () => window.removeEventListener("resize", updateChartSize);
+    window.addEventListener('resize', updateChartSize);
+    return () => window.removeEventListener('resize', updateChartSize);
   }, [getTransactionsCategoryValue]);
 
   const data = {
     labels: categoryName,
     datasets: [
       {
-        label: "Cash",
+        label: 'Cash',
         data: transactionsCategorySum,
         backgroundColor: chartBg,
         borderWidth: 0,
@@ -122,7 +122,7 @@ const MobileChart = () => {
                 redraw="true"
                 updateMode="resize"
               />
-            </div>{" "}
+            </div>{' '}
           </>
         )}
       </div>

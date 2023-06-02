@@ -1,21 +1,20 @@
-import { useMemo } from "react";
-import { selectTransaction } from "../../redux/selector";
-import css from "./Balance.module.css";
-import { useSelector } from "react-redux";
+import { useMemo } from 'react';
+import { selectTransactions } from '../../redux/selector';
+import css from './Balance.module.css';
+import { useSelector } from 'react-redux';
 
 const Balance = () => {
-  const transactions = useSelector(selectTransaction);
+  const transactions = useSelector(selectTransactions);
 
-  const transactionSum = useMemo(
-    () =>
-      transactions.reduce((acc, transaction) => {
-        if (transaction.Type === "+") return acc + transaction.Value;
+  const transactionSum = useMemo(() => {
+    if (transactions.length === 0) return 0;
 
-        return acc - transaction.Value;
-      }, 0),
-    [transactions]
-  );
+    return transactions.reduce((acc, transaction) => {
+      if (transaction.Type === '+') return acc + transaction.Sum;
 
+      return acc - transaction.Sum;
+    }, 0);
+  }, [transactions]);
   return (
     <div className={css.container}>
       <div className={css.balanceWrapper}>

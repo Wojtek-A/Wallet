@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
-import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
-import style from "./ModalAddTransaction.module.css";
-import closeBtn from "./../../images/closeBtn.svg";
+import { addTransaction } from '../../redux/wallet/wallet.thunk';
+import { changeIsModalAddTransactionOpen } from '../../redux/global/slice';
+import style from './ModalAddTransaction.module.css';
+import closeBtn from './../../images/closeBtn.svg';
 import { CATEGORY_NAME } from "../../redux/constant";
 import { selectUser } from "../../redux/auth/selectors";
-import { addTransaction } from "../../redux/transactions/transactions.thunk";
 
 export const ModalAddTransaction = () => {
   const [transactionType, setTransactionType] = useState(false);
@@ -19,9 +19,9 @@ export const ModalAddTransaction = () => {
 
   const closeModal = (event) => {
     if (
-      event.target.id === "overlay" ||
-      event.target.nodeName === "IMG" ||
-      event.target.name === "closeBtn"
+      event.target.id === 'overlay' ||
+      event.target.nodeName === 'IMG' ||
+      event.target.name === 'closeBtn'
     ) {
       dispatch(changeIsModalAddTransactionOpen());
     }
@@ -38,7 +38,7 @@ export const ModalAddTransaction = () => {
 
     const newTransaction = {
       type,
-      amount: parseFloat(amount),
+      amount: Number(value),
       date,
       comment,
       category: transactionType ? category : "Income",
@@ -46,6 +46,8 @@ export const ModalAddTransaction = () => {
     };
     dispatch(addTransaction(newTransaction));
     dispatch(changeIsModalAddTransactionOpen());
+    console.log(newTransaction);
+    addTransaction(newTransaction);
   };
 
   const categorySelection = (event) => {
@@ -135,7 +137,7 @@ export const ModalAddTransaction = () => {
               closeOnSelect={true}
               inputProps={{
                 className: style.modal__date,
-                name: "date",
+                name: 'date',
               }}
               initialValue={new Date()}
               required
