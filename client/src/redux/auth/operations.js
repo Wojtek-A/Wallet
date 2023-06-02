@@ -18,7 +18,7 @@ export const registerUser = createAsyncThunk(
     try {
       const res = await axios.post("/auth/sign-up", credentials);
       setAuthHeader(res.data.token);
-      Notify.success(`Hello, ${res.data.login}`);
+      Notify.success(`Welcome to Wallet app!`);
       return res.data;
     } catch (error) {
       Notify.failure(`${error.message}`);
@@ -32,7 +32,7 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/auth/sign-in", credentials);
-      Notify.success(`Hello, ${res.data.login}`);
+      Notify.success(`Welcome to Wallet app!`);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -68,7 +68,6 @@ export const refreshUser = createAsyncThunk(
       console.log(res.data);
       return res.data;
     } catch (error) {
-      Notify.failure(`${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

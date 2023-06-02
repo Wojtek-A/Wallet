@@ -1,9 +1,10 @@
 import React, { Suspense, lazy, useEffect } from "react";
+import css from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./AuthRoutes/PrivateRoute";
 import { RestrictedRoute } from "./AuthRoutes/RestrictedRoute";
 import { Navigate } from "react-router-dom";
-
+import { RotatingLines } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "../redux/auth/operations";
 import { fetchTransactions } from "../redux/wallet/wallet.thunk";
@@ -30,7 +31,12 @@ export const App = () => {
 
   return (
     <>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={
+        <div className={css.loaderBox}>
+          <RotatingLines
+            strokeColor="grey"
+          />
+        </div>}>
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route

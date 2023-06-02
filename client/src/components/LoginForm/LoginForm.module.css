@@ -28,8 +28,13 @@
   border: none;
   padding: 13px 61px;
   margin-top: 53px;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     margin-left: 54px;
     margin-right: 55.5px;
   }
+}
+
+.registerButton:hover {
+  transform: scale(1.05);
 }

@@ -8,8 +8,6 @@ const auth = (req, res, next) => {
         const { authorization = "" } = req.headers;
         const [bearer, token] = authorization.split(" ");
 
-        console.log(user);
-
         if (!user || err || user.token !== token) {
             return res.status(401).json({
                 status: "error",

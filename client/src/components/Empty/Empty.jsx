@@ -5,7 +5,7 @@ const Empty = () => {
   return (
     <>
       <img src={emptyWallet} className={css.img} />
-      <h3 className={css.emptyMonth}>Brak transakcji</h3>
+      <h3 className={css.emptyMonth}>No transactions</h3>
     </>
   );
 };

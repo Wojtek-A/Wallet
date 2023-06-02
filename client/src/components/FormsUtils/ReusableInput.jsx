@@ -22,6 +22,7 @@ const ReusableInput = ({ fieldType, placeholder, validation, iconLink, iconClass
                     className={`${css.input}`}
                     onFocus={() => setIsActive(true)}
                     onBlur={() => setIsActive(false)}
+                    autoComplete="off"
                 />
             </label>
             {errorsVariable && <p role="alert" className={css.errorMessage}>{errorsVariable?.message}</p>}
