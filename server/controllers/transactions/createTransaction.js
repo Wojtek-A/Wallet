@@ -15,8 +15,6 @@ const createTransaction = async (req, res, next) => {
     user.balance = Number(user.balance) + calc;
     await user.save();
 
-    // const calc = body.type === true ? Number(body.amount) : Number(body.amount) * -1;
-
     user.balance = user.balance + calc;
     user.save();
 
