@@ -1,28 +1,30 @@
 .button {
-	 position: fixed;
-	 border-radius: 50%;
-	 right: 20px;
-	 bottom: 20px;
-	 width: 44px;
-	 height: 44px;
-	 cursor: pointer;
-	 transition: all 0.5s;
-	 transform-origin: 50% 50%;
+  position: fixed;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  transition: all 0.5s;
+  transform-origin: 50% 50%;
 }
- .button:hover {
-	 transform: scale(1.2);
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .button {
+    bottom: 40px;
+    right: 40px;
+  }
 }
- @media screen and (min-width: 768px) and (max-width: 1279px) {
-	 .button {
-		 bottom: 40px;
-		 right: 40px;
-	}
+
+@media screen and (min-width: 1280px) {
+  .button {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+  }
 }
- @media screen and (min-width: 1280px) {
-	 .button {
-		 position: absolute;
-		 bottom: 40px;
-		 right: 40px;
-	}
+
+.button:hover {
+  transform: scale(1.2);
 }
- 

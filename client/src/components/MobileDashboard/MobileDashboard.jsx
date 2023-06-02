@@ -1,5 +1,5 @@
-import MobileNavigation from '../MobileNavigation/MobileNavigation.jsx';
-// import Navigation from '../Navigation/Navigation.jsx';
+import MobileNavigation from "../MobileNavigation/MobileNavigation.jsx";
+import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
 import Balance from '../Balance/Balance.jsx';
 import css from './MobileDashboard.module.css';
@@ -27,6 +27,7 @@ export const MobileHomeDashboard = () => {
           <section>
             <MobileTransactionList />
           </section>
+          <ButtonAddTransaction />
         </>
       )}
     </main>

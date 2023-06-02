@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 import {
   getCurrencyThunk,
   fetchTransactions,
   addTransaction,
   deleteTransaction,
-} from './wallet.thunk.js';
+  updateTransaction,
+} from "./wallet.thunk.js";
 // import { tempTransactionDB } from '../../tempDB/tempDB.js';
 
 const walletInitialState = {
@@ -26,12 +27,12 @@ const handleError = (state, action) => {
 };
 
 const isPendingWalletAction = (action) =>
-  action.type.endsWith('pending') && action.type.startsWith('wallet');
+  action.type.endsWith("pending") && action.type.startsWith("wallet");
 const isRejectedWalletAction = (action) =>
-  action.type.endsWith('rejected') && action.type.startsWith('wallet');
+  action.type.endsWith("rejected") && action.type.startsWith("wallet");
 
 const walletSlice = createSlice({
-  name: 'wallet',
+  name: "wallet",
   initialState: walletInitialState,
   reducers: {
     setMonth: (state, action) => {
@@ -67,6 +68,13 @@ const walletSlice = createSlice({
           (transaction) => transaction.id === action.payload.id
         );
         state.transactions.splice(index, 1);
+      })
+      .addCase(updateTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const index = state.transactions.findIndex(
+          (transaction) => transaction.id === action.payload.id
+        );
+        state.transactions[index] = action.payload;
       })
 
       .addMatcher(isPendingWalletAction, handlePending)

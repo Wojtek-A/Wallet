@@ -1,14 +1,14 @@
-import Navigation from '../Navigation/Navigation.jsx';
-import Currency from '../Currency/Currency.jsx';
-import Balance from '../Balance/Balance.jsx';
-import TransactionList from '../TransactionList/TransactionList.jsx';
-import { Header } from '../Header/Header.jsx';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTransactions } from '../../redux/wallet/wallet.thunk.js';
-import { selectIsLoading, selectErrorStatus } from '../../redux/selector.js';
+import Navigation from "../Navigation/Navigation.jsx";
+import Currency from "../Currency/Currency.jsx";
+import Balance from "../Balance/Balance.jsx";
+import TransactionList from "../TransactionList/TransactionList.jsx";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTransactions } from "../../redux/wallet/wallet.thunk.js";
+import { selectIsLoading, selectErrorStatus } from "../../redux/selector.js";
+import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
-import css from './Dashboard.module.css';
+import css from "./Dashboard.module.css";
 
 export const Dashboard = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -21,7 +21,6 @@ export const Dashboard = () => {
 
   return (
     <>
-      <Header />
       <main className={css.dashboardWrapper}>
         <div className={css.leftWrapper}>
           <section className={css.navSection}>
@@ -37,6 +36,7 @@ export const Dashboard = () => {
         <section className={css.transactionListSection}>
           <TransactionList />
         </section>
+        <ButtonAddTransaction />
       </main>
     </>
   );
