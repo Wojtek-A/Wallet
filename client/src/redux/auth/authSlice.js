@@ -31,15 +31,16 @@ const authSlice = createSlice({
       state.isRefreshing = true;
     },
     [refreshUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = {
+        token: action.payload.token,
+        id: action.payload._id,
+        email: action.payload.email,
+      };
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
-      state.isLoggedIn = false;
-      state.user = {};
-      state.token = null;
     },
   },
 });
