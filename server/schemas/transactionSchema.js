@@ -17,6 +17,7 @@ const transactionSchema = Joi.object({
     "Income"
   ),
   comment: Joi.string().required().default(null),
+     owner: Joi.string().required(),
 });
 
 export { transactionSchema };
