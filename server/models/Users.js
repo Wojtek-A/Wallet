@@ -111,7 +111,7 @@ export { User };
  *          token:
  *            type: string
  *      Auth:
- *        - username: accessToken
+ *        - username: token
  *          in: header
  *          description: Token assigned to header as bearer-token
  *          required: true

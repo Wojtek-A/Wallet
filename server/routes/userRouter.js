@@ -93,8 +93,6 @@ router.get('/current', auth, currentUserController);
  *          tags: [Users Controller]
  *          summary: Get current user info
  *          parameters:
- *           -   name: accessToken
- *               required: true
  *          security: [{"Bearer": []}]
  *          responses:
  *              200:

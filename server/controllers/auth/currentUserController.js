@@ -11,7 +11,6 @@ const currentUserController = async (req, res, next) => {
     }
 
     const { SECRET } = process.env;
-    console.log(SECRET);
     const token = jwt.sign(
       {
         id: user._id,
