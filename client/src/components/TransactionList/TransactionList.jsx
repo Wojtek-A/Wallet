@@ -1,11 +1,20 @@
-import { useSelector } from 'react-redux';
-import { selectTransactions } from '../../redux/selector';
-import css from './TransactionList.module.css';
-import clsx from 'clsx';
-import sprite from '../../assets/icon/sprite.svg';
+import { useDispatch, useSelector } from "react-redux";
+import { selectTransactions } from "../../redux/selector";
+import css from "./TransactionList.module.css";
+import clsx from "clsx";
+import sprite from "../../assets/icon/sprite.svg";
+import { selectIsModalEditTransactionOpen } from "../../redux/global/selectors";
+import { changeIsModalEditTrasactionOpen } from "../../redux/global/slice";
 
 const TransactionList = () => {
   const transactions = useSelector(selectTransactions);
+  const isModalEditTransactionOpen = useSelector(
+    selectIsModalEditTransactionOpen
+  );
+  console.log(transactions);
+
+  const dispatch = useDispatch();
+  const editTransaction = () => dispatch(changeIsModalEditTrasactionOpen());
 
   return (
     <div className={css.container}>
@@ -24,13 +33,13 @@ const TransactionList = () => {
           {transactions.map((transaction, index) => (
             <tr key={index}>
               {Object.keys(transaction).map((key) => {
-                if (key !== 'Owner') {
+                if (key !== "Owner") {
                   return (
                     <td
                       key={key}
                       className={clsx(css.tableData, {
-                        [css.plus]: transaction.Type === '+' && key === 'Sum',
-                        [css.minus]: transaction.Type === '-' && key === 'Sum',
+                        [css.plus]: transaction.Type === "+" && key === "Sum",
+                        [css.minus]: transaction.Type === "-" && key === "Sum",
                       })}
                     >
                       {transaction[key]}
@@ -41,7 +50,11 @@ const TransactionList = () => {
               })}
               <td className={css.tableData}>
                 <div className={css.wrapper}>
-                  <button className={css.btnEdit}>
+                  <button
+                    className={css.btnEdit}
+                    id={transaction._id}
+                    onClick={editTransaction()}
+                  >
                     <svg className={css.icon}>
                       <use xlinkHref={`${sprite}#pen`}></use>
                     </svg>

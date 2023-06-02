@@ -3,16 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
-import { addTransaction } from "../../redux/wallet/wallet.thunk";
-import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
-import style from "./ModalAddTransaction.module.css";
+import { changeIsModalAddTransactionOpen, changeIsModalEditTrasactionOpen } from "../../redux/global/slice";
+import style from "./ModalEditTransaction.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
 import { CATEGORY_NAME } from "../../redux/constant";
 import { selectUser } from "../../redux/auth/selectors";
 
-export const ModalAddTransaction = () => {
-  const [transactionType, setTransactionType] = useState(false);
-  const [category, setCategory] = useState("");
+export const ModalEditTransaction = (transactionId) => {
   const activeUser = useSelector(selectUser);
 
   const dispatch = useDispatch();
@@ -23,7 +20,7 @@ export const ModalAddTransaction = () => {
       event.target.nodeName === "IMG" ||
       event.target.name === "closeBtn"
     ) {
-      dispatch(changeIsModalAddTransactionOpen());
+      dispatch(changeIsModalEditTrasactionOpen());
     }
   };
 
@@ -78,16 +75,7 @@ export const ModalAddTransaction = () => {
             >
               Income
             </p>
-            <label className={style.switch}>
-              <input
-                type="checkbox"
-                checked={transactionType}
-                onChange={() => setTransactionType(!transactionType)}
-              ></input>
-              <span
-                className={transactionType ? style.slidered : style.slider}
-              ></span>
-            </label>
+            <div className={style.switch}></div>
             <p
               className={
                 transactionType

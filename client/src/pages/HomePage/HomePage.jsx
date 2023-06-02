@@ -6,13 +6,19 @@ import TabletDashboard from "../../components/TabletDashboard/TabletDashboard";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import { Header } from "../../components/Header/Header";
 
-import { selectIsModalAddTransactionOpen } from "../../redux/global/selectors.js";
+import {
+  selectIsModalAddTransactionOpen,
+  selectIsModalLogoutOpen,
+} from "../../redux/global/selectors.js";
 import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction.jsx";
+import { ModalLogout } from "../../components/ModalLogout/ModalLogout.jsx";
+
 
 const HomePage = () => {
   const isModalAddTransactionOpened = useSelector(
     selectIsModalAddTransactionOpen
   );
+  const isModalLogoutOpen = useSelector(selectIsModalLogoutOpen);
 
   return (
     <>
@@ -32,6 +38,7 @@ const HomePage = () => {
         )}
       </Media>
       {isModalAddTransactionOpened && <ModalAddTransaction />}
+      {isModalLogoutOpen && <ModalLogout />}
     </>
   );
 };

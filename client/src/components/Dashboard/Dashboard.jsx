@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTransactions } from "../../redux/wallet/wallet.thunk.js";
 import { selectIsLoading, selectErrorStatus } from "../../redux/selector.js";
+import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
 import css from "./Dashboard.module.css";
 
