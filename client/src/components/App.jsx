@@ -1,8 +1,11 @@
-import React, { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./AuthRoutes/PrivateRoute";
 import { RestrictedRoute } from "./AuthRoutes/RestrictedRoute";
 import { Navigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../redux/auth/operations";
 
 export const App = () => {
   const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -15,35 +18,55 @@ export const App = () => {
   const RegistrationPage = lazy(() =>
     import("../pages/RegistrationPage/RegistrationPage.jsx")
   );
-  const LoginPage = lazy(() =>
-    import("../pages/LoginPage/LoginPage.jsx")
-  );
+  const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage.jsx"));
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route index element={<Navigate to="/home" />} />
+          <Route path="/" element={<Navigate to="/home" />} />
           <Route
             path="/login"
-            element={<RestrictedRoute component={<LoginPage />}
-              redirectTo='/home' />} />
+            element={
+              <RestrictedRoute component={<LoginPage />} redirectTo="/home" />
+            }
+          />
           <Route
             path="/register"
-            element={<RestrictedRoute component={<RegistrationPage />}
-              redirectTo='/login' />} />
+            element={
+              <RestrictedRoute
+                component={<RegistrationPage />}
+                redirectTo="/login"
+              />
+            }
+          />
           <Route
             path="/home"
-            element={<PrivateRoute component={<HomePage />}
-              redirectTo='/login' />} />
+            element={
+              <PrivateRoute component={<HomePage />} redirectTo="/login" />
+            }
+          />
           <Route
             path="/statistic"
-            element={<PrivateRoute component={<StatisticsPage />}
-              redirectTo='/login' />} />
+            element={
+              <PrivateRoute
+                component={<StatisticsPage />}
+                redirectTo="/login"
+              />
+            }
+          />
           <Route
             path="/exchange"
-            element={<PrivateRoute component={<ExchangePage />}
-              redirectTo='/login' />} />
+            element={
+              <PrivateRoute component={<ExchangePage />} redirectTo="/login" />
+            }
+          />
         </Routes>
       </Suspense>
     </>
