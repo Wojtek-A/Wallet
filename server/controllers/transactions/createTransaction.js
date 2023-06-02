@@ -9,7 +9,8 @@ const createTransaction = async (req, res, next) => {
         return res.status(400).json({ message: error.message });
     }
 
-    const calc = body.type === true ? body.amount : body.amount * -1;
+    const calc = body.type === true ? Number(body.amount) : Number(body.amount) * -1;
+
     const user = await User.findById(body.owner);
     user.balance = user.balance + calc;
     user.save();
