@@ -1,15 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux';
-import Dropdown from '../Dropdown/Dropdown';
-import MobileChart from '../MobileChart/MobileChart';
-import MobileNavigation from '../MobileNavigation/MobileNavigation';
-import css from './MobileStatistics.module.css';
-import { selectStatisticsDate } from '../../redux/selector';
-import { MONTH_NAME } from '../../redux/constant';
-import { selectTransactions } from '../../redux/selector';
-import { setMonth, setYear } from '../../redux/wallet/wallet.slice';
-import { useMemo } from 'react';
-import DropdownList from '../DropdownList/DropdownList';
-import MobieStatisticsList from '../MobileStatisticsList/MobieStatisticsList';
+import { useSelector, useDispatch } from "react-redux";
+import Dropdown from "../Dropdown/Dropdown";
+import MobileChart from "../MobileChart/MobileChart";
+import MobileNavigation from "../MobileNavigation/MobileNavigation";
+import css from "./MobileStatistics.module.css";
+import { selectStatisticsDate } from "../../redux/selector";
+import { MONTH_NAME } from "../../redux/constant";
+import { selectTransactions } from "../../redux/selector";
+import { setMonth, setYear } from "../../redux/wallet/wallet.slice";
+import { useMemo } from "react";
+import DropdownList from "../DropdownList/DropdownList";
+import MobieStatisticsList from "../MobileStatisticsList/MobieStatisticsList";
 
 const MobileStatistics = () => {
   const statisticsDate = useSelector(selectStatisticsDate);
@@ -23,7 +23,7 @@ const MobileStatistics = () => {
       useMemo(
         () =>
           transactions.map((elements) => {
-            const transactionDate = new Date(elements.Date);
+            const transactionDate = new Date(elements.date);
 
             return transactionDate.getFullYear();
           }),

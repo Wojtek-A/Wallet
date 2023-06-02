@@ -41,8 +41,8 @@ const TransactionList = () => {
                     <td
                       key={key}
                       className={clsx(css.tableData, {
-                        [css.plus]: transaction.Type === "+" && key === "Sum",
-                        [css.minus]: transaction.Type === "-" && key === "Sum",
+                        [css.plus]: transaction.type && key === "amount",
+                        [css.minus]: !transaction.Type && key === "amount",
                       })}
                     >
                       {transaction[key]}
