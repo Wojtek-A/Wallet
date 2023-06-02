@@ -9,7 +9,7 @@ router.get('/', auth, controllerWrapper(statisticsController));
 
 /**
  *  @swagger
- *  /api/statistics/transactions-summary:
+ *  /api/transactions-summary:
  *      get:
  *          tags: [Transactions Summary]
  *          summary: Get transactions summary for period

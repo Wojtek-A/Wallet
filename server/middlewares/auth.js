@@ -4,24 +4,22 @@ import { config } from 'dotenv';
 config();
 
 const auth = (req, res, next) => {
-    passport.authenticate("jwt", { session: false }, (err, user) => {
-        const { authorization = "" } = req.headers;
-        const [bearer, token] = authorization.split(" ");
+  passport.authenticate('jwt', { session: false }, (err, user) => {
+    const { authorization = '' } = req.headers;
+    const [bearer, token] = authorization.split(' ');
 
-        console.log(user);
+    if (!user || err || user.token !== token) {
+      return res.status(401).json({
+        status: 'error',
+        code: 401,
+        message: 'Unauthorized',
+        data: 'Unauthorized',
+      });
+    }
 
-        if (!user || err || user.token !== token) {
-            return res.status(401).json({
-                status: "error",
-                code: 401,
-                message: "Unauthorized",
-                data: "Unauthorized",
-            });
-        }
-
-        req.user = user;
-        next();
-    })(req, res, next);
+    req.user = user;
+    next();
+  })(req, res, next);
 };
 
 export { auth };

@@ -69,31 +69,42 @@ export { Transaction };
  *      CreateTransactions:
  *        type: object
  *        properties:
- *          transactionDate:
- *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
+ *            type: string
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *
  *      UpdateTransaction:
  *        type: object
  *        properties:
  *          transactionDate:
- *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
+ *            type: string
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *
  *      TransactionCategories:
@@ -119,20 +130,23 @@ export { Transaction };
  *      CreatedTransactions:
  *        type: object
  *        properties:
- *          id:
- *            type: string
- *          transactionDate:
+ *          _id:
  *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
  *            type: string
- *          userId:
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *          balanceAfter:
  *            type: number
@@ -165,18 +179,21 @@ export { Transaction };
  *        properties:
  *          id:
  *            type: string
- *          transactionDate:
- *            type: string
  *          type:
- *            type: "string"
- *            "example": "INCOME"
- *          categoryId:
+ *            type: boolean
+ *          amount:
+ *            type: number
+ *          date:
  *            type: string
- *          userId:
+ *          category:
  *            type: string
  *          comment:
  *            type: string
- *          amount:
+ *          owner:
+ *            type: string
+ *          month:
+ *            type: number
+ *          year:
  *            type: number
  *          balanceAfter:
  *            type: number
