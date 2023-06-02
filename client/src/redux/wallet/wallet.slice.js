@@ -65,14 +65,14 @@ const walletSlice = createSlice({
       .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         const index = state.transactions.findIndex(
-          (transaction) => transaction.id === action.payload.id
+          (transaction) => transaction._id === action.payload._id
         );
         state.transactions.splice(index, 1);
       })
       .addCase(updateTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         const index = state.transactions.findIndex(
-          (transaction) => transaction.id === action.payload.id
+          (transaction) => transaction._id === action.payload._id
         );
         state.transactions[index] = action.payload;
       })
