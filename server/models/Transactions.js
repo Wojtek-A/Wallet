@@ -1,3 +1,4 @@
+import { Double } from 'mongodb';
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
@@ -9,7 +10,7 @@ const TransactionSchema = new Schema({
     required: [true, 'Type is required'],
   },
   amount: {
-    type: Number,
+    type: String,
     required: [true, 'Amount is required'],
   },
   date: {
@@ -51,7 +52,7 @@ const TransactionSchema = new Schema({
   },
 });
 
-TransactionSchema.pre('save', function(next) {
+TransactionSchema.pre('save', function (next) {
   const date = new Date(this.date);
   this.month = date.getMonth() + 1;
   this.year = date.getFullYear();

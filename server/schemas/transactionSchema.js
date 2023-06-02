@@ -2,10 +2,8 @@ import Joi from 'joi';
 
 const transactionSchema = Joi.object({
     type: Joi.boolean().required(),
-    amount: Joi.number().positive().required(),
-    date: Joi.date(),
-    month: Joi.number(),
-    year: Joi.number(),
+    amount: Joi.string(),
+    date: Joi.string(),
     category: Joi.string().valid(
         "Main expenses",
         "Products",
