@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import Media from "react-media";
 import { NavLink } from "react-router-dom";
+
 import style from "./Header.module.css";
 import sprite from "../../assets/icon/spriteToMergeIntoExisting.svg";
 import { changeIsModalLogoutOpen } from "../../redux/global/slice";
-import { selectIsModalLogoutOpen } from "../../redux/global/selectors";
 import { selectUser } from "../../redux/auth/selectors";
 
 export const Header = (props) => {
-  const isModalLogoutOpen = useSelector(selectIsModalLogoutOpen);
   const user = useSelector(selectUser);
+  console.log(user);
   const dispatch = useDispatch();
 
   return (

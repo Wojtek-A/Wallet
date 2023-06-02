@@ -3,18 +3,21 @@ import { selectTransactions } from "../../redux/selector";
 import css from "./TransactionList.module.css";
 import clsx from "clsx";
 import sprite from "../../assets/icon/sprite.svg";
-import { selectIsModalEditTransactionOpen } from "../../redux/global/selectors";
-import { changeIsModalEditTrasactionOpen } from "../../redux/global/slice";
+import {
+  changeIsModalEditTrasactionOpen,
+  setTransactionToEdit,
+} from "../../redux/global/slice";
 
 const TransactionList = () => {
   const transactions = useSelector(selectTransactions);
-  const isModalEditTransactionOpen = useSelector(
-    selectIsModalEditTransactionOpen
-  );
   console.log(transactions);
 
   const dispatch = useDispatch();
-  const editTransaction = () => dispatch(changeIsModalEditTrasactionOpen());
+
+  const openModalEditTransaction = (data) => {
+    dispatch(setTransactionToEdit(data));
+    dispatch(changeIsModalEditTrasactionOpen());
+  };
 
   return (
     <div className={css.container}>
@@ -53,7 +56,7 @@ const TransactionList = () => {
                   <button
                     className={css.btnEdit}
                     id={transaction._id}
-                    onClick={editTransaction()}
+                    onClick={() => openModalEditTransaction(transaction)}
                   >
                     <svg className={css.icon}>
                       <use xlinkHref={`${sprite}#pen`}></use>

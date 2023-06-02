@@ -107,7 +107,7 @@ export const ModalAddTransaction = () => {
                   <option
                     value="Select option"
                     disabled
-                    checked
+                    selected
                     hidden
                     className={style.select__placeholder}
                   >

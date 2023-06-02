@@ -3,14 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
-import { changeIsModalAddTransactionOpen, changeIsModalEditTrasactionOpen } from "../../redux/global/slice";
+import { changeIsModalEditTrasactionOpen } from "../../redux/global/slice";
 import style from "./ModalEditTransaction.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
 import { CATEGORY_NAME } from "../../redux/constant";
-import { selectUser } from "../../redux/auth/selectors";
+import { selectTransactionToEdit } from "../../redux/global/selectors";
+import { updateTransaction } from "../../redux/wallet/wallet.thunk";
 
-export const ModalEditTransaction = (transactionId) => {
-  const activeUser = useSelector(selectUser);
+export const ModalEditTransaction = () => {
+  const transactionToEdit = useSelector(selectTransactionToEdit);
+  const [transactionType, setTransactionType] = useState(
+    !transactionToEdit.type
+  );
+  const [category, setCategory] = useState("");
 
   const dispatch = useDispatch();
 
@@ -24,27 +29,20 @@ export const ModalEditTransaction = (transactionId) => {
     }
   };
 
-  const submitTransaction = (event) => {
+  const editTransaction = (event) => {
     event.preventDefault();
 
-    const type = transactionType ? false : true;
-    const amount = event.target.amount.value;
-    const date = event.target.date.value;
-    const comment = event.target.comment.value;
-    const owner = activeUser.id;
-
-    const newTransaction = {
-      type,
-      amount: parseFloat(amount).toFixed(2),
-      date,
-      comment,
+    const transactionToUpdate = {
+      type: transactionToEdit.type,
+      amount: event.target.amount.value,
+      date: event.target.date.value,
+      comment: event.target.comment.value,
       category: transactionType ? category : "Income",
-      owner,
+      owner: transactionToEdit.owner,
+      transactionId: transactionToEdit._id,
     };
-    dispatch(addTransaction(newTransaction));
-    dispatch(changeIsModalAddTransactionOpen());
-    console.log(newTransaction);
-    // addTransaction(newTransaction);
+    dispatch(updateTransaction(transactionToUpdate));
+    dispatch(changeIsModalEditTrasactionOpen());
   };
 
   const categorySelection = (event) => {
@@ -63,8 +61,11 @@ export const ModalEditTransaction = (transactionId) => {
       onClick={(event) => closeModal(event)}
     >
       <div className={style.modal}>
-        <h2 className={style.modal__title}>Add transaction</h2>
-        <form className={style.modal__form} onSubmit={submitTransaction}>
+        <h2 className={style.modal__title}>Edit transaction</h2>
+        <form
+          className={style.modal__form}
+          onSubmit={(event) => editTransaction(event)}
+        >
           <div className={style.modal__switch}>
             <p
               className={
@@ -75,7 +76,7 @@ export const ModalEditTransaction = (transactionId) => {
             >
               Income
             </p>
-            <div className={style.switch}></div>
+            <span className={style.switch}>/</span>
             <p
               className={
                 transactionType
@@ -91,7 +92,11 @@ export const ModalEditTransaction = (transactionId) => {
           ) : (
             <div className={style.selectWrapper}>
               <div className={style.selectContainer}>
-                <select className={style.select} onChange={categorySelection}>
+                <select
+                  className={style.select}
+                  onChange={categorySelection}
+                  value={transactionToEdit.category}
+                >
                   <option
                     value="Select option"
                     disabled
@@ -103,7 +108,11 @@ export const ModalEditTransaction = (transactionId) => {
                   </option>
                   {CATEGORY_NAME &&
                     Object.values(CATEGORY_NAME).map((element, index) => {
-                      return <option key={index}>{element}</option>;
+                      return (
+                        <option value={element} key={index}>
+                          {element}
+                        </option>
+                      );
                     })}
                 </select>
                 <div className={style.selectIcon}>&#9662;</div>
@@ -117,6 +126,7 @@ export const ModalEditTransaction = (transactionId) => {
               placeholder="0.00"
               step=".01"
               className={style.modal__input}
+              defaultValue={transactionToEdit.amount}
               required
             ></input>
             <Datetime
@@ -129,6 +139,7 @@ export const ModalEditTransaction = (transactionId) => {
                 name: "date",
               }}
               initialValue={new Date()}
+              defaultValue={transactionToEdit.date}
               required
             />
           </div>
@@ -137,10 +148,11 @@ export const ModalEditTransaction = (transactionId) => {
             name="comment"
             placeholder="Comment"
             className={style.modal__comment}
+            defaultValue={transactionToEdit.comment}
           ></input>
           <div className={style.modal__buttons}>
             <button type="submit" className={style.addBtn}>
-              ADD
+              SAVE
             </button>
             <button type="button" name="closeBtn" className={style.cancelBtn}>
               CANCEL

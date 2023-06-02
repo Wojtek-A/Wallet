@@ -8,15 +8,19 @@ import { Header } from "../../components/Header/Header";
 
 import {
   selectIsModalAddTransactionOpen,
+  selectIsModalEditTransactionOpen,
   selectIsModalLogoutOpen,
 } from "../../redux/global/selectors.js";
 import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction.jsx";
 import { ModalLogout } from "../../components/ModalLogout/ModalLogout.jsx";
-
+import { ModalEditTransaction } from "../../components/ModalEditTransaction/ModalEditTransaction";
 
 const HomePage = () => {
   const isModalAddTransactionOpened = useSelector(
     selectIsModalAddTransactionOpen
+  );
+  const isModalEditTransactionOpen = useSelector(
+    selectIsModalEditTransactionOpen
   );
   const isModalLogoutOpen = useSelector(selectIsModalLogoutOpen);
 
@@ -38,6 +42,7 @@ const HomePage = () => {
         )}
       </Media>
       {isModalAddTransactionOpened && <ModalAddTransaction />}
+      {isModalEditTransactionOpen && <ModalEditTransaction />}
       {isModalLogoutOpen && <ModalLogout />}
     </>
   );
