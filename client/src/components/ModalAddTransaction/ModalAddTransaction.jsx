@@ -136,7 +136,7 @@ export const ModalAddTransaction = () => {
             ></input>
             <Datetime
               className={style.modal__input}
-              dateFormat="DD-MM-YYYY"
+              dateFormat="YYYY-MM-DD"
               timeFormat={false}
               closeOnSelect={true}
               inputProps={{
