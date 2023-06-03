@@ -35,6 +35,7 @@ const authSlice = createSlice({
         token: action.payload.token,
         id: action.payload._id,
         email: action.payload.email,
+        username: action.payload.username,
       };
       state.isLoggedIn = true;
       state.isRefreshing = false;
