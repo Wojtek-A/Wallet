@@ -50,7 +50,7 @@ const MobieStatisticsList = () => {
     }
 
     if (ele.type && yearCondition && monthCondition) {
-      acc.income = (acc.income || 0) - ele.amount;
+      acc.income = (acc.income || 0) + ele.amount;
     }
     return acc;
   }, {});

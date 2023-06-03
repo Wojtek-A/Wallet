@@ -1,13 +1,13 @@
 import MobileNavigation from "../MobileNavigation/MobileNavigation.jsx";
 import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
-import Balance from '../Balance/Balance.jsx';
-import css from './MobileDashboard.module.css';
+import Balance from "../Balance/Balance.jsx";
+import css from "./MobileDashboard.module.css";
 
-import MobileTransactionList from '../MobileTransactionList/MobileTransactionList.jsx';
-import { useSelector } from 'react-redux';
-import { selectTransactions } from '../../redux/selector.js';
-import Empty from '../Empty/Empty.jsx';
+import MobileTransactionList from "../MobileTransactionList/MobileTransactionList.jsx";
+import { useSelector } from "react-redux";
+import { selectTransactions } from "../../redux/selector.js";
+import Empty from "../Empty/Empty.jsx";
 
 export const MobileHomeDashboard = () => {
   const transactions = useSelector(selectTransactions);
@@ -17,7 +17,14 @@ export const MobileHomeDashboard = () => {
       <section className={css.navSection}>
         <MobileNavigation />
       </section>
-      {!transactions?.length && <Empty />}
+      {!transactions?.length && (
+        <>
+          <section className={css.balanceSection}>
+            <Balance />
+          </section>
+          <Empty />
+        </>
+      )}
       {transactions.length && (
         <>
           <section className={css.balanceSection}>
@@ -27,9 +34,11 @@ export const MobileHomeDashboard = () => {
           <section>
             <MobileTransactionList />
           </section>
-          <ButtonAddTransaction />
         </>
       )}
+      <>
+        <ButtonAddTransaction />
+      </>
     </main>
   );
 };

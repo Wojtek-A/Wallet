@@ -26,17 +26,21 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-    dispatch(fetchTransactions());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, []);
 
   return (
     <>
-      <Suspense fallback={
-        <div className={css.loaderBox}>
-          <RotatingLines
-            strokeColor="grey"
-          />
-        </div>}>
+      <Suspense
+        fallback={
+          <div className={css.loaderBox}>
+            <RotatingLines strokeColor="grey" />
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route
