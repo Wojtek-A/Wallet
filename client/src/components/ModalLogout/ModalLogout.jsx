@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-
 import style from "./ModalLogout.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
 import { changeIsModalLogoutOpen } from "../../redux/global/slice";

@@ -25,14 +25,14 @@ const signupController = async (req, res, _) => {
     username,
   });
   const token = jwt.sign({ userId: newUser._id }, SECRET, { expiresIn: '1h' });
-
+  await User.findByIdAndUpdate(newUser._id, { token })
   res.status(201).json({
+    token,
     user: {
       email: newUser.email,
       username: newUser.username,
-      data: { token },
+      id: newUser._id
     },
-    token: token,
   });
 };
 
