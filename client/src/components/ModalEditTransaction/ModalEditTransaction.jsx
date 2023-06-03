@@ -36,10 +36,8 @@ export const ModalEditTransaction = () => {
       type: transactionToEdit.type,
       amount: event.target.amount.value,
       date: event.target.date.value,
-      comment: event.target.comment.value,
       category: transactionType ? category : "Income",
-      owner: transactionToEdit.owner,
-      transactionId: transactionToEdit._id,
+      comment: event.target.comment.value,
     };
     dispatch(updateTransaction(transactionToUpdate));
     dispatch(changeIsModalEditTrasactionOpen());

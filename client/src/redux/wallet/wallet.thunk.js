@@ -41,16 +41,12 @@ export const deleteTransaction = createAsyncThunk(
 export const updateTransaction = createAsyncThunk(
   "wallet/updateTransaction",
   async (transaction, thunkAPI) => {
-    const { amount, date, comment, category, transactionId } = transaction;
+    const { transactionId } = transaction;
     try {
       const state = thunkAPI.getState();
-      const res = await axios.patch(`/transactions/${transactionId}`, {
-        amount,
-        date,
-        comment,
-        category,
+      const res = await axios.put(`/transactions/${transactionId}`, {
+        transaction,
       });
-
       const { transaction } = res.data;
       return { transaction, state };
     } catch (error) {
