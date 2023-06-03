@@ -1,16 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
 export const fetchTransactions = createAsyncThunk(
   "wallet/fetchAllTransactions",
   async (_, thunkAPI) => {
     try {
       const res = await axios.get("/transactions");
-      setAuthHeader(res.data.token);
       console.log("Response data:", res.data);
       return res.data.data; //TODO poprawić strukturę endpointa
     } catch (e) {
@@ -24,7 +19,6 @@ export const addTransaction = createAsyncThunk(
   async (newTransaction, thunkAPI) => {
     try {
       const res = await axios.post("/transactions", newTransaction);
-      setAuthHeader(res.data.token);
       return res.data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -37,7 +31,6 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       const res = await axios.delete(`/transactions/${transactionId}`);
-      setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -57,7 +50,7 @@ export const updateTransaction = createAsyncThunk(
         comment,
         category,
       });
-      setAuthHeader(res.data.token);
+
       const { transaction } = res.data;
       return { transaction, state };
     } catch (error) {
