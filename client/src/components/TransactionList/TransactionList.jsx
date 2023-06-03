@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectTransactions } from "../../redux/selector";
-import css from "./TransactionList.module.css";
-import clsx from "clsx";
-import sprite from "../../assets/icon/sprite.svg";
 import {
   changeIsModalEditTrasactionOpen,
   setTransactionToEdit,
 } from "../../redux/global/slice";
+import { deleteTransaction } from "../../redux/wallet/wallet.thunk";
+
+import css from "./TransactionList.module.css";
+import clsx from "clsx";
+import sprite from "../../assets/icon/sprite.svg";
 
 const TransactionList = () => {
   const transactions = useSelector(selectTransactions);
@@ -35,22 +37,20 @@ const TransactionList = () => {
         <tbody>
           {transactions.map((transaction, index) => (
             <tr key={index}>
-              {Object.keys(transaction).map((key) => {
-                if (key !== "Owner") {
-                  return (
-                    <td
-                      key={key}
-                      className={clsx(css.tableData, {
-                        [css.plus]: transaction.type && key === "amount",
-                        [css.minus]: !transaction.Type && key === "amount",
-                      })}
-                    >
-                      {transaction[key]}
-                    </td>
-                  );
-                }
-                return null;
-              })}
+              <td className={css.tableData}>
+                {new Date(transaction.date).toLocaleDateString()}
+              </td>
+              <td className={css.tableData}>{transaction.type ? "+" : "-"}</td>
+              <td className={css.tableData}>{transaction.category}</td>
+              <td className={css.tableData}>{transaction.comment}</td>
+              <td
+                className={clsx(css.tableData, {
+                  [css.plus]: transaction.type,
+                  [css.minus]: !transaction.type,
+                })}
+              >
+                {transaction.amount}
+              </td>
               <td className={css.tableData}>
                 <div className={css.wrapper}>
                   <button
@@ -62,7 +62,12 @@ const TransactionList = () => {
                       <use xlinkHref={`${sprite}#pen`}></use>
                     </svg>
                   </button>
-                  <button className={css.btn}>Delete</button>
+                  <button
+                    className={css.btn}
+                    onClick={() => dispatch(deleteTransaction(transaction._id))}
+                  >
+                    Delete
+                  </button>
                 </div>
               </td>
             </tr>
