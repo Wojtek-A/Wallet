@@ -35,7 +35,7 @@ export const Header = (props) => {
                 {matches.mobile && (
                   <div className={style.header__logout}>
                     <span className={style.header__logoutUsername}>
-                      {user.email}
+                      {user.username}
                     </span>
                     <button
                       className={style.header__logoutButton}

@@ -1,13 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const setAuthHeader = (token) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
 export const fetchTransactions = createAsyncThunk(
   "wallet/fetchAllTransactions",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/transactions");
-      console.log("Response data:", response.data);
-      return response.data.data; //TODO poprawić strukturę endpointa
+      const res = await axios.get("/transactions");
+      setAuthHeader(res.data.token);
+      console.log("Response data:", res.data);
+      return res.data.data; //TODO poprawić strukturę endpointa
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -18,8 +23,9 @@ export const addTransaction = createAsyncThunk(
   "wallet/addTransaction",
   async (newTransaction, thunkAPI) => {
     try {
-      const response = await axios.post("/transactions", newTransaction);
-      return response.data.data;
+      const res = await axios.post("/transactions", newTransaction);
+      setAuthHeader(res.data.token);
+      return res.data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -30,8 +36,9 @@ export const deleteTransaction = createAsyncThunk(
   "wallet/deleteTransaction",
   async (transactionId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/transactions/${transactionId}`);
-      return response.data;
+      const res = await axios.delete(`/transactions/${transactionId}`);
+      setAuthHeader(res.data.token);
+      return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -44,13 +51,14 @@ export const updateTransaction = createAsyncThunk(
     const { amount, date, comment, category, transactionId } = transaction;
     try {
       const state = thunkAPI.getState();
-      const response = await axios.patch(`/transactions/${transactionId}`, {
+      const res = await axios.patch(`/transactions/${transactionId}`, {
         amount,
         date,
         comment,
         category,
       });
-      const { transaction } = response.data;
+      setAuthHeader(res.data.token);
+      const { transaction } = res.data;
       return { transaction, state };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -62,11 +70,11 @@ export const getCurrencyThunk = createAsyncThunk(
   "wallet/getCurrency",
   async (_, thunkAPI) => {
     try {
-      const response = await fetch(
+      const res = await fetch(
         "http://api.nbp.pl/api/exchangerates/tables/c/?format=JSON"
       );
 
-      const data = await response.json();
+      const data = await res.json();
       const filterResponse = data[0].rates.filter(
         (element) =>
           element.code === "USD" ||
