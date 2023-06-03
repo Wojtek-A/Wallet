@@ -5,6 +5,9 @@ const statisticsController = async (req, res) => {
     let { year, month } = req.query;
     year = parseInt(year);
     month = parseInt(month);
+
+    console.log(req.user)
+
     try {
         const pipeline = [
             {
@@ -70,6 +73,7 @@ const statisticsController = async (req, res) => {
             },
         ];
         const result = await Transaction.aggregate(pipeline);
+        console.log(result);
         if (result.length === 0) {
             return res.status(404).json({ message: "Not found" });
         }
