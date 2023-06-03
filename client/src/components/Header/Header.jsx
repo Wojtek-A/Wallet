@@ -9,6 +9,7 @@ import { selectUser } from "../../redux/auth/selectors";
 
 export const Header = (props) => {
   const user = useSelector(selectUser);
+  console.log("user: ", user);
   const dispatch = useDispatch();
 
   return (
@@ -49,7 +50,7 @@ export const Header = (props) => {
                 {(matches.tablet || matches.desktop) && (
                   <div className={style.header__logout}>
                     <span className={style.header__logoutUsername}>
-                      {user.email}
+                      {user.username}
                     </span>
                     <button
                       className={style.header__logoutButton}
