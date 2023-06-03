@@ -31,7 +31,6 @@ const MobileChart = () => {
       const yearCondition =
         transactionDate.getFullYear() === pickDate.getFullYear();
       const monthCondition = transactionDate.getMonth() === pickDate.getMonth();
-      console.log("e");
 
       if (!transaction.type && yearCondition && monthCondition) {
         acc[transaction.category] =

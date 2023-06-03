@@ -53,7 +53,7 @@ export const updateTransaction = createAsyncThunk(
       const { transaction } = response.data;
       return { transaction, state };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

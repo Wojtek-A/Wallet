@@ -14,6 +14,7 @@ export const CHART_COLOR = Object.freeze({
   EDUCATION: "#81E1FF",
   LEISURE: "#24CCA7",
   OTHER: "#00AD84",
+  INCOME: "#fff",
 });
 
 export const CATEGORY_NAME = Object.freeze({
@@ -26,6 +27,7 @@ export const CATEGORY_NAME = Object.freeze({
   EDUCATION: "Education",
   LEISURE: "Leisure",
   OTHER: "Other expanses",
+  INCOME: "Income",
 });
 
 export const MONTH_NAME = Object.freeze([

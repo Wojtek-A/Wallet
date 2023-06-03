@@ -32,9 +32,12 @@ export const ModalAddTransaction = () => {
 
     const type = transactionType ? false : true;
     const amount = event.target.amount.value;
-    const date = event.target.date.value;
+    const data = event.target.date.value;
     const comment = event.target.comment.value;
     const owner = activeUser.id;
+    const date = new Date(data);
+
+    console.log(date.toISOString());
 
     const newTransaction = {
       type,
