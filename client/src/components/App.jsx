@@ -5,9 +5,11 @@ import { PrivateRoute } from "./AuthRoutes/PrivateRoute";
 import { RestrictedRoute } from "./AuthRoutes/RestrictedRoute";
 import { Navigate } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../redux/auth/operations";
 import { fetchTransactions } from "../redux/wallet/wallet.thunk";
+import { selectIsLoading } from "../redux/selector";
+import { selectIsLoggedIn } from "../redux/auth/selectors";
 
 export const App = () => {
   const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -23,14 +25,17 @@ export const App = () => {
   const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage.jsx"));
 
   const dispatch = useDispatch();
+  const login = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchTransactions());
-  }, []);
+    if (login) {
+      dispatch(fetchTransactions());
+    }
+  }, [login]);
 
   return (
     <>
