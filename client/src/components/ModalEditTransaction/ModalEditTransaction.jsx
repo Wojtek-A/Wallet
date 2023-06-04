@@ -8,7 +8,10 @@ import style from "./ModalEditTransaction.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
 import { CATEGORY_NAME } from "../../redux/constant";
 import { selectTransactionToEdit } from "../../redux/global/selectors";
-import { updateTransaction } from "../../redux/wallet/wallet.thunk";
+import {
+  fetchTransactions,
+  updateTransaction,
+} from "../../redux/wallet/wallet.thunk";
 
 export const ModalEditTransaction = () => {
   const transactionToEdit = useSelector(selectTransactionToEdit);
@@ -45,7 +48,9 @@ export const ModalEditTransaction = () => {
       owner: transactionToEdit.owner,
     };
     console.log("transactionToUpdate: ", transactionToUpdate);
-    dispatch(updateTransaction(transactionToUpdate));
+    dispatch(updateTransaction(transactionToUpdate)).then(() =>
+      dispatch(fetchTransactions())
+    );
     dispatch(changeIsModalEditTrasactionOpen());
   };
 
