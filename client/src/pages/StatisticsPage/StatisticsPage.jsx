@@ -6,6 +6,7 @@ import MobileStatistics from "../../components/MobileStatistics/MobileStatistics
 import { ModalLogout } from "../../components/ModalLogout/ModalLogout.jsx";
 import { Header } from "../../components/Header/Header";
 import TabletStatistics from "../../components/TabletStatstics/TabletStatistics.jsx";
+import Statistics from "../../components/Statistics/Statistics.jsx";
 
 const StatisticsPage = () => {
   const isModalLogoutOpen = useSelector(selectIsModalLogoutOpen);
@@ -22,6 +23,7 @@ const StatisticsPage = () => {
           <Header>
             {matches.mobile && <MobileStatistics />}
             {matches.tablet && <TabletStatistics />}
+            {matches.desktop && <Statistics />}
           </Header>
         )}
       </Media>

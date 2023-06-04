@@ -1,0 +1,50 @@
+.leftWrapper {
+  border-right: 2px solid #e7e5f2;
+  box-shadow: 0.8px 0px 0px rgba(0, 0, 0, 0.05),
+    1.5px 0px 0px rgba(255, 255, 255, 0.6);
+  flex-basis: 480px;
+  flex-shrink: 0;
+  padding-right: 69px;
+}
+
+.dashboardWrapper {
+  padding-right: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1280px;
+}
+
+.navSection {
+  margin-top: 32px;
+  grid-area: nav;
+}
+
+.balanceSection {
+  margin-bottom: 32px;
+}
+
+.currencySection {
+  margin-bottom: 12px;
+}
+
+.statisticsSection {
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: 32px;
+  flex-basis: 720px;
+}
+
+.listWrapper {
+  padding: 0 20px;
+  margin: 0 auto;
+  padding-bottom: 52px;
+  flex-basis: 415px;
+  flex-shrink: 0;
+}
+
+.dropdownWrapper {
+  display: flex;
+  justify-content: space-between;
+}

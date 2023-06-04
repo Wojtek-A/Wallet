@@ -6,7 +6,7 @@ export const DASHBOARD_NAVIGATION = Object.freeze({
 
 export const CHART_COLOR = Object.freeze({
   MAIN: "#FED057",
-  PRODUCTS: "#FFD8D0",
+  PRODUCTS: "#FFA7CF",
   CAR: "#FD9498",
   SELF: "#C5BAFF",
   CHILDE: "#6E78E8",
