@@ -15,7 +15,11 @@ const Dropdown = ({ selectedName, handleDate, children }) => {
   useEffect(() => {
     const handleRemoveHidden = (event) => {
       if (!grid.current || !arrow.current) return;
-      if (event.target !== wrapper.current) {
+      if (
+        event.target !== wrapper.current &&
+        event.target !== wrapper.current.children[0] &&
+        event.target !== wrapper.current.children[1]
+      ) {
         grid.current.classList.add(css.hidden);
         arrow.current.classList?.add(css.up);
       }

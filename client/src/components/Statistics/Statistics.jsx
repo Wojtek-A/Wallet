@@ -1,20 +1,19 @@
-import css from "./TabletStatistics.module.css";
+import Navigation from "../Navigation/Navigation.jsx";
+import Currency from "../Currency/Currency.jsx";
+import Balance from "../Balance/Balance.jsx";
 import { selectStatisticsDate } from "../../redux/selector";
 import { MONTH_NAME } from "../../redux/constant";
 import { selectTransactions } from "../../redux/selector";
 import { setMonth, setYear } from "../../redux/wallet/wallet.slice";
 import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Navigation from "../Navigation/Navigation.jsx";
-import Currency from "../Currency/Currency.jsx";
-import Balance from "../Balance/Balance.jsx";
-
+import css from "./Statistics.module.css";
 import MobileChart from "../MobileChart/MobileChart";
 import MobieStatisticsList from "../MobileStatisticsList/MobieStatisticsList";
 import DropdownList from "../DropdownList/DropdownList";
 import Dropdown from "../Dropdown/Dropdown";
 
-const TabletStatistics = () => {
+export const Statistics = () => {
   const statisticsDate = useSelector(selectStatisticsDate);
   const transactions = useSelector(selectTransactions);
   const date = new Date(statisticsDate);
@@ -49,18 +48,21 @@ const TabletStatistics = () => {
 
   return (
     <>
-      <main className={css.wrapper}>
-        <section className={css.navSection}>
-          <Navigation />
-        </section>
-        <section className={css.currencySection}>
-          <Currency />
-        </section>
-        <section className={css.balanceSection}>
-          <Balance />
-        </section>
+      <main className={css.dashboardWrapper}>
+        <div className={css.leftWrapper}>
+          <section className={css.navSection}>
+            <Navigation />
+          </section>
+          <section className={css.balanceSection}>
+            <Balance />
+          </section>
+          <section className={css.currencySection}>
+            <Currency />
+          </section>
+        </div>
+
         <section className={css.statisticsSection}>
-          <div className={css.chartWrapper}>
+          <div>
             <MobileChart />
           </div>
 
@@ -77,7 +79,6 @@ const TabletStatistics = () => {
                 <DropdownList data={transactionsYear} />
               </Dropdown>
             </div>
-
             <MobieStatisticsList />
           </div>
         </section>
@@ -86,4 +87,4 @@ const TabletStatistics = () => {
   );
 };
 
-export default TabletStatistics;
+export default Statistics;
