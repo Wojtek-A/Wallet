@@ -118,7 +118,18 @@ export const ModalAddTransaction = () => {
                   </option>
                   {CATEGORY_NAME &&
                     Object.values(CATEGORY_NAME).map((element, index) => {
-                      return <option key={index}>{element}</option>;
+                      if (element === "Income") {
+                        return (
+                          <option value={element} key={index} disabled hidden>
+                            {element}
+                          </option>
+                        );
+                      }
+                      return (
+                        <option value={element} key={index}>
+                          {element}
+                        </option>
+                      );
                     })}
                 </select>
                 <div className={style.selectIcon}>&#9662;</div>
