@@ -12,10 +12,12 @@
   border-radius: 30px;
 }
 
-.grid {
-  margin: 0 auto;
-  padding-bottom: 52px;
-  max-width: 280px;
+@media screen and( (max-width: 767px)) {
+  .grid {
+    margin: 0 auto;
+    padding-bottom: 52px;
+    max-width: 280px;
+  }
 }
 
 .otherItem {
@@ -43,4 +45,8 @@
 
 .expense {
   color: var(--text-expense);
+}
+
+.dropdownWrapper {
+  display: flex;
 }

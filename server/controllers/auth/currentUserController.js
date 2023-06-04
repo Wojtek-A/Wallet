@@ -19,7 +19,7 @@ const currentUserController = async (req, res, next) => {
       SECRET,
       { expiresIn: "1h" }
     );
-    console.log("user: ", user);
+
     res.status(200).json({ email, username, balance, _id, token });
   } catch (error) {
     console.log(error);

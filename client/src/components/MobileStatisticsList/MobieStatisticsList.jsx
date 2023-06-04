@@ -55,7 +55,6 @@ const MobieStatisticsList = () => {
     return acc;
   }, {});
 
-  console.log(expenseAndIncomeSum);
   return (
     <ul className={css.grid}>
       <li className={clsx(css.item, css.firtItem)}>

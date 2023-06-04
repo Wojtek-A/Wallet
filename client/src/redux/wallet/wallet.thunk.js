@@ -70,9 +70,7 @@ export const getCurrencyThunk = createAsyncThunk(
         (element) =>
           element.code === "USD" ||
           element.code === "EUR" ||
-          element.code === "GBP" ||
-          element.code === "CHF" ||
-          element.code === "AUD"
+          element.code === "GBP"
       );
 
       return filterResponse;

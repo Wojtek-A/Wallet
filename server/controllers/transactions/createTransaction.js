@@ -4,7 +4,7 @@ import { transactionSchema } from "../../schemas/transactionSchema.js";
 
 const createTransaction = async (req, res, next) => {
     const body = req.body;
-    console.log("BODY", req.body);
+ 
     const { error } = transactionSchema.validate(body);
     if (error) {
         return res.status(400).json({ message: error.message });
@@ -12,7 +12,7 @@ const createTransaction = async (req, res, next) => {
     const amount = Number(body.amount);
     const calc = body.type === true ? amount : amount * -1;
     const user = await User.findById(body.owner);
-    console.log(user);
+
     user.balance = Number(user.balance) + calc;
     await user.save();
 
