@@ -15,7 +15,7 @@ export const ModalEditTransaction = () => {
   const [transactionType, setTransactionType] = useState(
     !transactionToEdit.type
   );
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(transactionToEdit.category);
 
   const dispatch = useDispatch();
 
@@ -33,14 +33,18 @@ export const ModalEditTransaction = () => {
     event.preventDefault();
 
     const transactionToUpdate = {
+      transactionId: transactionToEdit._id,
       type: transactionToEdit.type,
       amount: event.target.amount.value,
       date: event.target.date.value,
+      category:
+        category !== "" && category !== "Income"
+          ? transactionToEdit.category
+          : category,
       comment: event.target.comment.value,
-      category: transactionType ? category : "Income",
       owner: transactionToEdit.owner,
-      transactionId: transactionToEdit._id,
     };
+    console.log("transactionToUpdate: ", transactionToUpdate);
     dispatch(updateTransaction(transactionToUpdate));
     dispatch(changeIsModalEditTrasactionOpen());
   };
@@ -95,7 +99,7 @@ export const ModalEditTransaction = () => {
                 <select
                   className={style.select}
                   onChange={categorySelection}
-                  value={transactionToEdit.category}
+                  defaultValue={transactionToEdit.category}
                 >
                   <option
                     value="Select option"
@@ -108,6 +112,13 @@ export const ModalEditTransaction = () => {
                   </option>
                   {CATEGORY_NAME &&
                     Object.values(CATEGORY_NAME).map((element, index) => {
+                      if (element === "Income") {
+                        return (
+                          <option value={element} key={index} disabled hidden>
+                            {element}
+                          </option>
+                        );
+                      }
                       return (
                         <option value={element} key={index}>
                           {element}
