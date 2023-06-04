@@ -40,8 +40,6 @@ export const ModalAddTransaction = () => {
     const owner = activeUser.id;
     const date = new Date(data);
 
-    console.log(date.toISOString());
-
     const newTransaction = {
       type,
       amount: parseFloat(amount).toFixed(2),

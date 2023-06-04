@@ -47,7 +47,7 @@ export const ModalEditTransaction = () => {
       comment: event.target.comment.value,
       owner: transactionToEdit.owner,
     };
-    console.log("transactionToUpdate: ", transactionToUpdate);
+    
     dispatch(updateTransaction(transactionToUpdate)).then(() =>
       dispatch(fetchTransactions())
     );

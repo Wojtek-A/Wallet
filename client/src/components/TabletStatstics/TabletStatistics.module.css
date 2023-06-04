@@ -1,0 +1,50 @@
+.wrapper {
+  margin: 32px auto 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "nav currency"
+    "balance currency"
+    "transaction transaction";
+  gap: 0;
+  max-width: 768px;
+}
+
+.navSection {
+  grid-area: nav;
+}
+
+.balanceSection {
+  grid-area: balance;
+  margin-bottom: 32px;
+}
+
+.currencySection {
+  grid-area: currency;
+  margin-bottom: 12px;
+}
+
+.statisticsSection {
+  padding-top: 20px;
+  grid-area: transaction;
+  display: flex;
+}
+
+.chartWrapper {
+  flex-basis: 384px;
+  flex-shrink: 0;
+}
+
+.listWrapper {
+  padding: 0 20px;
+  margin: 0 auto;
+  padding-bottom: 52px;
+  flex-basis: 384px;
+  flex-shrink: 1;
+}
+
+.dropdownWrapper {
+  display: flex;
+  justify-content: space-between;
+}

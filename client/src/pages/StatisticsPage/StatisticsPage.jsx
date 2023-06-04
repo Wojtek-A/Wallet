@@ -5,6 +5,7 @@ import { selectIsModalLogoutOpen } from "../../redux/global/selectors.js";
 import MobileStatistics from "../../components/MobileStatistics/MobileStatistics";
 import { ModalLogout } from "../../components/ModalLogout/ModalLogout.jsx";
 import { Header } from "../../components/Header/Header";
+import TabletStatistics from "../../components/TabletStatstics/TabletStatistics.jsx";
 
 const StatisticsPage = () => {
   const isModalLogoutOpen = useSelector(selectIsModalLogoutOpen);
@@ -19,10 +20,8 @@ const StatisticsPage = () => {
       >
         {(matches) => (
           <Header>
-            <MobileStatistics />
-            {/* {matches.mobile && } */}
-            {/* {matches.tablet && </>}
-            {matches.desktop && </>} */}
+            {matches.mobile && <MobileStatistics />}
+            {matches.tablet && <TabletStatistics />}
           </Header>
         )}
       </Media>

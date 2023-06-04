@@ -17,6 +17,15 @@
   border-radius: 30px;
   cursor: pointer;
 }
+@media screen and ((min-width: 768px) and (max-width:1199px)) {
+  .wrapper {
+    padding: 12px 16px;
+    margin: 0;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+    flex-basis: 45%;
+  }
+}
 
 .grid {
   margin: 0 auto;
