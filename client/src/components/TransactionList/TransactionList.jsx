@@ -15,7 +15,6 @@ import sprite from "../../assets/icon/sprite.svg";
 
 const TransactionList = () => {
   const transactions = useSelector(selectTransactions);
-  console.log(transactions);
 
   const dispatch = useDispatch();
 

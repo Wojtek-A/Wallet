@@ -62,7 +62,7 @@ export const getCurrencyThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await fetch(
-        "http://api.nbp.pl/api/exchangerates/tables/c/?format=JSON"
+        "https://api.nbp.pl/api/exchangerates/tables/c/?format=JSON"
       );
 
       const data = await res.json();

@@ -2,19 +2,12 @@ import Navigation from "../Navigation/Navigation.jsx";
 import Currency from "../Currency/Currency.jsx";
 import Balance from "../Balance/Balance.jsx";
 import TransactionList from "../TransactionList/TransactionList.jsx";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchTransactions } from "../../redux/wallet/wallet.thunk.js";
-import { selectIsLoading, selectErrorStatus } from "../../redux/selector.js";
+
 import { ButtonAddTransaction } from "../ButtonAddTransactions/ButtonAddTransaction.jsx";
 
 import css from "./Dashboard.module.css";
 
 export const Dashboard = () => {
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectErrorStatus);
-  const dispatch = useDispatch();
-
   return (
     <>
       <main className={css.dashboardWrapper}>

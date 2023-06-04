@@ -1,10 +1,4 @@
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  elements,
-} from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import css from "./MobileChart.module.css";
 import { useEffect, useMemo, useRef } from "react";
@@ -13,7 +7,6 @@ import { CATEGORY_NAME, CHART_COLOR } from "../../redux/constant";
 import { selectTransactions } from "../../redux/selector";
 import { useSelector } from "react-redux";
 import { selectStatisticsDate } from "../../redux/selector";
-import empty from "../../assets/image/empty.png";
 import Empty from "../Empty/Empty";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
@@ -45,7 +38,7 @@ const MobileChart = () => {
     },
     {}
   );
-  console.log(getTransactionsCategoryValue);
+
   const categoryName = Object.keys(getTransactionsCategoryValue);
   const transactionsCategorySum = Object.values(getTransactionsCategoryValue);
   const chartBg = categoryName.map((elements) => {
