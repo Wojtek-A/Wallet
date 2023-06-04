@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
-import { addTransaction } from "../../redux/wallet/wallet.thunk";
+import {
+  addTransaction,
+  fetchTransactions,
+} from "../../redux/wallet/wallet.thunk";
 import { changeIsModalAddTransactionOpen } from "../../redux/global/slice";
 import style from "./ModalAddTransaction.module.css";
 import closeBtn from "./../../images/closeBtn.svg";
@@ -47,9 +50,11 @@ export const ModalAddTransaction = () => {
       category: transactionType ? category : "Income",
       owner,
     };
-    dispatch(addTransaction(newTransaction));
+    dispatch(addTransaction(newTransaction)).then(() =>
+      dispatch(fetchTransactions())
+    );
     dispatch(changeIsModalAddTransactionOpen());
-    console.log(newTransaction);
+
     // addTransaction(newTransaction);
   };
 
@@ -162,6 +167,7 @@ export const ModalAddTransaction = () => {
             type="text"
             name="comment"
             placeholder="Comment"
+            defaultValue=""
             className={style.modal__comment}
           ></input>
           <div className={style.modal__buttons}>

@@ -9,7 +9,6 @@ import { selectUser } from "../../redux/auth/selectors";
 
 export const Header = (props) => {
   const user = useSelector(selectUser);
-  console.log("user: ", user);
   const dispatch = useDispatch();
 
   return (

@@ -54,27 +54,32 @@ const walletSlice = createSlice({
         state.currency = action.payload;
         state.isLoading = false;
       })
+      .addCase(fetchTransactions.pending, (state, action) => {
+        state.transactions = [];
+        state.isLoading = true;
+      })
       .addCase(fetchTransactions.fulfilled, (state, action) => {
         state.transactions = action.payload;
         state.isLoading = false;
       })
       .addCase(addTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.transactions.push(action.payload);
+        // state.transactions.push(action.payload);
       })
       .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        const index = state.transactions.findIndex(
-          (transaction) => transaction._id === action.payload._id
-        );
-        state.transactions.splice(index, 1);
+        // const index = state.transactions.findIndex(
+        //   (transaction) => transaction._id === action.payload._id
+        // );
+        // state.transactions.splice(index, 1);
       })
       .addCase(updateTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        const index = state.transactions.findIndex(
-          (transaction) => transaction._id === action.payload._id
-        );
-        state.transactions[index] = action.payload;
+        // const index = state.transactions.findIndex(
+        //   (transaction) => transaction._id === action.payload._id
+        // );
+        // console.log("index: ", index);
+        // state.transactions[index] = action.payload;
       })
 
       .addMatcher(isPendingWalletAction, handlePending)

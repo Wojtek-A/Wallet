@@ -4,7 +4,10 @@ import {
   changeIsModalEditTrasactionOpen,
   setTransactionToEdit,
 } from "../../redux/global/slice";
-import { deleteTransaction } from "../../redux/wallet/wallet.thunk";
+import {
+  deleteTransaction,
+  fetchTransactions,
+} from "../../redux/wallet/wallet.thunk";
 
 import css from "./TransactionList.module.css";
 import clsx from "clsx";
@@ -64,7 +67,11 @@ const TransactionList = () => {
                   </button>
                   <button
                     className={css.btn}
-                    onClick={() => dispatch(deleteTransaction(transaction._id))}
+                    onClick={() => {
+                      dispatch(deleteTransaction(transaction._id)).then(() =>
+                        dispatch(fetchTransactions())
+                      );
+                    }}
                   >
                     Delete
                   </button>
