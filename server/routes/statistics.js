@@ -9,18 +9,11 @@ router.get('/', auth, controllerWrapper(statisticsController));
 
 /**
  *  @swagger
- *  /api/statistics/transactions-summary:
+ *  /api/transactions-summary:
  *      get:
  *          tags: [Transactions Summary]
  *          summary: Get transactions summary for period
  *          security: [{"Bearer": []}]
- *          parameters:
- *              -   name: month
- *                  in: query
- *                  required: true
- *              -   name: year
- *                  in: query
- *                  required: true
  *          responses:
  *              200:
  *                  description: Transactions sumnmary returned

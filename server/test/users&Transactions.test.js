@@ -27,13 +27,11 @@ let transaction = {
   category: 'Car',
   comment: 'test Jest',
   owner: 'will be changed in test',
-  month: 6,
-  year: 2023,
 };
 
 let transactionUpdate = {
   type: false,
-  amount: 123,
+  amount: 1234567,
   date: Date(),
   category: 'Car',
   comment: 'test Jest',
@@ -51,7 +49,7 @@ describe('Users test', () => {
 
   afterAll(async () => {
     await User.deleteOne({ email: newUser.email });
-    await Transaction.deleteOne({ _id: transactionId });
+    // await Transaction.deleteOne({ _id: transactionId });
     await mongoose.connection.close();
   });
 
@@ -118,22 +116,22 @@ describe('Users test', () => {
     transactionId = res.body.data._id;
   });
 
-  test('Update transaction', async () => {
-    console.log(transactionId);
-    const res = await request(app)
-      .get(`api/transactions/${transactionId}`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(transactionUpdate)
-      .set('Accept', 'application/json');
-    expect(res.status).toBe(201);
-  });
-
   test('All transactions', async () => {
     const res = await request(app)
       .get('/api/transactions-summary')
       .set('Authorization', `Bearer ${token}`)
       .set('Accept', 'application/json');
     expect(res.status).toBe(200);
+    expect(res.body).toBeDefined();
+  });
+
+  test('Update transaction', async () => {
+    const res = await request(app)
+      .get(`api/transactions/${transactionId}`)
+      .set('Authorization', `Bearer ${token}`)
+      .send(transactionUpdate)
+      .set('Accept', 'application/json');
+    expect(res.status).toBe(201);
   });
 
   test('Create bad transaction', async () => {
