@@ -4,6 +4,7 @@
     1.5px 0px 0px rgba(255, 255, 255, 0.6);
   max-width: 480px;
   padding-right: 69px;
+  height: calc(100dvh - 80px)
 }
 
 .dashboardWrapper {
@@ -38,4 +39,9 @@
 .transactionListSection {
   margin-top: 32px;
   grid-area: transaction;
+  width: max-content;
+  border-collapse: collapse;
+  max-height: 65vh;
+  overflow-y: scroll;
+
 }

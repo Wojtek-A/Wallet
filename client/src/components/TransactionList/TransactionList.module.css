@@ -1,11 +1,13 @@
 .transactionTable {
   width: 100%;
   border-collapse: collapse;
-
 }
 
-.transactionTable th {
+.transactionTable thead {
+  position: sticky;
+  top: 0;
   background-color: white;
+  z-index: 1;
 }
 
 .transactionTable th {
@@ -22,7 +24,6 @@
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }
-
 
 .transactionTable tr td {
   padding: 16px 0 14px 20px;
@@ -42,12 +43,13 @@
   text-indent: 10px;
 }
 
-
 .container {
+  position: relative;
   padding: 0 20px;
   min-width: 715px;
+  max-width: 100%;
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     padding: 0 20px 0 0;
   }
 }
@@ -79,7 +81,6 @@
   composes: btn;
   padding: 4px 8px;
   background: none;
-
 }
 
 .btn:hover,
