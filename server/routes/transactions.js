@@ -52,7 +52,7 @@ router.get('/', auth, controllerWrapper(getTransactionController));
  *          summary: Get all transactions for logged in user
  *          security: [{"Bearer": []}]
  *          responses:
- *              201:
+ *              200:
  *                  description: Transactions returned
  *                  content:
  *                      application/json:
@@ -87,8 +87,8 @@ router.put('/:transactionId', auth, controllerWrapper(updateTransaction));
  *                      schema:
  *                          $ref: '#/components/schemas/UpdateTransaction'
  *          responses:
- *              201:
- *                  description: Transaction created
+ *              200:
+ *                  description: Transaction updated
  *                  content:
  *                      application/json:
  *                          schema:
@@ -105,4 +105,25 @@ router.put('/:transactionId', auth, controllerWrapper(updateTransaction));
 
 router.delete('/:transactionId', auth, controllerWrapper(deleteTransaction));
 
+/**
+ *  @swagger
+ *  /api/transactions/{transactionId}:
+ *      delete:
+ *          tags: [Transactions Controller]
+ *          summary: Delete transaction
+ *          security: [{"Bearer": []}]
+ *          parameters:
+ *              -   name: transactionId
+ *                  in: path
+ *                  type: string
+ *                  required: true
+
+ *          responses:
+ *              204:
+ *                  description: Transaction deleted
+ *              403:
+ *                  description: User not found
+ *              404:
+ *                  description: Transaction not found
+ */
 export default router;

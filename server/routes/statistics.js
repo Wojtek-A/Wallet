@@ -14,6 +14,13 @@ router.get('/', auth, controllerWrapper(statisticsController));
  *          tags: [Transactions Summary]
  *          summary: Get transactions summary for period
  *          security: [{"Bearer": []}]
+ *          parameters:
+ *           - in: query
+ *             type: number
+ *             name: month
+ *           - in: query
+ *             type: number
+ *             name: year
  *          responses:
  *              200:
  *                  description: Transactions sumnmary returned

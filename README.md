@@ -1,4 +1,4 @@
-GoIT Group Project
+Code Cash Group Project
 
 NODE "npm start" lub "npm run start:dev" z katalogu wallet/server http://localhost:3001/
 

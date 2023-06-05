@@ -81,10 +81,6 @@ export { Transaction };
  *            type: string
  *          owner:
  *            type: string
- *          month:
- *            type: number
- *          year:
- *            type: number
  *
  *      UpdateTransaction:
  *        type: object
@@ -102,10 +98,6 @@ export { Transaction };
  *            type: string
  *          owner:
  *            type: string
- *          month:
- *            type: number
- *          year:
- *            type: number
  *
  *      TransactionCategories:
  *          $ref: '#/definitions/TransactionCategories'
@@ -130,8 +122,6 @@ export { Transaction };
  *      CreatedTransactions:
  *        type: object
  *        properties:
- *          _id:
- *            type: string
  *          type:
  *            type: boolean
  *          amount:
@@ -144,11 +134,11 @@ export { Transaction };
  *            type: string
  *          owner:
  *            type: string
+ *          _id:
+ *            type: string
  *          month:
  *            type: number
  *          year:
- *            type: number
- *          balanceAfter:
  *            type: number
  *
  *      GetTransactions:
@@ -158,20 +148,21 @@ export { Transaction };
  *              properties:
  *                      id:
  *                          type: string
- *                      transactionDate:
- *                          type: string
  *                      type:
- *                          type: "string"
- *                          "example": "INCOME"
- *                      categoryId:
+ *                          type: "boolean"
+ *                      amount:
+ *                          type: number
+ *                      date:
  *                          type: string
- *                      userId:
+ *                      category:
  *                          type: string
  *                      comment:
  *                          type: string
- *                      amount:
+ *                      owner:
+ *                          type: string
+ *                      month:
  *                          type: number
- *                      balanceAfter:
+ *                      year:
  *                          type: number
  *
  *      UpdatedTransaction:
@@ -195,46 +186,38 @@ export { Transaction };
  *            type: number
  *          year:
  *            type: number
- *          balanceAfter:
- *            type: number
  *
  *      TransactionCategories:
+ *        message:
+ *           type: string
  *        type: array
  *        items:
- *          type: object
- *          properties:
- *              id:
- *                  type: string
- *              name:
- *                  type: string
- *              type:
- *                  type: string
- *                  "example": INCOME
+ *            categories:
+ *                type: string
  *
  *      TransactionsSummary:
  *        type: object
  *        properties:
- *          categorySummary:
+ *          message:
+ *            type: string
+ *            example: Successfull
+ *          data:
  *            type: array
  *            items:
  *              type: object
  *              properties:
- *                name:
- *                  type: string
- *                type:
- *                  type: string
- *                  example: INCOME
- *                total:
- *                  type: string
- *          incomeSummary:
- *            type: number
- *          expenseSummary:
- *            type: number
- *          periodTotal:
- *            type: number
- *          year:
- *            type: number
- *          month:
- *            type: number
+ *                expenseSummmary:
+ *                  type: number
+ *                incomeSumarry:
+ *                  type: number
+ *                categoriesSummary:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      category:
+ *                         type: string
+ *                      total:
+ *                          type: number
  *
  */

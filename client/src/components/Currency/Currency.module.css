@@ -2,11 +2,13 @@
   padding: 0 20px;
   margin: 0 auto;
   max-width: 420px;
+  position: relative;
 }
 
 .table {
   margin: 0 auto;
   width: 100%;
+  min-height: 210px;
   background: var(--bg-currency);
   color: var(--text-alternative);
   border-radius: 30px;
@@ -37,4 +39,15 @@
 
 .table tbody tr:last-child td {
   padding-bottom: 52px;
+}
+
+.loaderBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loaderBox svg {
+  scale: .5
 }

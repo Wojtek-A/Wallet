@@ -11,14 +11,14 @@ const number = (Math.floor(Math.random() * 10000) + 10000)
   .toString()
   .substring(1);
 const newUser = {
-  email: `kate${number}@mailcom`,
+  email: `test.jest${number}@mailcom`,
   password: 'Pas1234%',
-  username: 'Kate',
+  username: 'Jest',
 };
 const newUserWithBadEmail = {
-  email: 'katemail.com',
+  email: 'test.jestmail.com',
   password: 'Pas1234%',
-  username: 'Kate',
+  username: 'Jest',
 };
 let transaction = {
   type: false,
@@ -36,8 +36,6 @@ let transactionUpdate = {
   category: 'Car',
   comment: 'test Jest',
   owner: 'will be changed in test',
-  month: 6,
-  year: 2023,
 };
 
 describe('Users test', () => {
@@ -49,7 +47,7 @@ describe('Users test', () => {
 
   afterAll(async () => {
     await User.deleteOne({ email: newUser.email });
-    // await Transaction.deleteOne({ _id: transactionId });
+    await Transaction.deleteOne({ _id: transactionId });
     await mongoose.connection.close();
   });
 
@@ -118,7 +116,7 @@ describe('Users test', () => {
 
   test('All transactions', async () => {
     const res = await request(app)
-      .get('/api/transactions-summary')
+      .get('/api/transactions')
       .set('Authorization', `Bearer ${token}`)
       .set('Accept', 'application/json');
     expect(res.status).toBe(200);
@@ -127,11 +125,11 @@ describe('Users test', () => {
 
   test('Update transaction', async () => {
     const res = await request(app)
-      .get(`api/transactions/${transactionId}`)
+      .put(`/api/transactions/${transactionId}`)
       .set('Authorization', `Bearer ${token}`)
       .send(transactionUpdate)
       .set('Accept', 'application/json');
-    expect(res.status).toBe(201);
+    expect(res.status).toBe(200);
   });
 
   test('Create bad transaction', async () => {
@@ -164,6 +162,14 @@ describe('Users test', () => {
       .set('Authorization', `Bearer ${token}`)
       .set('Accept', 'application/json');
     expect(res.status).toBe(404);
+  });
+
+  test('Delete transaction', async () => {
+    const res = await request(app)
+      .delete(`/api/transactions/${transactionId}`)
+      .set('Authorization', `Bearer ${token}`)
+      .set('Accept', 'application/json');
+    expect(res.status).toBe(204);
   });
 
   test('Logout user', async () => {

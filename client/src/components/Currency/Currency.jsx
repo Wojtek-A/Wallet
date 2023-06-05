@@ -3,6 +3,7 @@ import css from "./Currency.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrencyThunk } from "../../redux/wallet/wallet.thunk";
 import { selectCurrency, selectIsLoading } from "../../redux/selector";
+import Loader from "../Loader/Loader";
 
 const Currency = () => {
   const dispatch = useDispatch();
@@ -24,14 +25,23 @@ const Currency = () => {
           </tr>
         </thead>
         <tbody>
-          {!isLoading &&
+          {isLoading ? (
+            <tr>
+              <td>
+                <div className={css.loaderBox}>
+                  <Loader />
+                </div>
+              </td>
+            </tr>
+          ) : (
             currency.map((element, index) => (
               <tr key={index}>
                 <td>{element.code}</td>
                 <td>{element.bid}</td>
                 <td>{element.ask}</td>
               </tr>
-            ))}
+            ))
+          )}
         </tbody>
       </table>
     </div>

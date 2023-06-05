@@ -44,10 +44,10 @@ export const ModalEditTransaction = () => {
         category !== "" && category !== "Income"
           ? transactionToEdit.category
           : category,
-      comment: event.target.comment.value,
+      comment: !event.target.comment.value ? " " : event.target.comment.value,
       owner: transactionToEdit.owner,
     };
-    
+
     dispatch(updateTransaction(transactionToUpdate)).then(() =>
       dispatch(fetchTransactions())
     );
@@ -106,15 +106,6 @@ export const ModalEditTransaction = () => {
                   onChange={categorySelection}
                   defaultValue={transactionToEdit.category}
                 >
-                  <option
-                    value="Select option"
-                    disabled
-                    checked
-                    hidden
-                    className={style.select__placeholder}
-                  >
-                    Select a category
-                  </option>
                   {CATEGORY_NAME &&
                     Object.values(CATEGORY_NAME).map((element, index) => {
                       if (element === "Income") {
@@ -164,7 +155,9 @@ export const ModalEditTransaction = () => {
             name="comment"
             placeholder="Comment"
             className={style.modal__comment}
-            defaultValue={transactionToEdit.comment}
+            defaultValue={
+              transactionToEdit.comment === " " ? "" : transactionToEdit.comment
+            }
           ></input>
           <div className={style.modal__buttons}>
             <button type="submit" className={style.addBtn}>

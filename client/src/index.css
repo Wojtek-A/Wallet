@@ -16,9 +16,11 @@ body {
   background-position: center;
   background-attachment: fixed;
   color: var(--text-primary);
+
   @media (min-width: 1200px) {
     background-image: url("../src/assets/icon/desktopBackground.svg");
   }
+
   @media (max-width: 767px) {
     background-image: none;
   }
@@ -38,12 +40,14 @@ h6,
 p {
   margin: 0;
 }
+
 ul,
 ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 img {
   display: block;
   max-width: 100%;
