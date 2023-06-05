@@ -8,7 +8,7 @@ router.get('/', auth, controllerWrapper(getCategoriesController));
 
 /**
  *  @swagger
- *  /api/categories:
+ *  /api/transaction-categories:
  *      get:
  *          tags: [Transactions Categories]
  *          summary: Get transaction categories for logged in user

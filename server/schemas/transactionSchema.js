@@ -1,22 +1,24 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 const transactionSchema = Joi.object({
   type: Joi.boolean().required(),
-  amount: Joi.string().required(),
+  amount: Joi.alternatives()
+    .try(Joi.string(), Joi.number())
+    .required(),
   date: Joi.string(),
   category: Joi.string().valid(
-    "Main expenses",
-    "Products",
-    "Car",
-    "Self care",
-    "Child care",
-    "Household products",
-    "Education",
-    "Leisure",
-    "other expenses",
-    "Income"
+    'Main expenses',
+    'Products',
+    'Car',
+    'Self care',
+    'Child care',
+    'Household products',
+    'Education',
+    'Leisure',
+    'other expenses',
+    'Income'
   ),
-  comment: Joi.string().allow(" "),
+  comment: Joi.string().allow(' '),
   owner: Joi.string().required(),
 });
 

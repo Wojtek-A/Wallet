@@ -85,31 +85,39 @@ export { User };
  *      User:
  *        type: object
  *        properties:
- *           id:
+ *           email:
  *             type: string
  *           username:
  *             type: string
- *           email:
- *             type: string
  *           balance:
  *             type: number
+ *           id:
+ *             type: string
+ *           token:
+ *             type: string
  *
  *      UserLoged:
  *        type: object
  *        properties:
+ *          token:
+ *            type: string
  *          user:
  *            type: object
  *            properties:
- *              id:
+ *              email:
  *                type: string
  *              username:
  *                type: string
- *              email:
+ *              id:
  *                type: string
- *              ballance:
- *                type: number
- *          token:
+ *
+ *      UserSignOut:
+ *        type: object
+ *        properties:
+ *          message:
  *            type: string
+ *            example: Logout successful
+ *
  *      Auth:
  *        - username: token
  *          in: header

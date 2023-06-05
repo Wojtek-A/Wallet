@@ -78,8 +78,12 @@ router.post('/sign-out', auth, logoutController);
  *          summary: Sign out user
  *          security: [{"Bearer": []}]
  *          responses:
- *              204:
+ *              200:
  *                  description: User signed out
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/UserSignOut'
  *              401:
  *                  description: Not authorized
  */
@@ -92,9 +96,6 @@ router.get('/current', auth, currentUserController);
  *      get:
  *          tags: [Users Controller]
  *          summary: Get current user info
- *          parameters:
- *           -   name: accessToken
- *               required: true
  *          security: [{"Bearer": []}]
  *          responses:
  *              200:
