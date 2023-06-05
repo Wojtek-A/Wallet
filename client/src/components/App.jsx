@@ -37,7 +37,26 @@ export const App = () => {
 
   return (
     <>
-      <Suspense fallback={<Loader variant="wallet" />}>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: "9999",
+              width: "100vw",
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Loader variant={"wallet"} scale={0.5} />
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route
