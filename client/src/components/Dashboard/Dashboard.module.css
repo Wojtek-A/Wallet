@@ -42,6 +42,6 @@
   width: max-content;
   border-collapse: collapse;
   max-height: 65vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 
 }

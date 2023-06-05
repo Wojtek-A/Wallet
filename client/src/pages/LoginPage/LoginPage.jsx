@@ -8,7 +8,6 @@ import Loader from "../../components/Loader/Loader";
 
 const LoginPage = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
-  //   const isRefreshing = true;
 
   return isRefreshing ? (
     <div
