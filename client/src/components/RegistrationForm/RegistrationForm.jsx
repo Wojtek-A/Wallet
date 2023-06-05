@@ -7,7 +7,7 @@ import sprite from "../../assets/icon/sprite.svg";
 import ReusableInput from "../FormsUtils/ReusableInput";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/auth/operations";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const passwordError = "Password must contain at least: one uppercase letter, one special character and consist of 6 to 12 characters"
 
@@ -46,8 +46,6 @@ const RegistrationForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const onSubmit = data => {
-        console.log(data)
-        console.log(data.login)
         dispatch(
             registerUser({
                 email: data.email,
