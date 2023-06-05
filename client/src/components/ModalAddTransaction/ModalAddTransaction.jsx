@@ -36,7 +36,9 @@ export const ModalAddTransaction = () => {
     const type = transactionType ? false : true;
     const amount = event.target.amount.value;
     const data = event.target.date.value;
-    const comment = event.target.comment.value;
+    const comment = !event.target.comment.value
+      ? " "
+      : event.target.comment.value;
     const owner = activeUser.id;
     const date = new Date(data);
 
@@ -109,11 +111,16 @@ export const ModalAddTransaction = () => {
           ) : (
             <div className={style.selectWrapper}>
               <div className={style.selectContainer}>
-                <select className={style.select} onChange={categorySelection}>
+                <select
+                  className={style.select}
+                  onChange={categorySelection}
+                  defaultValue=""
+                  required
+                >
                   <option
-                    value="Select option"
+                    value=""
                     disabled
-                    selected
+                    // selected
                     hidden
                     className={style.select__placeholder}
                   >
@@ -165,7 +172,6 @@ export const ModalAddTransaction = () => {
             type="text"
             name="comment"
             placeholder="Comment"
-            defaultValue=""
             className={style.modal__comment}
           ></input>
           <div className={style.modal__buttons}>

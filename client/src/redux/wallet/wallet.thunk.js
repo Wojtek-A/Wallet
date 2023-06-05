@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 export const fetchTransactions = createAsyncThunk(
   "wallet/fetchAllTransactions",
   async (_, thunkAPI) => {
     try {
       const res = await axios.get("/transactions");
-      console.log("Response data:", res.data);
       return res.data.data; //TODO poprawić strukturę endpointa
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -19,8 +19,10 @@ export const addTransaction = createAsyncThunk(
   async (newTransaction, thunkAPI) => {
     try {
       const res = await axios.post("/transactions", newTransaction);
+      Notify.success("New Transaction Added");
       return res.data.data;
     } catch (e) {
+      Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -31,9 +33,10 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       const res = await axios.delete(`/transactions/${transactionId}`);
-      console.log("delete res: ", res);
+      Notify.success("Transaction Deleted");
       return res.data;
     } catch (e) {
+      Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -49,9 +52,10 @@ export const updateTransaction = createAsyncThunk(
         ...payload,
       });
       const { transaction: tempTrans } = res.data.data;
-      console.log("res:", res);
+      Notify.success("Transaction Updated");
       return { transaction: tempTrans, state };
     } catch (error) {
+      Notify.failure(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

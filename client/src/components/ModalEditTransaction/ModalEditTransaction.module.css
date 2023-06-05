@@ -211,8 +211,9 @@ input:focus {
 .switch {
   position: relative;
   display: inline-block;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #e0e0e0;
 }
 .switch input {
   opacity: 0;

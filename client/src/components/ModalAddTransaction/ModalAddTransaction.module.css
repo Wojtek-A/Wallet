@@ -318,10 +318,6 @@ input:focus {
   color: #000;
 }
 
-.select:invalid {
-  color: #bdbdbd;
-}
-
 .selectIcon {
   position: absolute;
   top: 50%;
