@@ -64,22 +64,12 @@ const walletSlice = createSlice({
       })
       .addCase(addTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        // state.transactions.push(action.payload);
       })
       .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        // const index = state.transactions.findIndex(
-        //   (transaction) => transaction._id === action.payload._id
-        // );
-        // state.transactions.splice(index, 1);
       })
       .addCase(updateTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        // const index = state.transactions.findIndex(
-        //   (transaction) => transaction._id === action.payload._id
-        // );
-        // console.log("index: ", index);
-        // state.transactions[index] = action.payload;
       })
 
       .addMatcher(isPendingWalletAction, handlePending)
