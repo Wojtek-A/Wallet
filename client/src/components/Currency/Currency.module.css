@@ -2,11 +2,13 @@
   padding: 0 20px;
   margin: 0 auto;
   max-width: 420px;
+  position: relative;
 }
 
 .table {
   margin: 0 auto;
   width: 100%;
+  min-height: 210px;
   background: var(--bg-currency);
   color: var(--text-alternative);
   border-radius: 30px;

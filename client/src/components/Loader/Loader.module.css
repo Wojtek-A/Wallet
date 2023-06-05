@@ -1,0 +1,10 @@
+.loaderBox {
+  width: 150px;
+  position: absolute;
+  left: 40%;
+  top: 100px;
+}
+
+svg {
+  width: 50px;
+}

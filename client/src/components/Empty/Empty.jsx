@@ -4,7 +4,7 @@ import emptyWallet from "../../assets/image/empty.png";
 const Empty = () => {
   return (
     <>
-      <img src={emptyWallet} className={css.img} />
+      <img src={emptyWallet} className={css.img} alt="" />
       <h3 className={css.emptyMonth}>No transactions</h3>
     </>
   );
