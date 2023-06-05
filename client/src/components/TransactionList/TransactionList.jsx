@@ -31,7 +31,7 @@ const TransactionList = () => {
   return (
     <>
       <div className={css.container}>
-        {transactions.length === 0 ? (
+        {!isLoading && transactions.length === 0 ? (
           <Empty />
         ) : (
           <table className={css.transactionTable}>
