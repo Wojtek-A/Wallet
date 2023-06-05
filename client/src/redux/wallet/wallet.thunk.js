@@ -7,7 +7,7 @@ export const fetchTransactions = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.get("/transactions");
-      return res.data.data; //TODO poprawić strukturę endpointa
+      return res.data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

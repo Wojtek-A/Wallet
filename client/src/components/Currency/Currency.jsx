@@ -28,7 +28,7 @@ const Currency = () => {
           {isLoading ? (
             <tr>
               <td>
-                <div className="css.loaderBox">
+                <div className={css.loaderBox}>
                   <Loader />
                 </div>
               </td>

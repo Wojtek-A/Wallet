@@ -49,7 +49,15 @@ const TransactionList = () => {
               <tbody>
                 <tr>
                   <td>
-                    <Loader variant={"wallet"} />
+                    <div
+                      style={{
+                        position: "absolute",
+                        width: 200,
+                        marginLeft: 200,
+                      }}
+                    >
+                      <Loader variant={"wallet"} scale={0.5} />
+                    </div>
                   </td>
                 </tr>
               </tbody>
