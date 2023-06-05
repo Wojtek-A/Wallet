@@ -26,8 +26,6 @@ const TransactionList = () => {
     dispatch(changeIsModalEditTrasactionOpen());
   };
 
-  console.log(transactions);
-
   return (
     <>
       <div className={css.container}>
